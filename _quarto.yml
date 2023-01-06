@@ -1,0 +1,27 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Math 3503: Differential Equations for Engineers"
+  author: "James Watmough"
+  date: "2023-01-14"
+  chapters:
+    - index.qmd
+    - sequences.qmd
+    - functions.qmd
+    - differentiation.qmd
+    - integration.qmd
+    - references.qmd
+
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: lecturenotes-md
+
+
+
+

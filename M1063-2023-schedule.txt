@@ -1,0 +1,55 @@
+# 2023 Winter Class Schedule
+
+Date       Section              Topic
+---------- --------             ------------
+Mon Jan 09 @sec-functions       Functions, inf, sup
+Wed Jan 11 @sec-integrals       Darboux Sums and Integrals
+Thu Jan 12 @sec-functions       Sets, Numbers, Functions
+Fri Jan 13 @sec-integrals       Properties of Integrals
+Mon Jan 16 @sec-integrals       Applications of Integrals
+Wed Jan 18
+Thu Jan 19
+Fri Jan 20
+Mon Jan 23
+Wed Jan 25
+Thu Jan 26
+Fri Jan 27
+Mon Jan 30
+Wed Feb 01
+Thu Feb 02
+Fri Feb 03
+Mon Feb 06
+Wed Feb 08
+Thu Feb 09
+Fri Feb 10
+Mon Feb 13
+Wed Feb 15
+Thu Feb 16
+Fri Feb 17
+Mon Feb 20 Family Day
+Wed Feb 22
+Thu Feb 23
+Fri Feb 24
+Mon Feb 27
+Wed Mar 01
+Thu Mar 02
+Fri Mar 03
+Mon Mar 06 Reading Week
+Wed Mar 08 Reading Week
+Thu Mar 09 Reading Week
+Fri Mar 10 Reading Week
+Mon Mar 13
+Wed Mar 15
+Thu Mar 16
+Fri Mar 17
+Mon Mar 20 South Africa
+Wed Mar 22 South Africa
+Thu Mar 23 South Africa
+Fri Mar 24 South Africa
+Mon Mar 27 South Africa
+Wed Mar 29 South Africa
+Thu Mar 30 South Africa
+Fri Mar 31 South Africa
+Mon Apr 03
+Wed Apr 05
+Thu Apr 06
