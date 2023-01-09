@@ -5,11 +5,9 @@ date: "`r Sys.Date()`"
 
 {{< include texmacros.qmd >}}
 
-# Numbers, Sets, and Sequences
+# Numbers, Sets, and Sequences {#sec-sequences}
 
-## Sets and numbers
-
-Two good, simple, open-source introductions to sets are the Wiki-Books on Set Theory\footnote{\url{http://en.wikibooks.org/wiki/Discrete_mathematics/Set_theory}} and Abstract Algebra\footnote{\url{http://en.wikibooks.org/wiki/Abstract_Algebra/Sets}}.  These give the basic ideas and notation along with a few simple exercises that should suffice for a review.   For the purpose of the current notes we will limit ourselves to a brief discussion of the main notation needed for the basics of calculus, analysis and linear algebra. 
+Two good, simple, open-source introductions to sets are the Wiki-Books on Set Theory\footnote{\url{http://en.wikibooks.org/wiki/Discrete_mathematics/Set_theory}} and Abstract Algebra\footnote{\url{http://en.wikibooks.org/wiki/Abstract_Algebra/Sets}}.  These give the basic ideas and notation along with a few simple exercises that should suffice for a review.   The first chapter of Lax and Terrell [-@lax2020calculus] gives an good introduction to sets and sequences. For the purpose of the current notes we will limit ourselves to a brief discussion of the main notation needed for the basics of calculus, analysis and linear algebra. 
 
 A set is a well-defined collection of objects.  The key here is that sets are *well-defined*.  We must be able to decided unambiguously if a given object is a member of a set or not.   If the object $x$ is in the set $S$, we say $x$ is an element of $S$ and write $x\in S$.  If $x$ is not an element of $S$ we write $x\not\in S$.  By well-defined, we mean that these are the only two possibilities.  Given an object and a set, either the object is in the set or it isn't.  There can be no ambiguity. We will typically denote sets by capital letters and elements of sets by lowercase letters.   
 
@@ -142,7 +140,7 @@ A familiar variation of Archimede's Principle is obtained by setting $b$ equal t
 
 ## Sequences
 
-### Sequences of Real Numbers}
+### Sequences of Real Numbers
 
 A **sequence** is a set whose elements are indexed by the natural numbers.
 We write sequences as $a_0, a_1, a_2, \dots$, or $(a_n)$.   Sometimes the index set is explicit in the notation as $(a_n)_{n=0}^\infty$.   

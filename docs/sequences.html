@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.280">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="James Watmough">
+<meta name="dcterms.date" content="2023-01-09">
+
+<title>Introduction to Calculus - 1&nbsp; Numbers, Sets, and Sequences</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./integration.html" rel="next">
+<link href="./index.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Numbers, Sets, and Sequences</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Introduction to Calculus</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./sequences.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Numbers, Sets, and Sequences</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Integration</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#sets" id="toc-sets" class="nav-link active" data-scroll-target="#sets"><span class="toc-section-number">1.1</span>  Sets</a></li>
+  <li><a href="#length-and-number" id="toc-length-and-number" class="nav-link" data-scroll-target="#length-and-number"><span class="toc-section-number">1.2</span>  Length and number</a></li>
+  <li><a href="#sequences" id="toc-sequences" class="nav-link" data-scroll-target="#sequences"><span class="toc-section-number">1.3</span>  Sequences</a>
+  <ul class="collapse">
+  <li><a href="#sequences-of-real-numbers" id="toc-sequences-of-real-numbers" class="nav-link" data-scroll-target="#sequences-of-real-numbers"><span class="toc-section-number">1.3.1</span>  Sequences of Real Numbers</a></li>
+  <li><a href="#subsequences" id="toc-subsequences" class="nav-link" data-scroll-target="#subsequences"><span class="toc-section-number">1.3.2</span>  Subsequences</a></li>
+  </ul></li>
+  <li><a href="#open-and-closed-sets" id="toc-open-and-closed-sets" class="nav-link" data-scroll-target="#open-and-closed-sets"><span class="toc-section-number">1.4</span>  Open and Closed Sets</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span id="sec-sequences" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Numbers, Sets, and Sequences</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>James Watmough </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 9, 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Two good, simple, open-source introductions to sets are the Wiki-Books on Set Theory and Abstract Algebra. These give the basic ideas and notation along with a few simple exercises that should suffice for a review. The first chapter of Lax and Terrell <span class="citation" data-cites="lax2020calculus">(<a href="references.html#ref-lax2020calculus" role="doc-biblioref">2020</a>)</span> gives an good introduction to sets and sequences. For the purpose of the current notes we will limit ourselves to a brief discussion of the main notation needed for the basics of calculus, analysis and linear algebra.</p>
+<p>A set is a well-defined collection of objects. The key here is that sets are <em>well-defined</em>. We must be able to decided unambiguously if a given object is a member of a set or not. If the object <span class="math inline">\(x\)</span> is in the set <span class="math inline">\(S\)</span>, we say <span class="math inline">\(x\)</span> is an element of <span class="math inline">\(S\)</span> and write <span class="math inline">\(x\in S\)</span>. If <span class="math inline">\(x\)</span> is not an element of <span class="math inline">\(S\)</span> we write <span class="math inline">\(x\not\in S\)</span>. By well-defined, we mean that these are the only two possibilities. Given an object and a set, either the object is in the set or it isn’t. There can be no ambiguity. We will typically denote sets by capital letters and elements of sets by lowercase letters.</p>
+<section id="sets" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="sets"><span class="header-section-number">1.1</span> Sets</h2>
+<p>A set is typically defined by specifying its elements, either as a list or through properties. We’ll use <span class="math inline">\({\mathbb N}\)</span>, <span class="math inline">\({\mathbb Z}\)</span>, <span class="math inline">\({\mathbb Q}\)</span> and <span class="math inline">\({\mathbb R}\)</span> to denote the counting numbers, integers, rationals and real numbers respectively. The notation <span class="math inline">\(\left\{x\in {\mathbb Z} \ \left|\ \strut x^2&gt;10\right.\right\}\)</span> should be read as the set of integers, <span class="math inline">\(x\)</span>, such that <span class="math inline">\(x^2&gt;10\)</span>, or more simply, the set of all integers whose square is larger than 10. The order we list the elements of a set doesn’t matter, nor does repetition. The sets <span class="math inline">\(\{5,10\}\)</span> and <span class="math inline">\(\{10,5\}\)</span> and <span class="math inline">\(\{10,5,5\}\)</span> are the same. They each have two elements, 10 and 5. If the order of elements is important, we will use ordered pairs, ordered tuples, or sequences and denote them using parentheses (round brackets) instead of braces (curly brackets). Thus <span class="math inline">\((5,10)\)</span> and <span class="math inline">\((10,5)\)</span> are different ordered pairs, <span class="math inline">\((10,5,5)\)</span> is an ordered triple and <span class="math inline">\((2,4,6,8,\dots)\)</span> is the sequence of even counting numbers.</p>
+<p>There are a number of definitions that will prove useful. ::: {#def-subset} Let <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> be sets. - <span class="math inline">\(A\)</span> is a subset of <span class="math inline">\(B\)</span>, written <span class="math inline">\(A\subseteq B\)</span> or <span class="math inline">\(B\supseteq A\)</span>, if every element of <span class="math inline">\(A\)</span> is an element of <span class="math inline">\(B\)</span>. - Two sets are equal, written <span class="math inline">\(A=B\)</span> if, <span class="math inline">\(A\subseteq B\)</span> and <span class="math inline">\(B\subseteq A\)</span>. - <span class="math inline">\(A\)</span> is a proper subset of <span class="math inline">\(B\)</span>, written <span class="math inline">\(A\subset B\)</span> or <span class="math inline">\(B\supset A\)</span>, if every element of <span class="math inline">\(A\)</span> is an element of <span class="math inline">\(B\)</span> and <span class="math inline">\(A\ne B\)</span>. - The empty set, denoted <span class="math inline">\(\emptyset\)</span>, is the set with no elements. It is a subset of every set. - The union and intersection of <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are the sets <span class="math display">\[\begin{align*}
+    A\cup B &amp;= \left\{s \ \left|\ \strut \text{$s$ is an element of either $A$ or $B$ or both $A$ and $B$}\right.\right\} \\
+    A\cap B &amp;= \left\{ s  \ \left|\ \strut  \text{$s$ is an element of both $A$ and $B$} \right.\right\}
+  \end{align*}\]</span> :::</p>
+</section>
+<section id="length-and-number" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="length-and-number"><span class="header-section-number">1.2</span> Length and number</h2>
+<p>Perhaps a good place to start an introduction to calculus is with the distinction between the numbers and the rational numbers. A good working definition of the real numbers is the set of all possible differences in lengths Throughout these notes, we’ll use <span class="math inline">\({\mathbb N}\)</span> to denote the counting numbers, <span class="math inline">\({\mathbb Z}\)</span> to denote the integers, <span class="math inline">\({\mathbb Q}\)</span> to denote the rationals, and <span class="math inline">\({\mathbb R}\)</span> to denote the reals. Thus, <span class="math display">\[\begin{align*}
+  {\mathbb N}&amp;= \left\{1,2,3,\dots\right\},\\
+  {\mathbb Z}&amp;= \left\{\dots,-3,-2,-1,0,1,2,3,\dots\right\},\\
+  {\mathbb Q}&amp;= \left\{\text{all fractions $\dfrac{p}{q}$, where $p$ and $q$ are integers, $q\ne0$}\right\}.
+\end{align*}\]</span></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>There are several ways to rigorously define the real numbers. A reasonable discussion can be found at .</p>
+</div>
+</div>
+<p>The counting numbers are used for enumerating things. The integers arise naturally when we need to take differences of counting numbers. The rational numbers arise when we need to divide, or take ratios of the natural numbers.</p>
+<p>It came as a bit of a shock to the ancient greeks to discover that not all numbers were rational , or more precisely, that there were lengths that could not be expressed as a ratio of two counting numbers. The proof of this is quite accessible with the basics of logic and an understanding of factors . However, our introduction starts not with the existence of irrational numbers, but the question of how to construct the real numbers. In what follows, we leave off the adjective <em>real</em>, so all numbers can be assumed to be real numbers unless stated otherwise.</p>
+<p>The real numbers are an <strong>ordered set</strong>: for every pair <span class="math inline">\((a,b)\)</span>, either <span class="math inline">\(a &lt; b\)</span>, <span class="math inline">\(a=b\)</span> or <span class="math inline">\(a&gt;b\)</span>.<br>
+This ordering allows us to talk about bounds on sets. This concept is useful later on. Of course the counting numbers, integers and rationals are also ordered. In this next definition, we are mainly interested in the case where <span class="math inline">\(X\)</span> replaced by <span class="math inline">\({\mathbb R}\)</span>.</p>
+<div id="def-bounded-set" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.1 (bounded sets) </strong></span>Suppose <span class="math inline">\(X\)</span> is an ordered set and <span class="math inline">\(S\)</span> is a non-empty subset of <span class="math inline">\(X\)</span>. - We say <span class="math inline">\(S\)</span> is {} if there is an element <span class="math inline">\(u\)</span> of <span class="math inline">\(X\)</span> such that <span class="math inline">\(a\le u\)</span> for every <span class="math inline">\(a\in S\)</span>.<br>
+- We say <span class="math inline">\(S\)</span> is {} if there is an element <span class="math inline">\(l\)</span> of <span class="math inline">\(X\)</span> such that <span class="math inline">\(a\ge l\)</span> for every <span class="math inline">\(a\in S\)</span>.<br>
+- A set is {} if it is both bounded above and bounded below. - A set is {} if it isn’t bounded.</p>
+</div>
+<p>Note that the bounds <span class="math inline">\(u\)</span> and <span class="math inline">\(l\)</span> in the above definitions need not be an element of <span class="math inline">\(S\)</span>. We refer to <span class="math inline">\(u\)</span> as an upper bound for <span class="math inline">\(S\)</span> in <span class="math inline">\(X\)</span> and <span class="math inline">\(l\)</span> as a lower bound for <span class="math inline">\(S\)</span> in <span class="math inline">\(X\)</span>. More often than not, the set <span class="math inline">\(X\)</span> is assumed to be `obvious’ and is not explictly stated! In our case, it’s probably safe to assume <span class="math inline">\(X\)</span> is the real numbers.</p>
+<div id="def-extrema" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.2 (maximum and minimum) </strong></span>Suppose <span class="math inline">\(X\)</span> is an ordered set and <span class="math inline">\(S\)</span> is a non-empty subset of <span class="math inline">\(X\)</span>. - If <span class="math inline">\(S\)</span> contains a largest element <span class="math inline">\(s\)</span>, then we call <span class="math inline">\(s\)</span> the maximum of <span class="math inline">\(S\)</span> and write <span class="math inline">\(s = \max S\)</span>. - If <span class="math inline">\(S\)</span> contains a smallest element <span class="math inline">\(s\)</span>, then we call <span class="math inline">\(s\)</span> the minimum of <span class="math inline">\(S\)</span> and write <span class="math inline">\(s = \min S\)</span>.</p>
+</div>
+<p>The maximum and minimum values, if they exist, are elements of <span class="math inline">\(S\)</span>. A set can be bounded but not have a minimum or maximum value. For example, the set <span class="math inline">\((0,1)\)</span> of all (real) numbers between 0 and 1 has 0 and 1 as lower and upper bounds, but it does not have maximum or minimum values. The maximum and minimum values of <span class="math inline">\(S\)</span>, if they exist, are also bounds on <span class="math inline">\(S\)</span>. However, a bound need not be a maximum or minimum.</p>
+<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Note that <span class="math inline">\((0,1)\)</span> is used to denote the open interval <span class="math inline">\(\left\{x\in{\mathbb R} \ \left|\ \strut 0 &lt; x &lt; 1\right.\right\}\)</span> as well as the ordered pair. The intended meaning should always be clear from the sentence structure or argument in which the notation is used. Remember to take care using mathematical notation: it should be used to clarify, not obfuscate.</p>
+</div>
+</div>
+<p>There are many cases where it will be sufficient to know that a set is bounded. For this, any bound will do. However, we are often interested in finding the least upper bound or greatest lower bound. For this we need another definition.</p>
+<div id="def-inf-sup" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.3 (infimum and supremum) </strong></span>Suppose <span class="math inline">\(X\)</span> is an ordered set and <span class="math inline">\(S\)</span> is a non-empty subset of <span class="math inline">\(X\)</span>. - An element <span class="math inline">\(u\)</span> of <span class="math inline">\(X\)</span> is a least upper bound for <span class="math inline">\(S\)</span> if <span class="math inline">\(u\)</span> is an upper bound for <span class="math inline">\(S\)</span> and <span class="math inline">\(u \le M\)</span> for every upper bound <span class="math inline">\(M\)</span> of <span class="math inline">\(S\)</span>. - An element <span class="math inline">\(l\)</span> of <span class="math inline">\(X\)</span> is a greatest lower bound for <span class="math inline">\(S\)</span> if <span class="math inline">\(l\)</span> is a lower bound for <span class="math inline">\(S\)</span> and <span class="math inline">\(l \ge M\)</span> for every lower bound <span class="math inline">\(M\)</span> of <span class="math inline">\(S\)</span>.</p>
+</div>
+<p>It is left as an exercise to show that the least upper bound of a set <span class="math inline">\(S\)</span>, if one exists, is unique. We sometimes refer to this bound as the supremum of <span class="math inline">\(S\)</span> and denote it by <span class="math inline">\(\sup S\)</span>. The lower bound of <span class="math inline">\(S\)</span>, if it exists, is also unique and is referred to as the infimum of <span class="math inline">\(S\)</span>, or <span class="math inline">\(\inf S\)</span>.</p>
+<p>For example, take <span class="math inline">\(X\)</span> as the rational numbers and let <span class="math inline">\(S\)</span> be the set <span class="math inline">\(S = \left\{ s \in {\mathbb Q} \ \left|\ \strut  s = 1 + 1/n, n\in {\mathbb N}\right.\right\}\)</span>. Any rational number 2 or larger is an upper bound for <span class="math inline">\(S\)</span> and any number 1 or lower as a lower bound. The maximum of <span class="math inline">\(S\)</span> is 2, but <span class="math inline">\(S\)</span> has no minimum. Given any number <span class="math inline">\(a&gt;1\)</span>, there will be some counting number <span class="math inline">\(N\)</span> for which $ 1 + 1/N &lt; a$. Hence no lower bound for <span class="math inline">\(S\)</span> is larger than 1. As defined below, 1 is the greatest lower bound of <span class="math inline">\(S\)</span>.</p>
+<p>If <span class="math inline">\(S\)</span> has a maximum, then the maximum is also the supremum of <span class="math inline">\(S\)</span>. However, the reverse is not always true. For example, the interval <span class="math inline">\((0,1)\)</span> consisting of all rational numbers between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> is bounded. The infimum and supremum are <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> respectively, but the set has no maximum or minimum. The set <span class="math inline">\([0,1]\)</span> of all rational numbers between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> inclusive has both maximum and minimum values. More interestingly, the set of all rational numbers whose square is less than 2 is bounded, but has no least upper bound in the rational numbers.</p>
+<p>Defining the real numbers as lengths is a good starting point. However, to proceed with analysis we need to understand the properties of the real numbers. One approach, which is too time-consuming for our purposes, would be to rigorously define the real numbers and deduce their properties from these definitions. We will take the opposite approach and state the desired properties as axioms. Thus, the real numbers are an ordered field<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, they contain the rational numbers as a subset, and they satisfy the following axiom.</p>
+<div class="callout-note callout callout-style-simple no-icon callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Axiom of Completeness
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Every subset of <span class="math inline">\({\mathbb R}\)</span> that is bounded above has a least upper bound.</p>
+</div>
+</div>
+<p>In short, <span class="math inline">\({\mathbb R}\)</span> is the set of rational numbers with all the holes filled in.</p>
+<p>It is interesting to note that the axiom of completeness implies an axiom of Archimedes that we will use frequently.</p>
+<div id="thm-archimede" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.1 (Archimede’s Principle) </strong></span>If <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are positive numbers, then there is a natural number <span class="math inline">\(n\)</span> for which <span class="math inline">\(na &gt; b\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Suppose that there is no such number and let <span class="math inline">\(S\)</span> be the set of all numbers less than <span class="math inline">\(na\)</span> for some natural number <span class="math inline">\(n\)</span>. Since we’re supposing Archimedes Principle doesn’t hold, <span class="math inline">\(b\)</span> is an upper bound for <span class="math inline">\(S\)</span>. By the Axiom of Completeness, <span class="math inline">\(S\)</span> must have a least upper bound, call it <span class="math inline">\(s\)</span>. Since <span class="math inline">\(s\)</span> is the least upper bound for <span class="math inline">\(S\)</span>, <span class="math inline">\(s-a\)</span> must be less than <span class="math inline">\(na\)</span> for some <span class="math inline">\(n\)</span>, but then, <span class="math inline">\(s-a &lt; na\)</span> implies <span class="math inline">\(s &lt; (n+1)a\)</span>. Since <span class="math inline">\((n+1)a\)</span> is an element of <span class="math inline">\(S\)</span>, <span class="math inline">\(s\)</span> could not be an upper bound for <span class="math inline">\(S\)</span>, contradicting the completeness axiom. Our supposition that <span class="math inline">\(S\)</span> is bounded above must be false and Archimede’s Principle must hold.</p>
+</div>
+<p>Of course, Archimede’s Principle also holds for rational numbers, for which the completeness axiom does not hold.</p>
+<p>A familiar variation of Archimede’s Principle is obtained by setting <span class="math inline">\(b\)</span> equal to one. ::: {#cor-archimede} If <span class="math inline">\(a\)</span> is a positive number, then there is a natural number <span class="math inline">\(n\)</span> for which <span class="math inline">\(0 &lt; 1/n &lt; a\)</span>. :::</p>
+</section>
+<section id="sequences" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="sequences"><span class="header-section-number">1.3</span> Sequences</h2>
+<section id="sequences-of-real-numbers" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="sequences-of-real-numbers"><span class="header-section-number">1.3.1</span> Sequences of Real Numbers</h3>
+<p>A <strong>sequence</strong> is a set whose elements are indexed by the natural numbers. We write sequences as <span class="math inline">\(a_0, a_1, a_2, \dots\)</span>, or <span class="math inline">\((a_n)\)</span>. Sometimes the index set is explicit in the notation as <span class="math inline">\((a_n)_{n=0}^\infty\)</span>.</p>
+<div id="def-seq-prop" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.4 </strong></span>There are several important terms to know:</p>
+<ol type="a">
+<li>a sequence is {} if <span class="math inline">\(a_n&gt;a_m\)</span> whenever <span class="math inline">\(n&gt;m\)</span>;</li>
+<li>a sequence is {} if <span class="math inline">\(a_n&lt;a_m\)</span> whenever <span class="math inline">\(n&gt;m\)</span>;</li>
+<li>a sequence is {} if <span class="math inline">\(a_n\le a_m\)</span> whenever <span class="math inline">\(n&gt;m\)</span>;</li>
+<li>a sequence is {} if <span class="math inline">\(a_n\ge a_m\)</span> whenever <span class="math inline">\(n&gt;m\)</span>;</li>
+<li>a sequence is {} if it is one of the above;</li>
+<li>a sequence is {} if there is a real number <span class="math inline">\(M\)</span> such that <span class="math inline">\(a_n\le M\)</span> for every index <span class="math inline">\(n\)</span>;</li>
+<li>a sequence is {} if there is a real number <span class="math inline">\(M\)</span> such that <span class="math inline">\(a_n\ge M\)</span> for every index <span class="math inline">\(n\)</span>;</li>
+<li>a sequence is {} if it is {} bounded above and bounded below;</li>
+<li>a sequence is {} if it isn’t bounded;</li>
+<li>given a set <span class="math inline">\(S\)</span>, we say a sequence <span class="math inline">\((a_n)\)</span> is a sequence in <span class="math inline">\(S\)</span> if each <span class="math inline">\(a_n\)</span> is a point in <span class="math inline">\(S\)</span>.</li>
+</ol>
+</div>
+<div id="def-convergence" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.5 (convergence of sequences) </strong></span>A sequence of real numbers is said to {} to a real number <span class="math inline">\(L\)</span> if for each <span class="math inline">\(\epsilon &gt; 0\)</span>, there is a number <span class="math inline">\(N\)</span> such that <span class="math inline">\(|a_n-L| &lt; \epsilon\)</span> for every index <span class="math inline">\(n&gt;N\)</span>. We write <span class="math inline">\(a_n\rightarrow L\)</span>, or <span class="math inline">\(\lim a_n=L\)</span>, and refer to <span class="math inline">\(L\)</span> as the {} of the sequence.</p>
+</div>
+<p>Geometrically, we can view these statements as requiring that eventually (i.e., for <span class="math inline">\(n&gt;N\)</span>) all the terms of the sequence stay within a distance <span class="math inline">\(\epsilon\)</span> of <span class="math inline">\(L\)</span>. Since <span class="math inline">\(\epsilon\)</span> is an arbitrary positive number, the tail of the sequence stays arbitrarily close to the limit <span class="math inline">\(L\)</span>. Another way to state this definition would be to say that a sequence converges to <span class="math inline">\(L\)</span> if there is a function <span class="math inline">\(N\)</span> such that for each number <span class="math inline">\(\epsilon&gt;0\)</span>, <span class="math inline">\(n &gt; N(\epsilon) \rightarrow |a_n-L| &lt; \epsilon\)</span>. With this wording, proving that a sequence converges can be done by solving the inequality for <span class="math inline">\(n\)</span>.</p>
+<div id="exm-seq-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.1 </strong></span>The sequence <span class="math inline">\((a_n)\)</span> defined by <span class="math inline">\(a_n=1/n\)</span> converges to zero. To show this is true, start with any real number <span class="math inline">\(\epsilon &gt; 0\)</span>, and rewrite the inequality <span class="math inline">\(\left|\strut \frac{1}{n}-0\right| &lt; \epsilon\)</span> in the form <span class="math inline">\(n &gt; \frac{1}{\epsilon}\)</span>. In a sense, we are rewriting our demand that terms in the sequence stay within a distance <span class="math inline">\(\epsilon\)</span> of the limit, as a condition that <span class="math inline">\(n\)</span> must satisfy to meet this demanded <em>tolerence</em>.</p>
+</div>
+<div id="exm-seq-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 1.2 </strong></span>Show that the following sequences converge and find the limit:<br>
+1. <span class="math inline">\(\frac{2}{n}\)</span>, 1. <span class="math inline">\(\frac{1}{n^2}\)</span>, 1. <span class="math inline">\(\frac{1 - (1/2)^n}{1 - 1/2}\)</span>, 1. <span class="math inline">\(\frac{1+3n}{3+n}\)</span>.</p>
+<p>At this point, the only approach we can use is to guess at the limit and then try to solve the inequality <span class="math inline">\(a_n-L&lt;\epsilon\)</span> for <span class="math inline">\(n\)</span>. In guessing at the limit, you will intuitively make use of some rules for limits we’ll prove later on.</p>
+<ol type="1">
+<li><p>Since each term is clearly positive and become arbitrarily small as <span class="math inline">\(n\)</span> increases, we guess the limit is zero. We set <span class="math inline">\(L=0\)</span> in the definition and try to solve for <span class="math inline">\(n\)</span>: <span class="math display">\[\left| \frac{2}{n} - 0 \right| &lt; \epsilon \Leftrightarrow 2/n &lt; \epsilon \Rightarrow  n &gt; 2/\epsilon.\]</span> Note that when we play with the inequality, it is safe to assume <span class="math inline">\(n&gt;0\)</span> and <span class="math inline">\(\epsilon&gt;0\)</span>.</p></li>
+<li><p>We guess the limit is zero for the same reason: <span class="math display">\[\left| \frac{1}{n^2} - 0 \right| &lt; \epsilon \Leftrightarrow 1/n^2 &lt; \epsilon \Rightarrow  n &gt; 2/\epsilon.\]</span></p></li>
+<li><p>Since <span class="math inline">\((1/2)^n\)</span> approaches zero as <span class="math inline">\(n\)</span> increases, we make a guess by replacing <span class="math inline">\((1/2)^n\)</span> by zero, which suggests a limit of <span class="math inline">\(L=2\)</span>. To solve the inequality, first simplify <span class="math inline">\(|a_n-L|\)</span>: <span class="math display">\[  \left| \frac{1 - (1/2)^n}{1 - 1/2} - 2 \right|  
+       = \left|  - (1/2)^{n-1} \right|  
+       = 1/2^{n-1} \]</span> Hence, $ | - 2 | &lt; /2^{n-1} &lt; n &gt; 1-_2$\ Note that if <span class="math inline">\(\epsilon &gt; 2\)</span>, then the right hand side is negative, implying any positive <span class="math inline">\(n\)</span> works. The right hand side is positive for smaller <span class="math inline">\(\epsilon\)</span>, which is what we are interested in for convergence of sequences.</p></li>
+<li><p>If we divide the numerator and denominator by <span class="math inline">\(n\)</span> and then replace <span class="math inline">\(1/n\)</span> and <span class="math inline">\(3/n\)</span> by zero, we guess the limit is <span class="math inline">\(3\)</span>. To see if this is correct, we try to solve the resulting inequality for <span class="math inline">\(n\)</span>. First, simplify <span class="math inline">\(|a_n-L|\)</span> <span class="math display">\[\left| \frac{1+3n}{3+n} - 3 \right|
+   = \left|  \frac{(1+3n) - 3(3+n)}{3+n} \right|  
+   = \left|  \frac{-8}{3+n} \right|  
+   = 8/(3+n)  \]</span> Hence, <span class="math inline">\(\left| \frac{1+3n}{3+n} - 3 \right| &lt; \epsilon  \Leftrightarrow 8/(3+n) &lt; \epsilon  \Leftrightarrow n &gt; (8/\epsilon) - 3\)</span></p></li>
+</ol>
+</div>
+<div id="thm-seq-lim-unique" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.2 </strong></span>If a sequence <span class="math inline">\((a_n)\)</span> converges then the limit is unique.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Suppose <span class="math inline">\((a_n)\)</span> converges with <span class="math inline">\(\lim a_n = L\)</span>. Let <span class="math inline">\(M\)</span> be any real number distinct from <span class="math inline">\(L\)</span>, and choose <span class="math inline">\(\epsilon = |L-M|/2\)</span>. For some <span class="math inline">\(N\)</span> we have that for all <span class="math inline">\(n&gt;N\)</span>, <span class="math inline">\(a_n\)</span> is in the interval <span class="math inline">\((L-\epsilon, L+\epsilon)\)</span>, which, by our choice of <span class="math inline">\(\epsilon\)</span>, has no points in common with the interval <span class="math inline">\((M-\epsilon, M+\epsilon)\)</span>. Hence, <span class="math inline">\((a_n)\)</span> does not converge to <span class="math inline">\(M\)</span>, and <span class="math inline">\(L\)</span> is the unique limit.</p>
+</div>
+<div id="thm-seq-sum" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.3 </strong></span>If <span class="math inline">\((a_n)\)</span> and <span class="math inline">\((b_n)\)</span> converge with limits <span class="math inline">\(L\)</span> and <span class="math inline">\(M\)</span> respectively, then the sequence <span class="math inline">\((c_n)\)</span> defined by <span class="math inline">\(c_n = a_n+b_n\)</span> converges with limit <span class="math inline">\(L+M\)</span>.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Given a real number <span class="math inline">\(\epsilon&gt;0\)</span>, there is a number <span class="math inline">\(N\)</span> so that <span class="math inline">\(|a_n-L| &lt; \epsilon/2\)</span>, and <span class="math inline">\(|b_n - M|&lt;\epsilon/2\)</span>. Since <span class="math inline">\(|x+y| \le |x|+|y|\)</span> for any pair, <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span>, of real numbers. It follows that for <span class="math inline">\(n&gt;N\)</span> <span class="math display">\[|c_n-(L+M)| = |a_n + b_n - (L + M)| \le |a_n-L|+|b_n-M| &lt; \epsilon.\]</span></p>
+</div>
+<div id="exr-seq-prod" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 1.1 </strong></span>Show that if <span class="math inline">\((a_n)\)</span> and <span class="math inline">\((b_n)\)</span> converge with limits <span class="math inline">\(L\)</span> and <span class="math inline">\(M\)</span> respectively, and <span class="math inline">\(c\)</span> is a real number, then the sequences <span class="math inline">\((-a_n)\)</span>, <span class="math inline">\((a_n-b_n)\)</span>, <span class="math inline">\((ca_n)\)</span>, <span class="math inline">\((a_nb_n)\)</span> and <span class="math inline">\((a_n/b_n)\)</span> defined in the obvious way all converge with limits <span class="math inline">\(-L\)</span>, <span class="math inline">\(L-M\)</span>, <span class="math inline">\(cL\)</span>, <span class="math inline">\(LM\)</span> and <span class="math inline">\(L/M\)</span> respectively. Note for the last case you must assume that <span class="math inline">\(b_n\ne0\)</span> and <span class="math inline">\(M\ne0\)</span>.</p>
+</div>
+<p>There are two useful inequalities that help with the examination of the product of two sequences. First, we can expand the difference <span class="math inline">\(|a_nb_n-ab|\)</span> as <span class="math inline">\(|a_nb_n-a_nb+a_nb-ab|\)</span>. So by the triangle inequality we know <span class="math display">\[|a_nb_n-ab| = |a_nb_n-a_nb+a_nb-ab| &lt; |a_nb_n-a_nb|+|a_nb-ab| = |a_n||b_n-b|+|a_n-a||b|.\]</span><br>
+Second, if <span class="math inline">\(|a_n-a| &lt; \epsilon\)</span> and <span class="math inline">\(\epsilon&gt;0\)</span>, then it is also true that <span class="math inline">\(|a_n| &lt; |a|+\epsilon\)</span>.</p>
+<div id="thm-squeeze" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.4 (The squeeze theorem) </strong></span>If <span class="math inline">\((a_n)\)</span> and <span class="math inline">\((b_n)\)</span> are two convergent sequences with <span class="math inline">\(\lim a_n = L\)</span> and <span class="math inline">\(\lim b_n = M\)</span>, and if there is a third sequence <span class="math inline">\((c_n)\)</span> with <span class="math inline">\(a_n &lt; c_n &lt; b_n\)</span>, then <span class="math inline">\((c_n)\)</span> converges with <span class="math inline">\(L \le \lim c_n \le M\)</span>.</p>
+</div>
+<div id="thm-seq-mono-bounded" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.5 </strong></span>All bounded monotone sequences converge.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>It is sufficient to prove the case where the sequence is nondecreasing.<br>
+Suppose that <span class="math inline">\((a_n)\)</span> is nondecreasing and bounded above. Since <span class="math inline">\((a_n)\)</span> is bounded, the sequence has a least upper bound. Call this <span class="math inline">\(L\)</span>. It seems reasonable to suppose that <span class="math inline">\(a_n\rightarrow L\)</span>. To prove it does, simply let <span class="math inline">\(\epsilon\)</span> be any positive number. Either there is some number <span class="math inline">\(N\)</span> for which <span class="math inline">\(L-\epsilon &lt; a_N\)</span>, or <span class="math inline">\(a_n \le L-\epsilon\)</span> for all <span class="math inline">\(n\)</span>. The second case implies that <span class="math inline">\(L-\epsilon\)</span> is an upper bound for <span class="math inline">\((a_n)\)</span>, contradicting our declaration of <span class="math inline">\(L\)</span> as the least upper bound, so we know the first case must be true. Since <span class="math inline">\(L\)</span> is a least upper bound and <span class="math inline">\((a_n)\)</span> is nondecreasing, it must be that <span class="math inline">\(L-\epsilon &lt; a_n \le L\)</span> for all larger <span class="math inline">\(n\)</span> as well. Which in turn implies <span class="math inline">\(|a_n-L|&lt;\epsilon\)</span> for all <span class="math inline">\(n &gt; N\)</span>.</p>
+</div>
+<p>It is important to see how we used the least upper bound axiom to prove this monotone convergence theorem. This is the first step in a chain of theorems following from the least upper bound axiom.</p>
+<div id="thm-nested-interval" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.6 </strong></span>Suppose that <span class="math inline">\(I_n\)</span> is a closed interval for each natural number <span class="math inline">\(n\)</span>, and suppose that <span class="math inline">\(I_{n+1} \subset I_n\)</span>. Then <span class="math inline">\(\cap_{n=1}^\infty I_n\)</span> contains at least one element. Further, if the widths of the intervals tends to zero, then <span class="math inline">\(\cap_{n=1}^\infty I_n\)</span> contains exactly one element.</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>This follows fairly directly from the monotone convergence theorem. First, let <span class="math inline">\(a_n\)</span> and <span class="math inline">\(b_n\)</span> be the left and right enpoints of <span class="math inline">\(I_n\)</span>, respectively. The nesting of the sets implies <span class="math inline">\((a_n)\)</span> is nondecreasing and <span class="math inline">\((b_n)\)</span> is nonincreasing. Hence, both sequences have limits, which we’ll call <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span>. If <span class="math inline">\(a&lt;b\)</span>, then <span class="math inline">\(\cap_{n=1}^\infty = [a,b]\)</span>. This is possibly more subtle than you might have realized. We need to show two things: first, that if <span class="math inline">\(x\)</span> is a number in the interval <span class="math inline">\([a,b]\)</span>, then <span class="math inline">\(x\)</span> is a member of every subset <span class="math inline">\(I_n\)</span>, and second, that if either <span class="math inline">\(x&lt;a\)</span> or <span class="math inline">\(x&gt;b\)</span>, then <span class="math inline">\(x\)</span> isn’t a member of at least one of the sets. The first follows since <span class="math inline">\(a_n \le x \le b_n\)</span> for each <span class="math inline">\(n\)</span>. To show the second, if <span class="math inline">\(x&lt;a\)</span> then there must be some <span class="math inline">\(n\)</span> for which <span class="math inline">\(x &lt; a_n \le a\)</span>, since <span class="math inline">\(a\)</span> is the least upper bound for <span class="math inline">\((a_n)\)</span>. The last case, <span class="math inline">\(x &gt; b\)</span> is similar. Finally, it must be that if <span class="math inline">\(a=b\)</span>, then the width of the intervals decreases to zero, but since each interval is closed, the common limit is a member of <span class="math inline">\(I_n\)</span> for every <span class="math inline">\(n\)</span>.</p>
+</div>
+<div id="def-cauchy-seq" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.6 </strong></span>A sequence <span class="math inline">\((a_n)\)</span> is said to be <strong>Cauchy</strong> if for every positive number <span class="math inline">\(\epsilon\)</span> there is a number <span class="math inline">\(N\)</span> depending on <span class="math inline">\(\epsilon\)</span> so that <span class="math display">\[n&gt;N(\epsilon) \Rightarrow |a_n-a_m| &lt; \epsilon.\]</span></p>
+</div>
+<div id="thm-cauchy-seq" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.7 </strong></span>Every Cauchy sequence converges</p>
+</div>
+<div class="proof">
+<p><span class="proof-title"><em>Proof</em>. </span>Let <span class="math inline">\((a_n)\)</span> be Cauchy. Pick any positive number and call it <span class="math inline">\(\epsilon_1\)</span>. Since <span class="math inline">\((a_n)\)</span> is Cauchy we know that there is a number <span class="math inline">\(N_1\)</span> guaranteeing <span class="math inline">\(|a_n-a_m|&lt;\epsilon_1\)</span> whenever both <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> are larger than <span class="math inline">\(N_1\)</span>. Pick any number <span class="math inline">\(n_1\)</span> and let <span class="math inline">\(I_1 = [a_{n_1}-\epsilon_1, a_{n_1} + \epsilon_1]\)</span>. Notice that <span class="math inline">\(a_n \in I_1\)</span> for all <span class="math inline">\(n&gt;N_1\)</span>. Now pick a second positive number <span class="math inline">\(\epsilon_2 &lt; \epsilon_1\)</span>. Again, we know that there is a number <span class="math inline">\(N_2 &gt; N_1\)</span> guaranteeing <span class="math inline">\(|a_n-a_m| &lt; \epsilon_2\)</span> whenever both <span class="math inline">\(n\)</span> and <span class="math inline">\(m\)</span> are larger than <span class="math inline">\(N_2\)</span>. Now pick any <span class="math inline">\(n_2 &gt; N_2\)</span>. Notice that for <span class="math inline">\(n &gt; N_2\)</span>, <span class="math inline">\(a_{n_2} -\epsilon_2 &lt; a_n &lt; a_{n_2} +\epsilon_2\)</span>. We can’t be certain that this second interval is nested withing the first, but since <span class="math inline">\(N_2\)</span> was chosen to be larger than <span class="math inline">\(N_1\)</span>, it follows that <span class="math inline">\(a_n\)</span> is also in <span class="math inline">\(I_1\)</span>. Hence, <span class="math display">\[n &gt; N_2 \Rightarrow a_n \in I_2 = I_1\cap [a_{n_2}-\epsilon_2, a_{n_2} + \epsilon_2].\]</span> Continuing in this fashion we see that we can construct a sequence of nested closed intervals each containing some tail of our Cauchy sequence. Since each <span class="math inline">\(\epsilon_k\)</span> is arbitrary, we can ensure the width of the intervals tends to zero. By the Nested Interval Theorem, their intersection contains exactly one number, call it <span class="math inline">\(L\)</span>. Finally, given any positive number <span class="math inline">\(\epsilon\)</span>, there is some number <span class="math inline">\(N\)</span> for which the width of <span class="math inline">\(I_N\)</span> is less than <span class="math inline">\(\epsilon\)</span>, implying <span class="math inline">\(|a_n-L| &lt; \epsilon\)</span> for every <span class="math inline">\(n\)</span> larger than <span class="math inline">\(N\)</span>. The sequence converges to the limit <span class="math inline">\(L\)</span>.</p>
+</div>
+<p>We have now constructed a chain of theorems starting from our Least Upper Bound Axiom. It is worth taking some time to explore how tightly connected these statements are. As an exercise, begin instead with the axiom that all Cauchy sequences converge and from that deduce that every bounded set has a least upper bound. Since decimal expansions for numbers can be viewed as Cauchy sequences, this is similar to starting with the axiom that all real numbers can be expressed as decimal numbers. Having connected the four statements in a loop, we see that any one of them can be taken as a axiom on which to construct the real numbers.</p>
+</section>
+<section id="subsequences" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="subsequences"><span class="header-section-number">1.3.2</span> Subsequences</h3>
+<div id="def-subsequence" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.7 </strong></span>A <strong>subsequence</strong> of a sequence <span class="math inline">\((a_n)\)</span> is any sequence <span class="math inline">\((a_{n_k})\)</span> where <span class="math inline">\((n_k)\)</span> is an increasing sequence of natural numbers.</p>
+</div>
+<div id="thm-mono-subsequence" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.8 </strong></span>Every sequence has a monotonic subsequence.</p>
+</div>
+<div id="thm-bolz-weier" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 1.9 (Bolzano-Weierstrass) </strong></span>Every bounded sequence has a convergent subsequence.</p>
+</div>
+</section>
+</section>
+<section id="open-and-closed-sets" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="open-and-closed-sets"><span class="header-section-number">1.4</span> Open and Closed Sets</h2>
+<p>The notion of open and closed sets are connected to limits of sequences and both are central to the ideas of calculus. Having defined limits of sequences, it is useful to refine our notion of open and closed sets.</p>
+<div id="def-neighbourhood" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.8 </strong></span>By a <strong>neighbourhood</strong> of a point <span class="math inline">\(a\)</span> we mean a set of all points in an open interval containing <span class="math inline">\(a\)</span> except the point <span class="math inline">\(a\)</span> itself. For example, the set <span class="math inline">\(B_r = \{x\in {\mathbb R}\| 0 &lt; |x-a| &lt; r \},\)</span> where <span class="math inline">\(r\)</span> is an arbitrary real number, is a neighbourhood of <span class="math inline">\(a\)</span> often referred to as a ball of radius <span class="math inline">\(r\)</span>.</p>
+</div>
+<div id="def-limit-point" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.9 </strong></span>A point <span class="math inline">\(a\)</span> is a <strong>limit point</strong> of a set <span class="math inline">\(S\)</span> if there is a sequence <span class="math inline">\((a_n)\)</span> in <span class="math inline">\(S\)</span> converging to <span class="math inline">\(a\)</span>.</p>
+</div>
+<div id="def-closed-set" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 1.10 </strong></span>A set of real numbers is said to be <strong>closed</strong> if it contains all its limit points.</p>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
+<div id="ref-lax2020calculus" class="csl-entry" role="doc-biblioentry">
+Lax, Peter D, and Maria Shea Terrell. 2020. <em>Calculus with Applications</em>. Springer.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>The real numbers are an example of an algebraic structure known as a field: <span class="math inline">\({\mathbb R}\)</span> is closed under addition and multiplication, it contains the additive and multiplicative identities, 0 and 1, and every element of <span class="math inline">\({\mathbb R}\)</span> except 0 has both an additive and a multiplicative inverse.}<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./integration.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Integration</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

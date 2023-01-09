@@ -1,0 +1,10 @@
+---
+author: James  Watmough
+date: "`r Sys.Date()`"
+---
+
+{{< include texmacros.qmd >}}
+
+# Integration {#sec-integrals}
+
+## Examples of Integrals {#sec-int-intro}
