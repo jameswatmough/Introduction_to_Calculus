@@ -2,12 +2,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.2.280">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="James Watmough">
-<meta name="dcterms.date" content="2023-01-09">
 
 <title>Introduction to Calculus - 1&nbsp; Numbers, Sets, and Sequences</title>
 <style>
@@ -19,14 +18,15 @@ div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
   width: 0.8em;
-  margin: 0 0.8em 0.2em -1.6em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
 }
-.hanging div.csl-entry {
+.hanging-indent div.csl-entry {
   margin-left:2em;
   text-indent:-2em;
 }
@@ -40,8 +40,7 @@ div.csl-right-inline {
 }
 div.csl-indent {
   margin-left: 2em;
-}
-</style>
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -78,10 +77,12 @@ div.csl-indent {
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
     "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
@@ -90,11 +91,16 @@ div.csl-indent {
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-    <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Numbers, Sets, and Sequences</span></h1>
-      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
-        <i class="bi bi-chevron-right"></i>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./sequences.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Numbers, Sets, and Sequences</span></a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
       </button>
     </div>
   </nav>
@@ -102,56 +108,61 @@ div.csl-indent {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Calculus</a> 
     </div>
       </div>
-      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="mt-2 flex-shrink-0 align-items-center">
         <div class="sidebar-search">
         <div id="quarto-search" class="" title="Search"></div>
         </div>
-      </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Class Schedule</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./sequences.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Numbers, Sets, and Sequences</span></a>
+  <a href="./sequences.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Numbers, Sets, and Sequences</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./integration.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Integration</span></a>
+  <a href="./integration.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Integration</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
   </div>
 </li>
     </ul>
     </div>
 </nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#sets" id="toc-sets" class="nav-link active" data-scroll-target="#sets"><span class="toc-section-number">1.1</span>  Sets</a></li>
-  <li><a href="#length-and-number" id="toc-length-and-number" class="nav-link" data-scroll-target="#length-and-number"><span class="toc-section-number">1.2</span>  Length and number</a></li>
-  <li><a href="#sequences" id="toc-sequences" class="nav-link" data-scroll-target="#sequences"><span class="toc-section-number">1.3</span>  Sequences</a>
+  <li><a href="#sets" id="toc-sets" class="nav-link active" data-scroll-target="#sets"><span class="header-section-number">1.1</span> Sets</a></li>
+  <li><a href="#length-and-number" id="toc-length-and-number" class="nav-link" data-scroll-target="#length-and-number"><span class="header-section-number">1.2</span> Length and number</a></li>
+  <li><a href="#sequences" id="toc-sequences" class="nav-link" data-scroll-target="#sequences"><span class="header-section-number">1.3</span> Sequences</a>
   <ul class="collapse">
-  <li><a href="#sequences-of-real-numbers" id="toc-sequences-of-real-numbers" class="nav-link" data-scroll-target="#sequences-of-real-numbers"><span class="toc-section-number">1.3.1</span>  Sequences of Real Numbers</a></li>
-  <li><a href="#subsequences" id="toc-subsequences" class="nav-link" data-scroll-target="#subsequences"><span class="toc-section-number">1.3.2</span>  Subsequences</a></li>
+  <li><a href="#sequences-of-real-numbers" id="toc-sequences-of-real-numbers" class="nav-link" data-scroll-target="#sequences-of-real-numbers"><span class="header-section-number">1.3.1</span> Sequences of Real Numbers</a></li>
+  <li><a href="#subsequences" id="toc-subsequences" class="nav-link" data-scroll-target="#subsequences"><span class="header-section-number">1.3.2</span> Subsequences</a></li>
   </ul></li>
-  <li><a href="#open-and-closed-sets" id="toc-open-and-closed-sets" class="nav-link" data-scroll-target="#open-and-closed-sets"><span class="toc-section-number">1.4</span>  Open and Closed Sets</a></li>
+  <li><a href="#open-and-closed-sets" id="toc-open-and-closed-sets" class="nav-link" data-scroll-target="#open-and-closed-sets"><span class="header-section-number">1.4</span> Open and Closed Sets</a></li>
   </ul>
 </nav>
     </div>
@@ -160,7 +171,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-sequences" class="quarto-section-identifier d-none d-lg-block"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Numbers, Sets, and Sequences</span></span></h1>
+<h1 class="title"><span id="sec-sequences" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Numbers, Sets, and Sequences</span></span></h1>
 </div>
 
 
@@ -177,7 +188,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 9, 2023</p>
+      <p class="date">Invalid Date</p>
     </div>
   </div>
   
@@ -204,12 +215,12 @@ div.csl-indent {
   {\mathbb Z}&amp;= \left\{\dots,-3,-2,-1,0,1,2,3,\dots\right\},\\
   {\mathbb Q}&amp;= \left\{\text{all fractions $\dfrac{p}{q}$, where $p$ and $q$ are integers, $q\ne0$}\right\}.
 \end{align*}\]</span></p>
-<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Note
 </div>
 </div>
@@ -231,12 +242,12 @@ This ordering allows us to talk about bounds on sets. This concept is useful lat
 <p><span class="theorem-title"><strong>Definition 1.2 (maximum and minimum) </strong></span>Suppose <span class="math inline">\(X\)</span> is an ordered set and <span class="math inline">\(S\)</span> is a non-empty subset of <span class="math inline">\(X\)</span>. - If <span class="math inline">\(S\)</span> contains a largest element <span class="math inline">\(s\)</span>, then we call <span class="math inline">\(s\)</span> the maximum of <span class="math inline">\(S\)</span> and write <span class="math inline">\(s = \max S\)</span>. - If <span class="math inline">\(S\)</span> contains a smallest element <span class="math inline">\(s\)</span>, then we call <span class="math inline">\(s\)</span> the minimum of <span class="math inline">\(S\)</span> and write <span class="math inline">\(s = \min S\)</span>.</p>
 </div>
 <p>The maximum and minimum values, if they exist, are elements of <span class="math inline">\(S\)</span>. A set can be bounded but not have a minimum or maximum value. For example, the set <span class="math inline">\((0,1)\)</span> of all (real) numbers between 0 and 1 has 0 and 1 as lower and upper bounds, but it does not have maximum or minimum values. The maximum and minimum values of <span class="math inline">\(S\)</span>, if they exist, are also bounds on <span class="math inline">\(S\)</span>. However, a bound need not be a maximum or minimum.</p>
-<div class="callout-warning callout callout-style-default callout-captioned">
+<div class="callout callout-style-default callout-warning callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Warning
 </div>
 </div>
@@ -252,12 +263,12 @@ Warning
 <p>For example, take <span class="math inline">\(X\)</span> as the rational numbers and let <span class="math inline">\(S\)</span> be the set <span class="math inline">\(S = \left\{ s \in {\mathbb Q} \ \left|\ \strut  s = 1 + 1/n, n\in {\mathbb N}\right.\right\}\)</span>. Any rational number 2 or larger is an upper bound for <span class="math inline">\(S\)</span> and any number 1 or lower as a lower bound. The maximum of <span class="math inline">\(S\)</span> is 2, but <span class="math inline">\(S\)</span> has no minimum. Given any number <span class="math inline">\(a&gt;1\)</span>, there will be some counting number <span class="math inline">\(N\)</span> for which $ 1 + 1/N &lt; a$. Hence no lower bound for <span class="math inline">\(S\)</span> is larger than 1. As defined below, 1 is the greatest lower bound of <span class="math inline">\(S\)</span>.</p>
 <p>If <span class="math inline">\(S\)</span> has a maximum, then the maximum is also the supremum of <span class="math inline">\(S\)</span>. However, the reverse is not always true. For example, the interval <span class="math inline">\((0,1)\)</span> consisting of all rational numbers between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> is bounded. The infimum and supremum are <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> respectively, but the set has no maximum or minimum. The set <span class="math inline">\([0,1]\)</span> of all rational numbers between <span class="math inline">\(0\)</span> and <span class="math inline">\(1\)</span> inclusive has both maximum and minimum values. More interestingly, the set of all rational numbers whose square is less than 2 is bounded, but has no least upper bound in the rational numbers.</p>
 <p>Defining the real numbers as lengths is a good starting point. However, to proceed with analysis we need to understand the properties of the real numbers. One approach, which is too time-consuming for our purposes, would be to rigorously define the real numbers and deduce their properties from these definitions. We will take the opposite approach and state the desired properties as axioms. Thus, the real numbers are an ordered field<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>, they contain the rational numbers as a subset, and they satisfy the following axiom.</p>
-<div class="callout-note callout callout-style-simple no-icon callout-captioned">
+<div class="callout callout-style-simple callout-note no-icon callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
-<div class="callout-caption-container flex-fill">
+<div class="callout-title-container flex-fill">
 Axiom of Completeness
 </div>
 </div>
@@ -391,8 +402,8 @@ Suppose that <span class="math inline">\((a_n)\)</span> is nondecreasing and bou
 </div>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" role="doc-bibliography" style="display: none">
-<div id="ref-lax2020calculus" class="csl-entry" role="doc-biblioentry">
+<div id="refs" class="references csl-bib-body hanging-indent" role="list" style="display: none">
+<div id="ref-lax2020calculus" class="csl-entry" role="listitem">
 Lax, Peter D, and Maria Shea Terrell. 2020. <em>Calculus with Applications</em>. Springer.
 </div>
 </div>
@@ -432,9 +443,23 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     icon: icon
   };
   anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
   const clipboard = new window.ClipboardJS('.code-copy-button', {
-    target: function(trigger) {
-      return trigger.previousElementSibling;
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
     }
   });
   clipboard.on('success', function(e) {
@@ -499,6 +524,92 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
   const findCites = (el) => {
     const parentEl = el.parentElement;
     if (parentEl) {
@@ -541,7 +652,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
       <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Preface</span>
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Class Schedule</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
