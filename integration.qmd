@@ -8,3 +8,20 @@ date: "`r Sys.Date()`"
 # Integration {#sec-integrals}
 
 ## Examples of Integrals {#sec-int-intro}
+
+## The area *under* a function {#sec-int-area}
+
+Let $f$ be a real-valued function of a single real variable defined on some interval $[a,b]$.  For now, suppose $f$ is continuous and positive on the interval. We'll relax those assumptions later, but they will make the concept of an area under $f$ over the interval $[a,b]$ a bit more natural.
+
+Following Lax Section 6.1, we'll denote
+the area under a function $f$ over the interval $[a,b]$ by
+$A(f,[a,b])$.  We can think of $A$ as a function with two inputs, a function and an interval.  The output of $A$ is a real number.  
+
+The area under a curve has two properties:
+
+For any number $c$ between $a$ and $b$, 
+$$A(f,[a,b]) = A(f,[a,c]) + A(f,[c,b]),$$ {#eq-area-sum}
+and
+$$(b-a)\displaystyle\inf_{[a,b]} f  \le A(f,[a,b]) \le (b-a) \displaystyle\sup_{[a,b]} f.$$ {#eq-area-bound}
+
+

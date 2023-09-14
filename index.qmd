@@ -1,8 +1,4 @@
-# Preface {.unnumbered}
-
-This is a Quarto book.
-
-To learn more about Quarto books visit <https://quarto.org/docs/books>.
+# Class Schedule {.unnumbered}
 
 {{< include M1063-2023-schedule.txt >}}
 

@@ -1,6 +1,7 @@
 # 2023 Winter Class Schedule
 
 Topics from the University Calendar
+
 1. Definition of the integral, 
 2. Fundamental theorem of Calculus, 
 3. Techniques of integration, 
@@ -11,7 +12,7 @@ Topics from the University Calendar
 Date       Section          Lax  Ross    Topic
 ---------- --------         ---- -----   ------------
 Mon Jan 09 @sec-int-intro   6.1  n.a.    Examples of Integrals
-Wed Jan 11 @sec-integrals   6.1  n.a.    Area under a function
+Wed Jan 11 @sec-int-area    6.1  n.a.    Area under a function
 Thu Jan 12 @sec-sequences   1,2  1,2     Functions, sequences, notation
 Fri Jan 13 @sec-integrals   6.2  6.1     Darboux Sums and Integrals
 Mon Jan 16 @sec-integrals   6.2  6.1     Darboux Sums and Integrals
