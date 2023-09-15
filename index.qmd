@@ -1,4 +1,4 @@
 # Class Schedule {.unnumbered}
 
-{{< include M1063-2023-schedule.txt >}}
+{{< include M1003-2023-schedule.md >}}
 

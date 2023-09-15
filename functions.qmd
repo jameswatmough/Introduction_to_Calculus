@@ -1,0 +1,67 @@
+---
+author: James  Watmough
+date: "`r Sys.Date()`"
+---
+
+{{< include texmacros.qmd >}}
+
+# Functions and Models
+
+## Functions and variables
+
+These notes are purposefully abstract.  We'll begin with a list of definitions of familiar terms cast as something more abstract than you might be used to.  Almost all of the functions we use will be real-valued functions of a single real variable.  That is, both the domains and ranges will be sets of real numbers.  However, most of the concepts on the first-year curriculum apply to a more abstract notion of a function.  In fact, some might be easier to understand when the domain is a region in the plane, rather than an interval.  
+
+Functions arise whenever one quantity (or state) can be *determined* from another.
+Functions also arise whenever we *theorize* that one quantity (or state) could be determined from another.
+
+Examples:
+  - Reducing screen brightness increases Battery life.
+  - The temperature of tap water depends on the time since the tap was opened. 
+  - The area of a circle depends on its radius.
+  - The rate a predator encounters prey depends on the size of the prey population.
+
+The quantity being determined is often referred to as the *dependent variable*, and the other quantify is the *independent variable*.
+
+::: {#def-function}
+
+# Function
+
+A function consists of two sets, $A$ and $B$, together with a rule that assigns exactly one element of $B$ to each 
+and every element of $A$.
+
+:::
+
+It is common to think of the elements of $A$ as *inputs* and the elements of $B$ as *outputs*.  The function matches each input to exactly one output.
+
+- Ideally a function should be given a clear descriptive name, but it is often denoted by a single letter, like $f$.
+- The set $A$ in @def-function is referred to as the *domain* of $f$.
+- The set $B$ is referred to as the *codomain* of $f$.
+- We say $f$ is a function from $A$ into $B$, and sometimes write $f:A\rightarrow B$.  
+- We use $f(x)$ to denote the element of $B$ assigned to an element $x$ of $A$ by $f$.
+- The *range* of $f$ is the set $\set{y\in B}{y=f(x), x\in A}$.
+
+When we are using variables and functions to explain concepts it is a good
+idea to name the variables and functions in meaningful ways.  For example,
+suppose we need a function to model the rate a lioness searches for prey.
+When the number of prey is low,  she will chase down every prey she sees, but
+when there are lots of prey available, she will only chase down enough to
+satisfy her hunger.  A simple model for this saturation effect is a hyperbola.
+We could use a descriptive name like
+$\texttt{Prey}$ to denote the number of prey, our independent variable.  $\texttt{Prey}$ should be a positive real number.  Then we could give our function a descriptive name like $\texttt{Lioness\_Attack}$ and define it by the rule 
+\begin{equation}
+  \texttt{Lioness\_Attack}(\texttt{Prey}) = \frac{\texttt{attack\_rate}\times\texttt{Prey} }{ \texttt{saturation\_level} + \texttt{Prey} }, \qquad \texttt{Prey} \ge 0.
+\end{equation}
+
+We will refer to `attack\_rate` and `saturation\_level` as parameters, 
+`Prey` as the independent variable, and
+`Lioness\_Attack` as the function.   The use and meaning of the word *parameter* may be different outside of these notes, but it usually indicates a fixed quantity.  I.e., something that isn't *varying*.
+
+While descriptive variable and function names are helpful at times, they can be annoying at times.  Especially if we are trying to solve equations algebraically.  So in this course, and most math courses, variable and function names will usually be single letters.
+
+Another common way to specify a function is using a arrow with the input on one side and the output on the other.  For example
+$$x\to x^2 + 2, x \in \R$$
+defines a function whose input is any real number and whose output is two plus the square of the input.  Notice how this lets us define a function without the complication of naming it.  In many programming languages this is referred to as an *anonymous* function.
+
+::: {#def-images}
+  Given a function, $f$, the *image* of a subset $U$ of the domain of $f$, denoted simply by $f(U)$, is the set of all outputs reached by inputs in $U$.  That is, $$f(U) = \set{y\in B }{ y=f(x), x\in U}.$$    The *preimage* or *inverse image* of a subset $V$ of the codomain of $f$, denoted by $f^{-1}(V)$, is the set of all inputs whose corresponding outputs are in $V$.  That is, $$f^{-1}(V) = \set{x\in A}{\text{$y=f(x)$ for some $y \in V$}}.$$
+:::

@@ -8,6 +8,7 @@ book:
   date: "2023-01-14"
   chapters:
     - index.qmd
+    - functions.qmd
     - sequences.qmd
     - integration.qmd
     - references.qmd
