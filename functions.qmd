@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 
 {{< include texmacros.qmd >}}
 
-# Functions and Models
+# Functions and Models {#sec-functions}
 
 ## Functions and variables
 
@@ -15,10 +15,11 @@ Functions arise whenever one quantity (or state) can be *determined* from anothe
 Functions also arise whenever we *theorize* that one quantity (or state) could be determined from another.
 
 Examples:
-  - Reducing screen brightness increases Battery life.
-  - The temperature of tap water depends on the time since the tap was opened. 
-  - The area of a circle depends on its radius.
-  - The rate a predator encounters prey depends on the size of the prey population.
+
+- Reducing screen brightness increases Battery life.
+- The temperature of tap water depends on the time since the tap was opened.
+- The area of a circle depends on its radius.
+- The rate a predator encounters prey depends on the size of the prey population.
 
 The quantity being determined is often referred to as the *dependent variable*, and the other quantify is the *independent variable*.
 
