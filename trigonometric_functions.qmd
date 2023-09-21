@@ -5,9 +5,7 @@ date: "`r Sys.Date()`"
 
 {{< include texmacros.qmd >}}
 
-# Trigonometric Functions
-
-
+# Trigonometric Functions {#sec-trig-fun}
 
 The trigonometric, or circular, functions find applications anywhere things oscillate.  Vibrating strings, water waves, seasonal temperatures or daily variations in light intensity are all examples where periodic functions arise.
 
@@ -15,6 +13,11 @@ The trigonometric, or circular, functions find applications anywhere things osci
 
 A very simple definition of the sine and cosine functions is that they are
 the coordinates of a point the unit circle as a function of the distance counter-clockwise along the circle from the point (1,0).  
+
+You should be familiar with most of the material in
+[Openstax Volume 1 Section 1.3](https://openstax.org/books/calculus-volume-1/pages/1-3-trigonometric-functions)
+In particular, make sure you understand the connection of the 6 basic trig functions to a point on a unit circle and to triangles.  See [Figure 1.33](https://openstax.org/books/calculus-volume-1/pages/1-3-trigonometric-functions#CNX_Calc_Figure_01_03_007) in Openstax.
+
 <!--In @fig-trig-functions,
 the point B has coordinates (1,0) and point C has coordinates $(\cos t, \sin t)$ where $t$ is the distance along the arc from B to C.  Note that $\sin x$ is the height of triangle AOC, and $\cos x$ is its base.   Thus we can also define $\sin x$ and $\cos x$ as the height and base respectively of a right angle triangle with unit hypotenuse.  For this reason we refer to the distance $x$ as the radian measure of angle AOC,  or the angle in radians.   
 -->
@@ -36,6 +39,8 @@ the point B has coordinates (1,0) and point C has coordinates $(\cos t, \sin t)$
     \draw (1,.3) node[left]{$\theta$};
   \end{tikzpicture}
 ```
+
+
 
 ## Inverse Trigonometric Functions
 

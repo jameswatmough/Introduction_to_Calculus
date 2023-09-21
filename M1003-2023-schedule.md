@@ -19,7 +19,7 @@ Wed Sep 13 @sec-functions   n.a.   1.2       Functions and Graphs
 Fri Sep 15 @sec-functions   n.a.   1.4       Composite Functions
 Mon Sep 18 @sec-functions   n.a.   1.4       Inverse Functions   
 Wed Sep 20 @sec-functions   n.a.   1.5       Exponentials and Logarithmics
-Fri Sep 22                  n.a.   1.3       Trigonometric Functions
+Fri Sep 22 @sec-trig-fun    n.a.   1.3       Trigonometric Functions
 Mon Sep 25                  1.1    2.1-2.5   Limits and Continuity
 Wed Sep 27                  1.2    2.1-2.5   Limits and Continuity
 Fri Sep 29                  1.3    2.1-2.5   Finding Limits Analytically
