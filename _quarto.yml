@@ -9,8 +9,7 @@ book:
   chapters:
     - index.qmd
     - functions.qmd
-    - sequences.qmd
-    - integration.qmd
+    - trigonometric_functions.qmd 
     - references.qmd
 
 bibliography: references.bib

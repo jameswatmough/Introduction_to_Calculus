@@ -1,0 +1,179 @@
+---
+author: James  Watmough
+date: "`r Sys.Date()`"
+---
+
+{{< include texmacros.qmd >}}
+
+# Trigonometric Functions
+
+
+
+The trigonometric, or circular, functions find applications anywhere things oscillate.  Vibrating strings, water waves, seasonal temperatures or daily variations in light intensity are all examples where periodic functions arise.
+
+## Definitions of the sine and cosine
+
+A very simple definition of the sine and cosine functions is that they are
+the coordinates of a point the unit circle as a function of the distance counter-clockwise along the circle from the point (1,0).  
+<!--In @fig-trig-functions,
+the point B has coordinates (1,0) and point C has coordinates $(\cos t, \sin t)$ where $t$ is the distance along the arc from B to C.  Note that $\sin x$ is the height of triangle AOC, and $\cos x$ is its base.   Thus we can also define $\sin x$ and $\cos x$ as the height and base respectively of a right angle triangle with unit hypotenuse.  For this reason we refer to the distance $x$ as the radian measure of angle AOC,  or the angle in radians.   
+-->
+
+<iframe src="https://www.desmos.com/calculator/iqdrbtck0m?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
+
+```{r engine='tikz', fig.ext="pdf"}
+#| label: fig-trig-functions
+#| fig-cap: "Defining the sine and cosine functions"
+#| echo: false
+
+  \begin{tikzpicture}[thick,>=stealth]
+    \draw[->] (-1.5,0) -- (1.5,0) node[below]{$x$};
+    \draw[->] (0,-1.5) -- (0,1.5) node[left]{$y$};
+    \draw (0,0) circle(1);
+    \draw[fill] (.87,.5) circle(.02) node[right]{$(\cos(\theta),\sin(\theta))$};
+    \draw (0,0) --(.87,.5);
+    \draw[-stealth,thick] (1,0) arc(0:30:1);
+    \draw (1,.3) node[left]{$\theta$};
+  \end{tikzpicture}
+```
+
+## Inverse Trigonometric Functions
+
+
+The trigonometric functions and their inverses arise in a wide variety of problems involving triangles, lengths of curves and areas of surfaces.  Typical problems lead to triangles where the length of one of the sides is variable and one of the sides is fixed.  
+
+A variety of notations are used for the inverse trig functions.  The inverse of the sine function is denoted by $\sin^{-1}$ or $\arcsin$.  In computer languages, the short form `asin` is often used.  Similar notations are used for the other standard trig functions.
+
+::: {#exm-inverse-trig-1}
+
+Suppose one end of a beam of unit length is lifted a height $x$ off the ground.  
+
+- Find the horizontal distance between the ends of the beam.  
+- Find the angle the beam makes with the ground.
+
+Label the vertical of a right triangle as the dependent variable $x$ and the hypotenuse with the fixed unit length.
+
+```{r engine='tikz', fig.ext="pdf"}
+#| echo: false
+#| height: 500
+
+\begin{tikzpicture}[scale=5]
+  \draw (0,0) -- (2,0) node[below,pos=.5]{$\sqrt{1-x^2}$} -- (2,1) node[right,pos=.5]{$x$} -- (0,0) node[above left,pos=.5]{1} ;
+w (.4,.1) node[right]{$y$};
+\end{tikzpicture}
+```
+
+$$x = \sin(y)$$
+$$\sqrt{1-x^2} = \cos(y)$$
+$$\tan y = \frac{x}{\sqrt{1-x^2}}$$
+
+The horizontal distance between the ends of the beam is $\sqrt{1-x^2}$, based on Pythagoras' theorem. 
+The angle $y$ is denoted by the inverse function $\sin^{-1}(x)$.
+At this point we do not have an algorithm or rule for computing the inverse sine function, other than by use of a ruler and protractor.  We will learn methods for estimating values of this function towards the end of this course.
+
+:::
+     
+
+::: {#exm-inverse-trig-2}
+
+Suppose a boat is being pulled towards a dock.  Find the horizontal distance between the boat and the dock, the length of the rope played out and the angle the rope makes with the horizontal.
+
+The rope is the hypotenuse of a triangle, and its length is variable.  We can assume the height of the rope at the dock is 1 unit.
+
+```{r engine='tikz', fig.ext="pdf"}
+#| echo: false
+
+\begin{tikzpicture}[scale=2]
+  \draw (0,0) -- (2,0) node[below,pos=.5]{$\sqrt{x^2-1}$} -- (2,1) node[right,pos=.5]{1} -- (0,0) node[above left,pos=.5]{$x$} ;
+w (.4,.1) node[right]{$y$};
+\end{tikzpicture}
+```
+
+$$x = \csc(y)$$
+$$\sqrt{x^2-1} = \cot(y)$$
+
+:::
+
+::: {#exm-inverse-trig-2}
+
+A third common scenario involves a balloon rising vertically.  Here the base of the triangle is the fixed length and the vertical is variable.
+
+```{r engine='tikz', fig.ext="pdf"}
+#| echo: false
+
+\begin{tikzpicture}[scale=2]
+	\draw (0,0) -- (2,0) node[below,pos=.5]{$1$} -- (2,1) node[right,pos=.5]{$x$} -- (0,0) node[above left,pos=.5]{$\sqrt{1+x^2}$} ;
+	\draw (.4,.1) node[right]{$y$};
+\end{tikzpicture}
+```
+
+
+
+
+$$x = \tan(y)$$
+$$\sqrt{1+x^2} = \sec(y)$$
+ 
+:::
+
+::: {#exr-inverse-trig-1}
+
+Use the above relations to verify the following strange identities.
+
+$$x = \sin(\cos^{-1}(\sqrt{1-x^2})$$
+$$x = \cot(\csc^{-1}(\sqrt{x^2-1})$$
+$$x = \tan(\sec^{-1}(\sqrt{1+x^2})$$
+
+Care must be taken in choosing the domain and range of the trig functions and their inverses.  These are always problem dependent.  Common choices for sine and cosine are shown in the graphs below. 
+
+:::
+
+```{r engine='tikz', fig.ext="pdf"}
+#| echo: false
+
+\begin{tikzpicture}
+  \begin{scope}[scale=2]
+    \draw[->] (-.2,0)--(3.3,0);
+    \draw[->] (0,-1.2)--(0,1.2);
+    \draw (0,1)--(-.1,1) node[left]{1};
+    \draw (0,-1)--(-.1,-1) node[left]{-1};
+    \draw (1.57,0)--(1.57,-.1) node[below]{$\frac{\pi}{2}$};
+    \draw (3.14,0)--(3.14,-.1) node[below]{$\pi$};
+    \draw[smooth,domain=0:3.14] plot (\x,{cos(\x r)});
+    \draw (1.6,.5) node[right]{$y = \cos x$};
+  \end{scope} 
+
+  \begin{scope}[yshift=-2cm, xshift = 10cm,xscale=2.5,yscale=1.5]
+    \draw[->] (0,-.2)--(0,3.3);
+    \draw[->] (-1.2,0)--(1.2,0);
+    \draw (1,0)--(1,-.1) node[below]{1};
+    \draw (-1,0)--(-1,-.1) node[below]{-1};
+    \draw (0,1.57)--(-.1,1.57) node[left]{$\frac{\pi}{2}$};
+    \draw (0,3.14)--(-.1,3.14) node[left]{$\pi$};
+    \draw[smooth,domain=0:3.14] plot ({cos(\x r)},\x);
+    \draw (.5,1.6) node[right]{$y = \arccos x$};
+  \end{scope} 
+
+  \begin{scope}[yshift=-8cm, xshift=3cm, scale=2]
+    \draw[->] (0,-1.2)--(0,1.2);
+    \draw[->] (-1.6,0)--(1.6,0);
+    \draw (0,1)--(-.1,1) node[left]{1};
+    \draw (0,-1)--(-.1,-1) node[left]{-1};
+    \draw (1.57,0)--(1.57,-.1) node[below]{$\frac{\pi}{2}$};
+    \draw (-1.57,0)--(-1.57,-.1) node[left]{$-\frac{\pi}{2}$};
+    \draw[smooth,domain=-1.57:1.57] plot (\x,{sin(\x r)});
+    \draw (.5,1.6) node[right]{$y = \sin x$};
+  \end{scope} 
+
+  \begin{scope}[yshift=-8cm, xshift=10cm, xscale=2.5,yscale=1.5]
+    \draw[->] (0,-1.8)--(0,1.8);
+    \draw[->] (-1.2,0)--(1.2,0);
+    \draw (1,0)--(1,-.1) node[below]{1};
+    \draw (-1,0)--(-1,-.1) node[below]{-1};
+    \draw (0,1.57)--(-.1,1.57) node[left]{$\frac{\pi}{2}$};
+    \draw (0,-1.57)--(-.1,-1.57) node[left]{$-\frac{\pi}{2}$};
+    \draw[smooth,domain=-1.56:1.56] plot ({sin(\x r)},\x);
+    \draw (.5,1.6) node[right]{$y = \arcsin x$};
+  \end{scope} 
+
+\end{tikzpicture}
+```
