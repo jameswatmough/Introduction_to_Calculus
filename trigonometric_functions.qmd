@@ -78,23 +78,32 @@ The trigonometric, or circular, functions find applications anywhere things osci
 
 ```
 
-# Examples
+## Examples
 
-## Sketching the Basic Trig Functions
+### Sketching the Basic Trig Functions
 
-1. $y = 2 + 3\cos(2x-3)$
+::: {#exr-trig-sketch-1}
 
-::: {.callout-solution collapse=true}
+$y = 2 + 3\cos(2x-3)$
 
-The best approach to sketching functions is to evaluate the function at a few points.  The trick is picking the best points. Since we know the cosine is zero when its input is a multiple of $\pi$, we pick values for $x$ for which $2x-3$, the input to the cosine, is $\pi$.
-That is, solve $2x-3 = \pi$ for $x$.  We find $x = \frac{1}{2}(3+\pi)$.  Of course this is only one muliple of $\pi$.  We said any multiple, so replace $\pi$ by $n\pi$ and let $n$ be any integer.  Similarly, we know the cosine is 1 if its input is $\frac{\pi}{2}$ plus any multiple of $\pi$.  Let's put this all in a table for easy reference.  We'll call the input to the cosine the angle $\theta$, pick values for $\theta$, and then compute $x = \frac{1}{2}(3+\theta)$ and $y = 2 + 3\cos \theta$.
+:::
 
+::: {.callout-tip collapse=true title="solution"}
+
+One aid to sketching functions is to evaluate the function at a few points.  The trick is picking the best points. Since we know the cosine is zero when its input is a multiple of $\pi$, we pick values for $x$ for which $2x-3$, the input to the cosine, is $\pi$.
+That is, solve $2x-3 = \pi$ for $x$.  We find $x = \frac{1}{2}(3+\pi)$.  Of course this is only one multiple of $\pi$.  We said any multiple, so replace $\pi$ by $n\pi$ and let $n$ be any integer.  Similarly, we know the cosine is 1 if its input is $\frac{\pi}{2}$ plus any multiple of $\pi$.  Let's put this all in a table for easy reference.  We'll call the input to the cosine the angle $\theta$, pick values for $\theta$, and then compute $x = \frac{1}{2}(3+\theta)$ and $y = 2 + 3\cos \theta$.
+
+|$\theta$         |$\cos \theta$ |$x$                          | $y$ |
+|:---------------:|-------------:|:---------------------------:|----:|
+|0                | 1            |$\frac{3}{2}$                | 5   |
+|$\frac{\pi}{2}$  | 0            |$\frac{3}{2}+\frac{\pi}{4}$  | 2   |
+|$\pi$            |-1            |$\frac{3}{2}+\frac{\pi}{2}$  | -1  |
 
 :::
 
 2. $y = -2\tan\big(\pi(x-2)\big)$
 
-## Simplifying Trig Functions
+### Simplifying Trig Functions
 
 1. $\sec x \sin x \cot x$
 
