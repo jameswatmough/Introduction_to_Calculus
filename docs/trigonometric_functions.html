@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="James Watmough">
-<meta name="dcterms.date" content="2023-01-14">
+<meta name="dcterms.date" content="2023-09-25">
 
-<title>Introduction to Calculus</title>
+<title>Introduction to Calculus - 2&nbsp; Trigonometric Functions</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +32,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./functions.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./functions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,6 +64,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -75,7 +78,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Math 1003 Fall 2023 Schedule</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./trigonometric_functions.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Trigonometric Functions</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -102,7 +105,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Math 1003 Fall 2023 Schedule</span></a>
   </div>
 </li>
@@ -114,7 +117,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./trigonometric_functions.html" class="sidebar-item-text sidebar-link">
+  <a href="./trigonometric_functions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Trigonometric Functions</span></span></a>
   </div>
 </li>
@@ -134,7 +137,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#math-1003-fall-2023-schedule" id="toc-math-1003-fall-2023-schedule" class="nav-link active" data-scroll-target="#math-1003-fall-2023-schedule">Math 1003 Fall 2023 Schedule</a></li>
+  <li><a href="#assumed-background-knowledge" id="toc-assumed-background-knowledge" class="nav-link active" data-scroll-target="#assumed-background-knowledge"><span class="header-section-number">2.1</span> Assumed Background Knowledge</a></li>
+  <li><a href="#definitions-of-the-sine-and-cosine" id="toc-definitions-of-the-sine-and-cosine" class="nav-link" data-scroll-target="#definitions-of-the-sine-and-cosine"><span class="header-section-number">2.2</span> Definitions of the sine and cosine</a></li>
+  <li><a href="#coordinates-on-a-circle" id="toc-coordinates-on-a-circle" class="nav-link" data-scroll-target="#coordinates-on-a-circle"><span class="header-section-number">2.3</span> Coordinates on a Circle</a></li>
+  <li><a href="#ratios-of-sides-of-right-triangles" id="toc-ratios-of-sides-of-right-triangles" class="nav-link" data-scroll-target="#ratios-of-sides-of-right-triangles"><span class="header-section-number">2.4</span> Ratios of sides of Right Triangles</a></li>
+  <li><a href="#examples" id="toc-examples" class="nav-link" data-scroll-target="#examples"><span class="header-section-number">3</span> Examples</a>
+  <ul class="collapse">
+  <li><a href="#sketching-the-basic-trig-functions" id="toc-sketching-the-basic-trig-functions" class="nav-link" data-scroll-target="#sketching-the-basic-trig-functions"><span class="header-section-number">3.1</span> Sketching the Basic Trig Functions</a></li>
+  <li><a href="#simplifying-trig-functions" id="toc-simplifying-trig-functions" class="nav-link" data-scroll-target="#simplifying-trig-functions"><span class="header-section-number">3.2</span> Simplifying Trig Functions</a></li>
+  <li><a href="#inverse-trigonometric-functions" id="toc-inverse-trigonometric-functions" class="nav-link" data-scroll-target="#inverse-trigonometric-functions"><span class="header-section-number">3.3</span> Inverse Trigonometric Functions</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -143,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Calculus</h1>
+<h1 class="title"><span id="sec-trig-fun" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Trigonometric Functions</span></span></h1>
 </div>
 
 
@@ -160,7 +172,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 14, 2023</p>
+      <p class="date">September 25, 2023</p>
     </div>
   </div>
   
@@ -170,309 +182,138 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="math-1003-fall-2023-schedule" class="level1 unnumbered">
-<h1 class="unnumbered">Math 1003 Fall 2023 Schedule</h1>
-<p>During the term we will work our way through the first 4 chapters the two texts:</p>
+<p>The trigonometric, or circular, functions find applications anywhere things oscillate. Vibrating strings, water waves, seasonal temperatures or daily variations in light intensity are all examples where periodic functions arise.</p>
+<section id="assumed-background-knowledge" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="assumed-background-knowledge"><span class="header-section-number">2.1</span> Assumed Background Knowledge</h2>
 <ul>
-<li><a href="https://opentext.uleth.ca/apex-calculus/apex-calculus.html">Apex Calculus</a></li>
-<li><a href="https://openstax.org/details/books/calculus-volume-1">Openstax Calculus Volume I</a></li>
+<li><p>You should be familiar with most of the material in <a href="https://openstax.org/books/calculus-volume-1/pages/1-3-trigonometric-functions">Openstax Volume 1 Section 1.3</a></p>
+<ul>
+<li>Convert angle measures between degrees and radians.</li>
+<li>Recognize the triangular and circular definitions of the basic trigonometric functions.</li>
+<li>Write the basic trigonometric identities.</li>
+<li>Identify the graphs and periods of the trigonometric functions.</li>
+<li>Describe the shift of a sine or cosine graph from the equation of the function.</li>
+</ul></li>
+<li><p>In particular, make sure you understand the connection of the 6 basic trig functions to a point on a unit circle and to triangles. See <a href="https://openstax.org/books/calculus-volume-1/pages/1-3-trigonometric-functions#CNX_Calc_Figure_01_03_007">Figure 1.33</a> in Openstax.</p></li>
 </ul>
-<p>In the table below, the numbers in the columns <strong>Apex</strong> and <strong>Stax</strong> refer to sections in the two texts. Links in the <strong>Section</strong> column should take you to relevant sections in James Watmough’s lecture notes. Note this schedule is <strong>tentative</strong> and will see minor updates throughout the term.</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Date</th>
-<th style="text-align: left;">Section</th>
-<th style="text-align: left;">Apex</th>
-<th style="text-align: left;">Stax</th>
-<th style="text-align: left;">Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Wed Sep 06</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">2.1</td>
-<td style="text-align: left;">Course Overview</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Sep 08</td>
-<td style="text-align: left;"><a href="functions.html"><span>Chapter&nbsp;1</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.1</td>
-<td style="text-align: left;">Functions and Graphs</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Sep 11</td>
-<td style="text-align: left;"><a href="functions.html"><span>Chapter&nbsp;1</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.2</td>
-<td style="text-align: left;">Functions and Graphs</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Sep 13</td>
-<td style="text-align: left;"><a href="functions.html"><span>Chapter&nbsp;1</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.2</td>
-<td style="text-align: left;">Functions and Graphs</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Fri Sep 15</td>
-<td style="text-align: left;"><a href="functions.html"><span>Chapter&nbsp;1</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.4</td>
-<td style="text-align: left;">Composite Functions</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mon Sep 18</td>
-<td style="text-align: left;"><a href="functions.html"><span>Chapter&nbsp;1</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.4</td>
-<td style="text-align: left;">Inverse Functions</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Wed Sep 20</td>
-<td style="text-align: left;"><a href="functions.html"><span>Chapter&nbsp;1</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.5</td>
-<td style="text-align: left;">Exponentials and Logarithmics</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Sep 22</td>
-<td style="text-align: left;"><a href="trigonometric_functions.html"><span>Chapter&nbsp;2</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.3</td>
-<td style="text-align: left;">Trigonometric Functions</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Sep 25</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1.1</td>
-<td style="text-align: left;">2.1-2.5</td>
-<td style="text-align: left;">Limits and Continuity</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Sep 27</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1.2</td>
-<td style="text-align: left;">2.1-2.5</td>
-<td style="text-align: left;">Limits and Continuity</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Fri Sep 29</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1.3</td>
-<td style="text-align: left;">2.1-2.5</td>
-<td style="text-align: left;">Finding Limits Analytically</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mon Oct 02</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1.4</td>
-<td style="text-align: left;">2.1-2.5</td>
-<td style="text-align: left;">One Sided Limits</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Wed Oct 04</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1.5</td>
-<td style="text-align: left;">2.1-2.5</td>
-<td style="text-align: left;">Limits and Continuity</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Oct 06</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">3.1</td>
-<td style="text-align: left;">3.1</td>
-<td style="text-align: left;">The Extreme Value Theorem</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Oct 09</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><strong>No Classes</strong> (Thanksgiving)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Oct 11</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1.6</td>
-<td style="text-align: left;">2.1-2.5</td>
-<td style="text-align: left;">Infinity and Beyond!</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Fri Oct 13</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mon Oct 16</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Wed Oct 18</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Oct 20</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Oct 23</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Oct 25</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Fri Oct 27</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mon Oct 30</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Wed Nov 01</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Nov 03</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Nov 06</td>
-<td style="text-align: left;">Reading Week</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Nov 08</td>
-<td style="text-align: left;">Reading Week</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Fri Nov 10</td>
-<td style="text-align: left;">Reading Week</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mon Nov 13</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Wed Nov 15</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Nov 17</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Nov 20</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Nov 22</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Fri Nov 24</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mon Nov 27</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Wed Nov 29</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Dec 01</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Dec 04</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Dec 06</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+</section>
+<section id="definitions-of-the-sine-and-cosine" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="definitions-of-the-sine-and-cosine"><span class="header-section-number">2.2</span> Definitions of the sine and cosine</h2>
+</section>
+<section id="coordinates-on-a-circle" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="coordinates-on-a-circle"><span class="header-section-number">2.3</span> Coordinates on a Circle</h2>
+<ul>
+<li><p>Consider the relation <span class="math inline">\(x^2+y^2=1\)</span>.</p></li>
+<li><p>We define the <em>cosine</em> and <em>sine</em> functions to be the <span class="math inline">\(x\)</span>- and <span class="math inline">\(y\)</span>-coordinates of the point as a function of the distance travelled counter-clockwise around the circle from the point (1,0).</p></li>
+</ul>
+<div class="columns">
+<div class="column" style="width:60%;">
+<!-- replace this with a high res png version using the standalone document style in latex -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-trig-functions-circle" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><embed src="trigonometric_functions_files/figure-html/fig-trig-functions-circle-1.pdf" class="img-fluid" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.1: Defining the sine and cosine functions using a circle</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<p><a href="https://www.desmos.com/calculator/lmsgduhked">Desmos link</a></p>
+</div>
+</div>
+</section>
+<section id="ratios-of-sides-of-right-triangles" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="ratios-of-sides-of-right-triangles"><span class="header-section-number">2.4</span> Ratios of sides of Right Triangles</h2>
+<!-- replace this with a high res png version using the standalone document style in latex -->
+<div class="cell">
+<div class="cell-output-display">
+<div id="fig-trig-functions-triangle" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><embed src="trigonometric_functions_files/figure-html/fig-trig-functions-triangle-1.pdf" class="img-fluid" width="672"></p>
+<figcaption class="figure-caption">Figure&nbsp;2.2: Defining the sine and cosine functions using a triangle</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="examples" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Examples</h1>
+<section id="sketching-the-basic-trig-functions" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="sketching-the-basic-trig-functions"><span class="header-section-number">3.1</span> Sketching the Basic Trig Functions</h2>
+<ol type="1">
+<li><span class="math inline">\(y = 2 + 3\cos(2x-3)\)</span></li>
+</ol>
+<div class="callout-solution" data-collapse="true">
+<p>The best approach to sketching functions is to evaluate the function at a few points. The trick is picking the best points. Since we know the cosine is zero when its input is a multiple of <span class="math inline">\(\pi\)</span>, we pick values for <span class="math inline">\(x\)</span> for which <span class="math inline">\(2x-3\)</span>, the input to the cosine, is <span class="math inline">\(\pi\)</span>. That is, solve <span class="math inline">\(2x-3 = \pi\)</span> for <span class="math inline">\(x\)</span>. We find <span class="math inline">\(x = \frac{1}{2}(3+\pi)\)</span>. Of course this is only one muliple of <span class="math inline">\(\pi\)</span>. We said any multiple, so replace <span class="math inline">\(\pi\)</span> by <span class="math inline">\(n\pi\)</span> and let <span class="math inline">\(n\)</span> be any integer. Similarly, we know the cosine is 1 if its input is <span class="math inline">\(\frac{\pi}{2}\)</span> plus any multiple of <span class="math inline">\(\pi\)</span>. Let’s put this all in a table for easy reference. We’ll call the input to the cosine the angle <span class="math inline">\(\theta\)</span>, pick values for <span class="math inline">\(\theta\)</span>, and then compute <span class="math inline">\(x = \frac{1}{2}(3+\theta)\)</span> and <span class="math inline">\(y = 2 + 3\cos \theta\)</span>.</p>
+</div>
+<ol start="2" type="1">
+<li><span class="math inline">\(y = -2\tan\big(\pi(x-2)\big)\)</span></li>
+</ol>
+</section>
+<section id="simplifying-trig-functions" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="simplifying-trig-functions"><span class="header-section-number">3.2</span> Simplifying Trig Functions</h2>
+<ol type="1">
+<li><p><span class="math inline">\(\sec x \sin x \cot x\)</span></p></li>
+<li><p><span class="math inline">\(\sec x - \cos x\)</span></p></li>
+<li><p><span class="math inline">\(\dfrac{1 + \tan^2 \alpha}{1 + \cot^2\alpha}\)</span></p></li>
+<li><p><span class="math inline">\(\dfrac{\sin x} {\cos x + 1} + \dfrac{\cos x - 1}{\sin x}\)</span></p></li>
+</ol>
+<p>The last one is prob 150 in open stax. Add brackets to <strong>remove those ambiguities!</strong></p>
+</section>
+<section id="inverse-trigonometric-functions" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="inverse-trigonometric-functions"><span class="header-section-number">3.3</span> Inverse Trigonometric Functions</h2>
+<p>The trigonometric functions and their inverses arise in a wide variety of problems involving triangles, lengths of curves and areas of surfaces. Typical problems lead to triangles where the length of one of the sides is variable and one of the sides is fixed.</p>
+<p>A variety of notations are used for the inverse trig functions. The inverse of the sine function is denoted by <span class="math inline">\(\sin^{-1}\)</span> or <span class="math inline">\(\arcsin\)</span>. In computer languages, the short form <code>asin</code> is often used. Similar notations are used for the other standard trig functions.</p>
+<div id="exm-inverse-trig-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.1 </strong></span>Suppose one end of a beam of unit length is lifted a height <span class="math inline">\(x\)</span> off the ground.</p>
+<ul>
+<li>Find the horizontal distance between the ends of the beam.<br>
+</li>
+<li>Find the angle the beam makes with the ground.</li>
+</ul>
+<p>Label the vertical of a right triangle as the dependent variable <span class="math inline">\(x\)</span> and the hypotenuse with the fixed unit length.</p>
+<div class="cell" height="500">
+<div class="cell-output-display">
+<p><embed src="trigonometric_functions_files/figure-html/unnamed-chunk-3-1.pdf" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><span class="math display">\[x = \sin(y)\]</span> <span class="math display">\[\sqrt{1-x^2} = \cos(y)\]</span> <span class="math display">\[\tan y = \frac{x}{\sqrt{1-x^2}}\]</span></p>
+<p>The horizontal distance between the ends of the beam is <span class="math inline">\(\sqrt{1-x^2}\)</span>, based on Pythagoras’ theorem. The angle <span class="math inline">\(y\)</span> is denoted by the inverse function <span class="math inline">\(\sin^{-1}(x)\)</span>. At this point we do not have an algorithm or rule for computing the inverse sine function, other than by use of a ruler and protractor. We will learn methods for estimating values of this function towards the end of this course.</p>
+</div>
+<div id="exm-inverse-trig-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.2 </strong></span>Suppose a boat is being pulled towards a dock. Find the horizontal distance between the boat and the dock, the length of the rope played out and the angle the rope makes with the horizontal.</p>
+<p>The rope is the hypotenuse of a triangle, and its length is variable. We can assume the height of the rope at the dock is 1 unit.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><embed src="trigonometric_functions_files/figure-html/unnamed-chunk-4-1.pdf" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><span class="math display">\[x = \csc(y)\]</span> <span class="math display">\[\sqrt{x^2-1} = \cot(y)\]</span></p>
+</div>
+<div id="exm-inverse-trig-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.3 </strong></span>A third common scenario involves a balloon rising vertically. Here the base of the triangle is the fixed length and the vertical is variable.</p>
+<div class="cell">
+<div class="cell-output-display">
+<p><embed src="trigonometric_functions_files/figure-html/unnamed-chunk-5-1.pdf" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><span class="math display">\[x = \tan(y)\]</span> <span class="math display">\[\sqrt{1+x^2} = \sec(y)\]</span></p>
+</div>
+<div id="exr-inverse-trig-1" class="theorem exercise">
+<p><span class="theorem-title"><strong>Exercise 3.1 </strong></span>Use the above relations to verify the following strange identities.</p>
+<p><span class="math display">\[x = \sin(\cos^{-1}(\sqrt{1-x^2})\]</span> <span class="math display">\[x = \cot(\csc^{-1}(\sqrt{x^2-1})\]</span> <span class="math display">\[x = \tan(\sec^{-1}(\sqrt{1+x^2})\]</span></p>
+<p>Care must be taken in choosing the domain and range of the trig functions and their inverses. These are always problem dependent. Common choices for sine and cosine are shown in the graphs below.</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<p><embed src="trigonometric_functions_files/figure-html/unnamed-chunk-6-1.pdf" class="img-fluid" width="672"></p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -711,10 +552,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./functions.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Functions and Models</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./functions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Functions and Models</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
