@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 
 {{< include texmacros.qmd >}}
 
-# Limits and Continuity
+# Limits and Continuity {#sec-continuity}
 
 ## Discontinuities 
 
