@@ -10,6 +10,7 @@ book:
     - index.qmd
     - functions.qmd
     - trigonometric_functions.qmd 
+    - continuity.qmd
     - references.qmd
 
 bibliography: references.bib
@@ -21,6 +22,9 @@ format:
     theme: cosmo
   pdf:
     documentclass: lecturenotes-md
+
+execute:
+  freeze: auto
 
 
 

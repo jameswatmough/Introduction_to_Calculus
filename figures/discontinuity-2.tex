@@ -1,0 +1,19 @@
+\documentclass{standalone}
+\usepackage{tikz}
+
+\begin{document}
+
+\begin{tikzpicture}[scale=1.2]
+  \begin{scope}[yshift=5cm,xshift=5cm,smooth,thick]
+    \draw[draw=none, use as bounding box] (-1,-1) rectangle (5,5);
+    \draw[color=gray,thin] (0,0) grid (4,4);
+    \draw[domain=0:1.9] plot (\x,{2+.2*(1/(2-\x))});
+    \draw[domain=2.1:4] plot (\x,{2+.2*(1/(2-\x))});
+    %\draw[fill] (2,2) circle(.05);
+    \draw[->] (0,0) -- (4.1,0);
+    \draw (2,0)--(2,-.1) node[below]{$a$};
+    \draw[->] (0,0) -- (0,4.1);
+  \end{scope}
+\end{tikzpicture}
+
+\end{document}
