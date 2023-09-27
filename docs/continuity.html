@@ -143,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#discontinuities" id="toc-discontinuities" class="nav-link active" data-scroll-target="#discontinuities"><span class="header-section-number">3.1</span> Discontinuities</a></li>
-  <li><a href="#continuity" id="toc-continuity" class="nav-link" data-scroll-target="#continuity"><span class="header-section-number">3.2</span> Continuity</a></li>
+  <li><a href="#continuous-functions" id="toc-continuous-functions" class="nav-link" data-scroll-target="#continuous-functions"><span class="header-section-number">3.2</span> Continuous Functions</a></li>
   </ul>
 </nav>
     </div>
@@ -245,18 +245,31 @@ a sharp difference of characteristics between parts of something
 <p></p><figcaption class="figure-caption">Figure&nbsp;3.2: Discontinuities break up neighbourhoods</figcaption><p></p>
 </figure>
 </div>
-<p>To make this notion precise, it helps to introduce some terminology.</p>
-<dl>
-<dt>Neighbourhoods</dt>
-<dd>
-Given a point <span class="math inline">\(a\)</span> and a (small) positive number <span class="math inline">\(\delta\)</span> we’ll call the open interval of points <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span> for which <span class="math inline">\(0 &lt; |x-a| &lt; \delta\)</span> a <em>neighbourhood</em> of <span class="math inline">\(a\)</span>. Notice, this is simply the set of points within a distance <span class="math inline">\(\delta\)</span> of the point <span class="math inline">\(a\)</span>.
-</dd>
-</dl>
-<p>Now we can say that a function, <span class="math inline">\(f\)</span>, has a discontinuity at a point <span class="math inline">\(a\)</span> if either</p>
-<ol type="i">
-<li>the function is defined in a neighbourhood of <span class="math inline">\(a\)</span>, but isn’t defined at <span class="math inline">\(a\)</span></li>
-<li>the outputs of <span class="math inline">\(f\)</span> for inputs in a neighbourhood of <span class="math inline">\(a\)</span> are split into two separate intervals (a jump) are are unbounded (a vertical asymptote), or simply lie outside a neighbourhood of <span class="math inline">\(f(a)\)</span> (a hole).</li>
-</ol>
+</section>
+<section id="continuous-functions" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="continuous-functions"><span class="header-section-number">3.2</span> Continuous Functions</h2>
+<p>Functions with discontinuities are useful modelling tools, but they can also be difficult to analyze. It is important to know where functions are continuous and how they behave near discontinuities. We will learn to characterize discontinuities using limits, but first let’s clarify our notion of continuity of functions.</p>
+<p>Our goal is to make the following statement precise.</p>
+<blockquote class="blockquote">
+<p>A continuous function is one with no holes, jumps or seriously wiggly bits.</p>
+</blockquote>
+<p>Other common intuitive definitions of continuity, are</p>
+<blockquote class="blockquote">
+<p>a function <span class="math inline">\(f\)</span> is continuous at a point <span class="math inline">\(a\)</span> if <span class="math inline">\(f(x)\)</span> is close to <span class="math inline">\(f(a)\)</span> whenever <span class="math inline">\(x\)</span> is close to <span class="math inline">\(a\)</span>, a function <span class="math inline">\(f\)</span> is continuous if it can be drawn without lifting your pencil from the paper.</p>
+</blockquote>
+<p>To make this notion precise, it helps to (re)introduce some terminology.</p>
+<div id="def-neighbourhood" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.1 (Neighbourhood of a point) </strong></span>For our purposes, a <em>neighbourhood</em> of <span class="math inline">\(a\)</span> is any open interval containing <span class="math inline">\(a\)</span>. This will typically be the set of all points within some distance, say <span class="math inline">\(\delta\)</span>, of <span class="math inline">\(a\)</span>. That is, the interval <span class="math inline">\(\left\{x \ \left|\ \strut |x-a|&lt;\delta\right.\right\}\)</span>.</p>
+<p>More generally, given a point <span class="math inline">\(a\)</span> and a set <span class="math inline">\(X\)</span> we say a subset <span class="math inline">\(U\)</span> of <span class="math inline">\(X\)</span> is a <em>neighbourhood</em> of <span class="math inline">\(a\)</span> in <span class="math inline">\(X\)</span> if <span class="math inline">\(U\)</span> contains all the points of <span class="math inline">\(X\)</span> in some open interval containing <span class="math inline">\(a\)</span>.</p>
+</div>
+<div id="def-images" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.2 (Image of a set) </strong></span>Given a function <span class="math inline">\(f\)</span> and a subset <span class="math inline">\(U\)</span> of the domain of <span class="math inline">\(f\)</span>, the <em>image</em> of <span class="math inline">\(U\)</span> under <span class="math inline">\(f\)</span> is the set of all outputs reached by inputs in <span class="math inline">\(U\)</span>. This image is often denoted simply by <span class="math inline">\(f(U)\)</span>. That is, <span class="math display">\[f(U) = \left\{f(x) \ \left|\ \strut x\in U\right.\right\}.\]</span> The <em>preimage</em> or <em>inverse image</em> of a subset <span class="math inline">\(V\)</span> of the codomain of <span class="math inline">\(f\)</span>, denoted by <span class="math inline">\(f^{-1}(V)\)</span>, is the set of all inputs whose corresponding outputs are in <span class="math inline">\(V\)</span>. That is, <span class="math display">\[f^{-1}(V) = \left\{x \ \left|\ \strut \text{$y=f(x)$ for some $y \in V$}\right.\right\}.\]</span></p>
+</div>
+<div id="def-continuous-function" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.3 (Continuous functions) </strong></span>A function <span class="math inline">\(f\)</span> is continuous at a point <span class="math inline">\(c\)</span> in its domain if every neighbourhood of <span class="math inline">\(f(a)\)</span> contains the image of some neighbourhood of <span class="math inline">\(a\)</span> in the domain of <span class="math inline">\(f\)</span>.</p>
+<p>A function <span class="math inline">\(f\)</span> is continuous on its domain, or simply, continuous, if it is continuous at every point in its domain.</p>
+</div>
+<p>We say <span class="math inline">\(f\)</span> has a <em>discontinuity</em> at a point, or <span class="math inline">\(f\)</span> is discontinuous at a point, if <span class="math inline">\(f\)</span> isn’t continuous at that point.</p>
 <div id="exm-discon-1" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.1 </strong></span>Consider the (piecewise) function <span class="math inline">\(f\)</span> defined by <span class="math display">\[f(x) = \begin{cases}
 x+1 &amp; -1 \le x &lt; 0 \\
@@ -264,7 +277,7 @@ x^2 &amp; 0 \le x \le 1
 \end{cases}\]</span></p>
 <p>Does <span class="math inline">\(f\)</span> have a discontinuity at <span class="math inline">\(0\)</span>?</p>
 </div>
-<p>To test this with our definition of a neighbourhood, we’ll let <span class="math inline">\(\delta\)</span> be a small positive number and evaluate <span class="math inline">\(f(x)\)</span> for <span class="math inline">\(-\delta &lt; x &lt; \delta\)</span>. This interval is our <em>neighbourhood</em> of 0. Well, technically the neighbourhood plus the number <span class="math inline">\(0\)</span>.</p>
+<p>To test this with our definition of neighbourhoods and continuity, we’ll let <span class="math inline">\(\delta\)</span> be a small positive number and evaluate <span class="math inline">\(f(x)\)</span> for <span class="math inline">\(-\delta &lt; x &lt; \delta\)</span>. This interval is our <em>neighbourhood</em> of 0.</p>
 <p>We need to evaluate <span class="math inline">\(f\)</span> in separately for the two pieces.</p>
 <ul>
 <li>If <span class="math inline">\(-\delta &lt; x &lt; 0\)</span>, then <span class="math inline">\(1-\delta &lt; x+1 &lt; 1\)</span>, so <span class="math inline">\(1-\delta &lt; f(x) &lt; 1\)</span>.</li>
@@ -272,6 +285,7 @@ x^2 &amp; 0 \le x \le 1
 <li>If <span class="math inline">\(x=0\)</span>, <span class="math inline">\(f(x) = 0\)</span></li>
 </ul>
 <p>So the right half of our neighbourhood of 0 is near <span class="math inline">\(f(0)\)</span>, but if <span class="math inline">\(\delta &lt; 1\)</span>, then the left half is not near <span class="math inline">\(f(0)\)</span>, it’s near 1. We have a jump discontinuity.</p>
+<p>Notice how this example reverses the logic of our definition of continuity. The definition states that every neighbourhood of <span class="math inline">\(f(a)\)</span> contains an image of <em>some</em> neighbourhood of <span class="math inline">\(a\)</span>. Thus to show a function is continuous we first specify an arbitrary tolerance for how close the function should be to <span class="math inline">\(f(a)\)</span> and then check how close points must be to <span class="math inline">\(a\)</span> to ensure they land close to <span class="math inline">\(f(a)\)</span>. Since our function <span class="math inline">\(f\)</span> in this example splits neighbourhoods of 0 into two pieces, one near 0 and one near 1, it can’t satisfy the requirements of the definition.</p>
 <div id="exm-discon-2" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.2 </strong></span>Consider the (piecewise) function <span class="math inline">\(f\)</span> defined by <span class="math display">\[f(x) = \begin{cases}
 x+1 &amp; -1 \le x &lt; 0 \\
@@ -283,28 +297,7 @@ x+1 &amp; -1 \le x &lt; 0 \\
 <ul>
 <li>If <span class="math inline">\(0 &lt; x &lt; \delta\)</span>, then <span class="math inline">\(1 &lt; 1-x^2 &lt; 1-\delta^2\)</span>, so <span class="math inline">\(1 &lt; f(x) &lt; 1-\delta^2\)</span>.</li>
 </ul>
-<p>For this example, <span class="math inline">\(f(0) = 1\)</span> and the image of a neighbourhood of 0 stays in a neighbourhood of <span class="math inline">\(f(0)\)</span>. There is no discontinuity at 0 (see <span class="quarto-unresolved-ref">?fig-exm-discon-2</span>).</p>
-</section>
-<section id="continuity" class="level2" data-number="3.2">
-<h2 data-number="3.2" class="anchored" data-anchor-id="continuity"><span class="header-section-number">3.2</span> Continuity</h2>
-<p>Our goal is to make the following statement precise.</p>
-<blockquote class="blockquote">
-<p>A continuous function is one with no holes, jumps or seriously wiggly bits.</p>
-</blockquote>
-<p>Other common intuitive definitions of continuity, are</p>
-<blockquote class="blockquote">
-<p>a function <span class="math inline">\(f\)</span> is continuous at a point <span class="math inline">\(a\)</span> if <span class="math inline">\(f(x)\)</span> is close to <span class="math inline">\(f(a)\)</span> whenever <span class="math inline">\(x\)</span> is close to <span class="math inline">\(a\)</span>, a function <span class="math inline">\(f\)</span> is continuous if it can be drawn without lifting your pencil from the paper.</p>
-</blockquote>
-<p>Following on the examples of discontinuities and the study of how a function acts on neighbourhoods of a point leads to the classic <em>epsilon-delta</em> definition of continuity.</p>
-<div id="def-epsilon-delta-continuity" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.1 </strong></span>A function <span class="math inline">\(f\)</span> is continuous at a point <span class="math inline">\(a\)</span> if for every <span class="math inline">\(\epsilon&gt;0\)</span> there is a <span class="math inline">\(\delta&gt;0\)</span> for which <span class="math display">\[|f(x) - f(a)| &lt; \epsilon \quad \text{whenever} \quad x\in N_\delta\]</span> where <span class="math inline">\(N_\delta\)</span> is the set of all points <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span> for which <span class="math inline">\(0 &lt; |x-a|&lt;\delta\)</span></p>
-</div>
-<p>The interval <span class="math inline">\(f(a)\pm\epsilon\)</span> is a set of points <em>close</em> to <span class="math inline">\(L\)</span>, and the <em>neighbourhood</em> of <span class="math inline">\(a\)</span> is a set of points in the domain of <span class="math inline">\(f\)</span> that are <em>close</em> to <span class="math inline">\(a\)</span>.</p>
-<p>Notice how the definition reverses the logic used in the previous examples. The definition states that every neighbourhood of <span class="math inline">\(f(a)\)</span> contains an image of <em>some</em> neighbourhood of <span class="math inline">\(a\)</span>. Thus to show a function is continuous we first specify an arbitrary tolerance for how close the function should be to <span class="math inline">\(f(a)\)</span> and then check how close points must be to <span class="math inline">\(a\)</span> to ensure they land close to <span class="math inline">\(f(a)\)</span>.</p>
-<p>In some cases, <span class="math inline">\(f\)</span> keeps point near <span class="math inline">\(a\)</span> close together, but not near <span class="math inline">\(f(a)\)</span>. This leads us to the notion of a limit of a function. Notice the similarities and differences between the definition of continuity above and the following definition of a <em>limit</em> of a function.</p>
-<div id="def-epsilon-delta-limit" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.2 </strong></span>A function <span class="math inline">\(f\)</span> has the limit <span class="math inline">\(L\)</span> at a point <span class="math inline">\(a\)</span> if for every <span class="math inline">\(\epsilon&gt;0\)</span> there is a <span class="math inline">\(\delta&gt;0\)</span> for which <span class="math display">\[|f(x) - L| &lt; \epsilon \quad \text{whenever} \quad x\in N_\delta\]</span> where <span class="math inline">\(N_\delta\)</span> is the set of all points <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span> for which <span class="math inline">\(0 &lt; |x-a|&lt;\delta\)</span></p>
-</div>
+<p>For this example, <span class="math inline">\(f(0) = 1\)</span> and the image of a neighbourhood of 0 stays in a neighbourhood of <span class="math inline">\(f(0)\)</span>. Hence <span class="math inline">\(f\)</span> is continuous at 0.</p>
 
 
 </section>
