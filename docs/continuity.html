@@ -7,9 +7,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="James Watmough">
-<meta name="dcterms.date" content="2023-01-14">
 
-<title>Introduction to Calculus</title>
+<title>Introduction to Calculus - 3&nbsp; Limits and Continuity</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -32,7 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./functions.html" rel="next">
+<link href="./references.html" rel="next">
+<link href="./trigonometric_functions.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -63,6 +63,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -75,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Math 1003 Fall 2023 Schedule</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./continuity.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Limits and Continuity</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -102,7 +104,7 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Math 1003 Fall 2023 Schedule</span></a>
   </div>
 </li>
@@ -120,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./continuity.html" class="sidebar-item-text sidebar-link">
+  <a href="./continuity.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Limits and Continuity</span></span></a>
   </div>
 </li>
@@ -140,7 +142,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#math-1003-fall-2023-schedule" id="toc-math-1003-fall-2023-schedule" class="nav-link active" data-scroll-target="#math-1003-fall-2023-schedule">Math 1003 Fall 2023 Schedule</a></li>
+  <li><a href="#discontinuities" id="toc-discontinuities" class="nav-link active" data-scroll-target="#discontinuities"><span class="header-section-number">3.1</span> Discontinuities</a></li>
+  <li><a href="#continuity" id="toc-continuity" class="nav-link" data-scroll-target="#continuity"><span class="header-section-number">3.2</span> Continuity</a></li>
   </ul>
 </nav>
     </div>
@@ -149,7 +152,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Introduction to Calculus</h1>
+<h1 class="title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Limits and Continuity</span></h1>
 </div>
 
 
@@ -166,7 +169,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">January 14, 2023</p>
+      <p class="date">Invalid Date</p>
     </div>
   </div>
   
@@ -176,307 +179,132 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="math-1003-fall-2023-schedule" class="level1 unnumbered">
-<h1 class="unnumbered">Math 1003 Fall 2023 Schedule</h1>
-<p>During the term we will work our way through the first 4 chapters the two texts:</p>
+<section id="discontinuities" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="discontinuities"><span class="header-section-number">3.1</span> Discontinuities</h2>
+<dl>
+<dt>Discontinuity (according to Google)</dt>
+<dd>
+a sharp difference of characteristics between parts of something
+</dd>
+</dl>
+<p>Discontinuities are all around us: the edges of sidewalks, potholes in the road, sudden losses of power. To model discontinuities, we need functions with discontinuities. There are several types of discontinuities that appear in functions. Three of the most common are <em>jumps</em>, <em>vertical asymptotes</em> and <em>holes</em>. In a jump discontinuity, the left and right parts of a function are smooth, but the two parts don’t meet (see <a href="#fig-discon-jump">Figure&nbsp;<span>3.1 (a)</span></a>). These are useful to model switches, boundaries, or sudden shifts in outputs. A vertical asymptote where a function <em>goes to infinity</em> for some inputs (see <a href="#fig-discon-pole">Figure&nbsp;<span>3.1 (b)</span></a>). A third type of discontinuity we’ll call a hole occurs when the two sides of a function are smooth and line up, but the function either isn’t defined or is completely out of line in the middle (see <a href="#fig-discon-hole">Figure&nbsp;<span>3.1 (c)</span></a>).</p>
+<div id="fig-discontinuities" class="quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-discon-jump" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/discontinuity-1.png" class="img-fluid figure-img" data-ref-parent="fig-discontinuities"></p>
+<figcaption class="figure-caption">(a) A jump discontinuity</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-discon-pole" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/discontinuity-2.png" class="img-fluid figure-img" data-ref-parent="fig-discontinuities"></p>
+<figcaption class="figure-caption">(b) A vertical asymptote</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-discon-hole" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/discontinuity-3.png" class="img-fluid figure-img" data-ref-parent="fig-discontinuities"></p>
+<figcaption class="figure-caption">(c) A hole</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-discon-none" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/discontinuity-4.png" class="img-fluid figure-img" data-ref-parent="fig-discontinuities"></p>
+<figcaption class="figure-caption">(d) No discontinuities</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.1: Three Common Discontinuities</figcaption><p></p>
+</figure>
+</div>
+<p>The common characteristic of a discontinuity in a function is that the outputs of the function for points in the domain near the discontinuity, are not close together. For example, if a function has a jump discontinuity at some point, <span class="math inline">\(a\)</span>, then the outputs of the function for inputs near <span class="math inline">\(a\)</span> are split into two separate intervals (see <a href="#fig-discon-jump-interval">Figure&nbsp;<span>3.2 (a)</span></a>)</p>
+<div id="fig-disc-intervals" class="quarto-layout-panel">
+<figure class="figure">
+<div class="quarto-layout-row quarto-layout-valign-top">
+<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
+<div id="fig-discon-jump-interval" class="quarto-figure quarto-figure-center anchored">
+<figure class="figure">
+<p><img src="figures/discontinuity-1b.png" class="img-fluid figure-img" data-ref-parent="fig-disc-intervals"></p>
+<figcaption class="figure-caption">(a)</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p></p><figcaption class="figure-caption">Figure&nbsp;3.2: Discontinuities break up neighbourhoods</figcaption><p></p>
+</figure>
+</div>
+<p>To make this notion precise, it helps to introduce some terminology.</p>
+<dl>
+<dt>Neighbourhoods</dt>
+<dd>
+Given a point <span class="math inline">\(a\)</span> and a (small) positive number <span class="math inline">\(\delta\)</span> we’ll call the open interval of points <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span> for which <span class="math inline">\(0 &lt; |x-a| &lt; \delta\)</span> a <em>neighbourhood</em> of <span class="math inline">\(a\)</span>. Notice, this is simply the set of points within a distance <span class="math inline">\(\delta\)</span> of the point <span class="math inline">\(a\)</span>.
+</dd>
+</dl>
+<p>Now we can say that a function, <span class="math inline">\(f\)</span>, has a discontinuity at a point <span class="math inline">\(a\)</span> if either</p>
+<ol type="i">
+<li>the function is defined in a neighbourhood of <span class="math inline">\(a\)</span>, but isn’t defined at <span class="math inline">\(a\)</span></li>
+<li>the outputs of <span class="math inline">\(f\)</span> for inputs in a neighbourhood of <span class="math inline">\(a\)</span> are split into two separate intervals (a jump) are are unbounded (a vertical asymptote), or simply lie outside a neighbourhood of <span class="math inline">\(f(a)\)</span> (a hole).</li>
+</ol>
+<div id="exm-discon-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.1 </strong></span>Consider the (piecewise) function <span class="math inline">\(f\)</span> defined by <span class="math display">\[f(x) = \begin{cases}
+x+1 &amp; -1 \le x &lt; 0 \\
+x^2 &amp; 0 \le x \le 1
+\end{cases}\]</span></p>
+<p>Does <span class="math inline">\(f\)</span> have a discontinuity at <span class="math inline">\(0\)</span>?</p>
+</div>
+<p>To test this with our definition of a neighbourhood, we’ll let <span class="math inline">\(\delta\)</span> be a small positive number and evaluate <span class="math inline">\(f(x)\)</span> for <span class="math inline">\(-\delta &lt; x &lt; \delta\)</span>. This interval is our <em>neighbourhood</em> of 0. Well, technically the neighbourhood plus the number <span class="math inline">\(0\)</span>.</p>
+<p>We need to evaluate <span class="math inline">\(f\)</span> in separately for the two pieces.</p>
 <ul>
-<li><a href="https://opentext.uleth.ca/apex-calculus/apex-calculus.html">Apex Calculus</a></li>
-<li><a href="https://openstax.org/details/books/calculus-volume-1">Openstax Calculus Volume I</a></li>
+<li>If <span class="math inline">\(-\delta &lt; x &lt; 0\)</span>, then <span class="math inline">\(1-\delta &lt; x+1 &lt; 1\)</span>, so <span class="math inline">\(1-\delta &lt; f(x) &lt; 1\)</span>.</li>
+<li>If <span class="math inline">\(0 &lt; x &lt; \delta\)</span>, then <span class="math inline">\(0 &lt; x^2 &lt; \delta^2\)</span>, so <span class="math inline">\(0 &lt; f(x) &lt; \delta^2\)</span>.</li>
+<li>If <span class="math inline">\(x=0\)</span>, <span class="math inline">\(f(x) = 0\)</span></li>
 </ul>
-<p>In the table below, the numbers in the columns <strong>Apex</strong> and <strong>Stax</strong> refer to sections in the two texts. Links in the <strong>Section</strong> column should take you to relevant sections in James Watmough’s lecture notes. Note this schedule is <strong>tentative</strong> and will see minor updates throughout the term.</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: left;">Date</th>
-<th style="text-align: left;">Section</th>
-<th style="text-align: left;">Apex</th>
-<th style="text-align: left;">Stax</th>
-<th style="text-align: left;">Topic</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Wed Sep 06</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">2.1</td>
-<td style="text-align: left;">Course Overview</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Sep 08</td>
-<td style="text-align: left;"><a href="functions.html"><span>Chapter&nbsp;1</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.1</td>
-<td style="text-align: left;">Functions and Graphs</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Sep 11</td>
-<td style="text-align: left;"><a href="functions.html"><span>Chapter&nbsp;1</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.2</td>
-<td style="text-align: left;">Functions and Graphs</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Sep 13</td>
-<td style="text-align: left;"><a href="functions.html"><span>Chapter&nbsp;1</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.2</td>
-<td style="text-align: left;">Functions and Graphs</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Fri Sep 15</td>
-<td style="text-align: left;"><a href="functions.html"><span>Chapter&nbsp;1</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.4</td>
-<td style="text-align: left;">Composite Functions</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mon Sep 18</td>
-<td style="text-align: left;"><a href="functions.html"><span>Chapter&nbsp;1</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.4</td>
-<td style="text-align: left;">Inverse Functions</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Wed Sep 20</td>
-<td style="text-align: left;"><a href="functions.html"><span>Chapter&nbsp;1</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.5</td>
-<td style="text-align: left;">Exponentials and Logarithmics</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Sep 22</td>
-<td style="text-align: left;"><a href="trigonometric_functions.html"><span>Chapter&nbsp;2</span></a></td>
-<td style="text-align: left;">n.a.</td>
-<td style="text-align: left;">1.3</td>
-<td style="text-align: left;">Trigonometric Functions</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Sep 25</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1.1</td>
-<td style="text-align: left;">2.1-2.5</td>
-<td style="text-align: left;">Limits and Continuity</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Sep 27</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1.2</td>
-<td style="text-align: left;">2.1-2.5</td>
-<td style="text-align: left;">Limits and Continuity</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Fri Sep 29</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1.3</td>
-<td style="text-align: left;">2.1-2.5</td>
-<td style="text-align: left;">Finding Limits Analytically</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mon Oct 02</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1.4</td>
-<td style="text-align: left;">2.1-2.5</td>
-<td style="text-align: left;">One Sided Limits</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Wed Oct 04</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1.5</td>
-<td style="text-align: left;">2.1-2.5</td>
-<td style="text-align: left;">Limits and Continuity</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Oct 06</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">3.1</td>
-<td style="text-align: left;">3.1</td>
-<td style="text-align: left;">The Extreme Value Theorem</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Oct 09</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><strong>No Classes</strong> (Thanksgiving)</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Oct 11</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;">1.6</td>
-<td style="text-align: left;">2.1-2.5</td>
-<td style="text-align: left;">Infinity and Beyond!</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Fri Oct 13</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mon Oct 16</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Wed Oct 18</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Oct 20</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Oct 23</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Oct 25</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Fri Oct 27</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mon Oct 30</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Wed Nov 01</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Nov 03</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Nov 06</td>
-<td style="text-align: left;">Reading Week</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Nov 08</td>
-<td style="text-align: left;">Reading Week</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Fri Nov 10</td>
-<td style="text-align: left;">Reading Week</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mon Nov 13</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Wed Nov 15</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Nov 17</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Nov 20</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Nov 22</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Fri Nov 24</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Mon Nov 27</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Wed Nov 29</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Fri Dec 01</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Mon Dec 04</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Wed Dec 06</td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-</tr>
-</tbody>
-</table>
+<p>So the right half of our neighbourhood of 0 is near <span class="math inline">\(f(0)\)</span>, but if <span class="math inline">\(\delta &lt; 1\)</span>, then the left half is not near <span class="math inline">\(f(0)\)</span>, it’s near 1. We have a jump discontinuity.</p>
+<div id="exm-discon-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 3.2 </strong></span>Consider the (piecewise) function <span class="math inline">\(f\)</span> defined by <span class="math display">\[f(x) = \begin{cases}
+x+1 &amp; -1 \le x &lt; 0 \\
+1-x^2 &amp; 0 \le x \le 1
+\end{cases}\]</span></p>
+<p>Does <span class="math inline">\(f\)</span> have a discontinuity at <span class="math inline">\(0\)</span>?</p>
+</div>
+<p>Since the left side of the function has the same definition, we just need to look at what <span class="math inline">\(f\)</span> does to the right half of a neighbourhood of <span class="math inline">\(0\)</span>.</p>
+<ul>
+<li>If <span class="math inline">\(0 &lt; x &lt; \delta\)</span>, then <span class="math inline">\(1 &lt; 1-x^2 &lt; 1-\delta^2\)</span>, so <span class="math inline">\(1 &lt; f(x) &lt; 1-\delta^2\)</span>.</li>
+</ul>
+<p>For this example, <span class="math inline">\(f(0) = 1\)</span> and the image of a neighbourhood of 0 stays in a neighbourhood of <span class="math inline">\(f(0)\)</span>. There is no discontinuity at 0 (see <span class="quarto-unresolved-ref">?fig-exm-discon-2</span>).</p>
+</section>
+<section id="continuity" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="continuity"><span class="header-section-number">3.2</span> Continuity</h2>
+<p>Our goal is to make the following statement precise.</p>
+<blockquote class="blockquote">
+<p>A continuous function is one with no holes, jumps or seriously wiggly bits.</p>
+</blockquote>
+<p>Other common intuitive definitions of continuity, are</p>
+<blockquote class="blockquote">
+<p>a function <span class="math inline">\(f\)</span> is continuous at a point <span class="math inline">\(a\)</span> if <span class="math inline">\(f(x)\)</span> is close to <span class="math inline">\(f(a)\)</span> whenever <span class="math inline">\(x\)</span> is close to <span class="math inline">\(a\)</span>, a function <span class="math inline">\(f\)</span> is continuous if it can be drawn without lifting your pencil from the paper.</p>
+</blockquote>
+<p>Following on the examples of discontinuities and the study of how a function acts on neighbourhoods of a point leads to the classic <em>epsilon-delta</em> definition of continuity.</p>
+<div id="def-epsilon-delta-continuity" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.1 </strong></span>A function <span class="math inline">\(f\)</span> is continuous at a point <span class="math inline">\(a\)</span> if for every <span class="math inline">\(\epsilon&gt;0\)</span> there is a <span class="math inline">\(\delta&gt;0\)</span> for which <span class="math display">\[|f(x) - f(a)| &lt; \epsilon \quad \text{whenever} \quad x\in N_\delta\]</span> where <span class="math inline">\(N_\delta\)</span> is the set of all points <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span> for which <span class="math inline">\(0 &lt; |x-a|&lt;\delta\)</span></p>
+</div>
+<p>The interval <span class="math inline">\(f(a)\pm\epsilon\)</span> is a set of points <em>close</em> to <span class="math inline">\(L\)</span>, and the <em>neighbourhood</em> of <span class="math inline">\(a\)</span> is a set of points in the domain of <span class="math inline">\(f\)</span> that are <em>close</em> to <span class="math inline">\(a\)</span>.</p>
+<p>Notice how the definition reverses the logic used in the previous examples. The definition states that every neighbourhood of <span class="math inline">\(f(a)\)</span> contains an image of <em>some</em> neighbourhood of <span class="math inline">\(a\)</span>. Thus to show a function is continuous we first specify an arbitrary tolerance for how close the function should be to <span class="math inline">\(f(a)\)</span> and then check how close points must be to <span class="math inline">\(a\)</span> to ensure they land close to <span class="math inline">\(f(a)\)</span>.</p>
+<p>In some cases, <span class="math inline">\(f\)</span> keeps point near <span class="math inline">\(a\)</span> close together, but not near <span class="math inline">\(f(a)\)</span>. This leads us to the notion of a limit of a function. Notice the similarities and differences between the definition of continuity above and the following definition of a <em>limit</em> of a function.</p>
+<div id="def-epsilon-delta-limit" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 3.2 </strong></span>A function <span class="math inline">\(f\)</span> has the limit <span class="math inline">\(L\)</span> at a point <span class="math inline">\(a\)</span> if for every <span class="math inline">\(\epsilon&gt;0\)</span> there is a <span class="math inline">\(\delta&gt;0\)</span> for which <span class="math display">\[|f(x) - L| &lt; \epsilon \quad \text{whenever} \quad x\in N_\delta\]</span> where <span class="math inline">\(N_\delta\)</span> is the set of all points <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span> for which <span class="math inline">\(0 &lt; |x-a|&lt;\delta\)</span></p>
+</div>
 
 
 </section>
@@ -717,10 +545,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./trigonometric_functions.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Trigonometric Functions</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./functions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Functions and Models</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
