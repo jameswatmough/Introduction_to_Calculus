@@ -38,15 +38,50 @@ Discontinuities break up neighbourhoods
 
 :::
 
-To make this notion precise, it helps to introduce some terminology.
+## Continuous Functions
 
-Neighbourhoods
-: Given a point $a$ and a (small) positive number $\delta$ we'll call the open interval of points $x$ in the domain of $f$ for which $0 < |x-a| < \delta$ a *neighbourhood* of $a$.  Notice, this is simply the set of points within a distance $\delta$ of the point $a$.
+Functions with discontinuities are useful modelling tools, but they can also be difficult to analyze.  It is important to know where functions are continuous and how they behave near discontinuities.  We will learn to characterize discontinuities using limits, but first let's clarify our notion of continuity of functions.
 
-Now we can say that a function, $f$, has a discontinuity at a point $a$ if either
+Our goal is to make the following statement precise.
 
-i. the function is defined in a neighbourhood of $a$, but isn't defined at $a$
-ii. the outputs of $f$ for inputs in a neighbourhood of $a$ are split into two separate intervals (a jump) are are unbounded (a vertical asymptote), or simply lie outside a neighbourhood of $f(a)$ (a hole).
+> A continuous function is one with no holes, jumps or seriously wiggly bits.
+
+Other common intuitive definitions of continuity, are 
+
+> a function $f$ is continuous at a point $a$ if $f(x)$ is close to $f(a)$ whenever $x$ is close to $a$,
+> a function $f$ is continuous if it can be drawn without lifting your pencil from the paper.
+
+To make this notion precise, it helps to (re)introduce some terminology.
+
+::: {#def-neighbourhood}
+
+# Neighbourhood of a point
+
+For our purposes, a *neighbourhood* of $a$ is any open interval containing $a$.  This will typically be the set of all points within some distance, say $\delta$, of $a$.  That is, the interval $\set{x}{|x-a|<\delta}$.
+
+More generally, given a point $a$ and a set $X$ we say a subset $U$ of $X$ is a *neighbourhood* of $a$ in $X$ if $U$ contains all the points of $X$ in some open interval containing $a$.  
+
+:::
+
+::: {#def-images}
+
+# Image of a set 
+
+Given a function $f$ and a  subset $U$ of the domain of $f$, the *image* of $U$ under $f$  is the set of all outputs reached by inputs in $U$.  This image is often denoted simply by $f(U)$. That is, $$f(U) = \set{f(x)}{x\in U}.$$    The *preimage* or *inverse image* of a subset $V$ of the codomain of $f$, denoted by $f^{-1}(V)$, is the set of all inputs whose corresponding outputs are in $V$.  That is, $$f^{-1}(V) = \set{x}{\text{$y=f(x)$ for some $y \in V$}}.$$
+
+:::
+
+::: {#def-continuous-function}
+
+# Continuous functions
+
+A function $f$ is continuous at a point $c$ in its domain if every neighbourhood of $f(a)$ contains the image of some neighbourhood of $a$ in the domain of $f$.
+
+A function $f$ is continuous on its domain, or simply, continuous, if it is continuous at every point in its domain.
+
+:::
+
+We say $f$ has a *discontinuity* at a point, or $f$ is discontinuous at a point, if $f$ isn't continuous at that point.
 
 ::: {#exm-discon-1}
 
@@ -60,7 +95,7 @@ Does $f$ have a discontinuity at $0$?
 
 :::
 
-To test this with our definition of a neighbourhood, we'll let $\delta$ be a small positive number and evaluate $f(x)$ for $-\delta < x < \delta$.  This interval is our *neighbourhood* of 0.  Well, technically the neighbourhood plus the number $0$.
+To test this with our definition of neighbourhoods and continuity, we'll let $\delta$ be a small positive number and evaluate $f(x)$ for $-\delta < x < \delta$.  This interval is our *neighbourhood* of 0.
 
 We need to evaluate $f$ in separately for the two pieces.
 
@@ -69,6 +104,8 @@ We need to evaluate $f$ in separately for the two pieces.
 + If $x=0$, $f(x) = 0$
 
 So the right half of our neighbourhood of 0 is near $f(0)$, but if $\delta < 1$, then the left half is not near $f(0)$, it's near 1.  We have a jump discontinuity.
+
+Notice how this example reverses the logic of our definition of continuity.  The definition states that every neighbourhood of $f(a)$ contains an image of *some* neighbourhood of $a$.  Thus to show a function is continuous we first specify an arbitrary tolerance for how close the function should be to $f(a)$ and then check how close points must be to $a$ to ensure they land close to $f(a)$.   Since our function $f$ in this example splits neighbourhoods of 0 into two pieces, one near 0 and one near 1, it can't satisfy the requirements of the definition.
 
 ::: {#exm-discon-2}
 
@@ -86,38 +123,4 @@ Since the left side of the function has the same definition, we just need to loo
 
 + If $0 < x < \delta$, then $1 < 1-x^2 < 1-\delta^2$, so $1 < f(x) < 1-\delta^2$.
 
-For this example, $f(0) = 1$ and the image of a neighbourhood of 0 stays in a neighbourhood of $f(0)$.  There is no discontinuity at 0 (see @fig-exm-discon-2).
-
-## Continuity
-
-Our goal is to make the following statement precise.
-
-> A continuous function is one with no holes, jumps or seriously wiggly bits.
-
-Other common intuitive definitions of continuity, are 
-
-> a function $f$ is continuous at a point $a$ if $f(x)$ is close to $f(a)$ whenever $x$ is close to $a$,
-> a function $f$ is continuous if it can be drawn without lifting your pencil from the paper.
-
-Following on the examples of discontinuities and the study of how a function acts on neighbourhoods of a point leads to the classic *epsilon-delta* definition of continuity.
-
-::: {#def-epsilon-delta-continuity}
-A function $f$ is continuous at a point $a$ if for every $\epsilon>0$ there is a $\delta>0$ for which
-$$|f(x) - f(a)| < \epsilon \quad \text{whenever} \quad x\in N_\delta$$
-where
-$N_\delta$ is the set of all points $x$ in the domain of $f$ for which $0 < |x-a|<\delta$
-:::
-
-The interval $f(a)\pm\epsilon$ is a set of points *close* to $L$, and the *neighbourhood* of $a$ is
-a set of points in the domain of $f$ that are *close* to $a$.
-
-Notice how the definition reverses the logic used in the previous examples.  The definition states that every neighbourhood of $f(a)$ contains an image of *some* neighbourhood of $a$.  Thus to show a function is continuous we first specify an arbitrary tolerance for how close the function should be to $f(a)$ and then check how close points must be to $a$ to ensure they land close to $f(a)$.
-
-In some cases, $f$ keeps point near $a$ close together, but not near $f(a)$.  This leads us to the notion of a limit of a function.  Notice the similarities and differences between the definition of continuity above and the following definition of a *limit* of a function.
-
-::: {#def-epsilon-delta-limit}
-A function $f$ has the limit $L$ at a point $a$ if for every $\epsilon>0$ there is a $\delta>0$ for which
-$$|f(x) - L| < \epsilon \quad \text{whenever} \quad x\in N_\delta$$
-where
-$N_\delta$ is the set of all points $x$ in the domain of $f$ for which $0 < |x-a|<\delta$
-:::
+For this example, $f(0) = 1$ and the image of a neighbourhood of 0 stays in a neighbourhood of $f(0)$.  Hence $f$ is continuous at 0.
