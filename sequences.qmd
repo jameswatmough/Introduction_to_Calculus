@@ -62,10 +62,10 @@ This ordering allows us to talk about bounds on sets.  This concept is useful la
 # bounded sets
 
 Suppose $X$ is an ordered set and $S$ is a non-empty subset of $X$.
-- We say $S$ is {\em bounded above} if there is an element $u$ of $X$ such that $a\le u$ for every $a\in S$.  
-- We say $S$ is {\em bounded below} if there is an element $l$ of $X$ such that $a\ge l$ for every $a\in S$.  
-- A set is {\em bounded} if it is both bounded above and bounded below.
-- A set is {\em unbounded} if it isn't bounded.
+- We say $S$ is *bounded above* if there is an element $u$ of $X$ such that $a\le u$ for every $a\in S$.  
+- We say $S$ is *bounded below* if there is an element $l$ of $X$ such that $a\ge l$ for every $a\in S$.  
+- A set is *bounded* if it is both bounded above and bounded below.
+- A set is *unbounded* if it isn't bounded.
 :::
 
 Note that the bounds $u$ and $l$ in the above definitions need not be an element of $S$.    We refer to $u$ as an upper bound for $S$ in $X$ and $l$ as a lower bound for $S$ in $X$.  More often than not, the set $X$ is assumed to be `obvious' and is not explictly stated!    In our case, it's probably safe to assume $X$ is the real numbers.
@@ -148,15 +148,15 @@ We write sequences as $a_0, a_1, a_2, \dots$, or $(a_n)$.   Sometimes the index 
 ::: {#def-seq-prop}
 There are several important terms to know:
 
-a. a sequence is {\em increasing} if $a_n>a_m$ whenever $n>m$;
-a. a sequence is {\em decreasing} if $a_n<a_m$ whenever $n>m$;
-a. a sequence is {\em non-increasing} if $a_n\le a_m$ whenever $n>m$;
-a. a sequence is {\em non-decreasing} if $a_n\ge a_m$ whenever $n>m$;
-a. a sequence is {\em monotone} if it is one of the above;
-a. a sequence is {\em bounded above} if there is a real number $M$ such that $a_n\le M$ for every index $n$;
-a. a sequence is {\em bounded below} if there is a real number $M$ such that $a_n\ge M$ for every index $n$;
-a. a sequence is {\em bounded} if it is {\bf both} bounded above and bounded below;
-a. a sequence is {\em unbounded} if it isn't bounded;
+a. a sequence is *increasing* if $a_n>a_m$ whenever $n>m$;
+a. a sequence is *decreasing* if $a_n<a_m$ whenever $n>m$;
+a. a sequence is *non-increasing* if $a_n\le a_m$ whenever $n>m$;
+a. a sequence is *non-decreasing* if $a_n\ge a_m$ whenever $n>m$;
+a. a sequence is *monotone* if it is one of the above;
+a. a sequence is *bounded above* if there is a real number $M$ such that $a_n\le M$ for every index $n$;
+a. a sequence is *bounded below* if there is a real number $M$ such that $a_n\ge M$ for every index $n$;
+a. a sequence is *bounded* if it is **both** bounded above and bounded below;
+a. a sequence is *unbounded* if it isn't bounded;
 a. given a set $S$, we say a sequence $(a_n)$ is a sequence in $S$ if each $a_n$ is a point in $S$.
 
 :::
@@ -165,7 +165,7 @@ a. given a set $S$, we say a sequence $(a_n)$ is a sequence in $S$ if each $a_n$
 
 # convergence of sequences
 
-A sequence of real numbers is said to {\em converge} to a real number $L$ if for each $\epsilon > 0$, there is a number $N$ such that $|a_n-L| < \epsilon$ for every index $n>N$.    We write $a_n\rightarrow L$, or $\lim a_n=L$, and refer to $L$ as the {\em limit} of the sequence.
+A sequence of real numbers is said to *converge* to a real number $L$ if for each $\epsilon > 0$, there is a number $N$ such that $|a_n-L| < \epsilon$ for every index $n>N$.    We write $a_n\rightarrow L$, or $\lim a_n=L$, and refer to $L$ as the *limit* of the sequence.
 :::
 
 Geometrically, we can view these statements as requiring that eventually (i.e., for $n>N$) all the terms of the sequence stay within a distance $\epsilon$ of $L$.  Since $\epsilon$ is an arbitrary positive number, the tail of the sequence stays arbitrarily close to the limit $L$.
@@ -193,12 +193,13 @@ In guessing at the limit, you will intuitively make use of some rules for limits
   $$\left| \frac{1}{n^2} - 0 \right| < \epsilon \Leftrightarrow 1/n^2 < \epsilon \Rightarrow  n > 2/\epsilon.$$
 
 1. Since $(1/2)^n$ approaches zero as $n$ increases, we make a guess by replacing $(1/2)^n$ by zero, which suggests a limit of $L=2$.  To solve the inequality, first simplify $|a_n-L|$:
-$$  \left| \frac{1 - (1/2)^n}{1 - 1/2} - 2 \right|  
+$$\left| \frac{1 - (1/2)^n}{1 - 1/2} - 2 \right|  
 		  = \left|  - (1/2)^{n-1} \right|  
-		  = 1/2^{n-1} $$
-Hence, $ \left| \frac{1 - (1/2)^n}{1 - 1/2} - 2 \right|  < \epsilon  
+		  = 1/2^{n-1}$$
+Hence, $\left| \frac{1 - (1/2)^n}{1 - 1/2} - 2 \right|  < \epsilon  
 \Leftrightarrow  1/2^{n-1} < \epsilon  
-\Leftrightarrow  n  > 1-\log_2\epsilon$\\
+\Leftrightarrow  n  > 1-\log_2\epsilon$
+
 Note that if $\epsilon > 2$, then the right hand side is negative, implying any positive $n$ works.  The right hand side is positive for smaller $\epsilon$, which is what we are interested in for convergence of sequences.
 1. If we divide the numerator and denominator by $n$ and then replace $1/n$ and $3/n$ by zero, we guess the limit is $3$.  To see if this is correct, we try to solve the resulting inequality for $n$.  First, simplify $|a_n-L|$
 $$\left| \frac{1+3n}{3+n} - 3 \right| 

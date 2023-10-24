@@ -8,7 +8,7 @@
 
 <meta name="author" content="James Watmough">
 
-<title>Introduction to Calculus - 1&nbsp; Functions and Models</title>
+<title>Introduction to Calculus - 4&nbsp; The Derivative</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -31,8 +31,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./trigonometric_functions.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./references.html" rel="next">
+<link href="./continuity.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -77,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./functions.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Functions and Models</span></a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./differentiation.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Derivative</span></a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -110,7 +110,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./functions.html" class="sidebar-item-text sidebar-link active">
+  <a href="./functions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Functions and Models</span></span></a>
   </div>
 </li>
@@ -128,7 +128,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./differentiation.html" class="sidebar-item-text sidebar-link">
+  <a href="./differentiation.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Derivative</span></span></a>
   </div>
 </li>
@@ -148,7 +148,9 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#functions-and-variables" id="toc-functions-and-variables" class="nav-link active" data-scroll-target="#functions-and-variables"><span class="header-section-number">1.1</span> Functions and variables</a></li>
+  <li><a href="#sec-diff-def" id="toc-sec-diff-def" class="nav-link active" data-scroll-target="#sec-diff-def"><span class="header-section-number">4.1</span> Secant and Tangent Lines</a></li>
+  <li><a href="#sec-diff-rules-I" id="toc-sec-diff-rules-I" class="nav-link" data-scroll-target="#sec-diff-rules-I"><span class="header-section-number">4.2</span> Derivatives of Our Core Functions</a></li>
+  <li><a href="#sec-diff-rules-2" id="toc-sec-diff-rules-2" class="nav-link" data-scroll-target="#sec-diff-rules-2"><span class="header-section-number">4.3</span> The Product and Quotient Rules</a></li>
   </ul>
 </nav>
     </div>
@@ -157,7 +159,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span id="sec-functions" class="quarto-section-identifier"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Functions and Models</span></span></h1>
+<h1 class="title"><span id="sec-differentiation" class="quarto-section-identifier"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Derivative</span></span></h1>
 </div>
 
 
@@ -184,48 +186,193 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="functions-and-variables" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="functions-and-variables"><span class="header-section-number">1.1</span> Functions and variables</h2>
-<p>These notes are purposefully abstract. We’ll begin with a list of definitions of familiar terms cast as something more abstract than you might be used to. Almost all of the functions we use will be real-valued functions of a single real variable. That is, both the domains and ranges will be sets of real numbers. However, most of the concepts on the first-year curriculum apply to a more abstract notion of a function. In fact, some might be easier to understand when the domain is a region in the plane, rather than an interval.</p>
-<p>Functions arise whenever one quantity (or state) can be <em>determined</em> from another. Functions also arise whenever we <em>theorize</em> that one quantity (or state) could be determined from another.</p>
-<p>Examples:</p>
-<ul>
-<li>Reducing screen brightness increases Battery life.</li>
-<li>The temperature of tap water depends on the time since the tap was opened.</li>
-<li>The area of a circle depends on its radius.</li>
-<li>The rate a predator encounters prey depends on the size of the prey population.</li>
-</ul>
-<p>The quantity being determined is often referred to as the <em>dependent variable</em>, and the other quantify is the <em>independent variable</em>.</p>
-<div id="def-function" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.1 (Function) </strong></span>A function consists of two sets, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, together with a rule that assigns exactly one element of <span class="math inline">\(B\)</span> to each and every element of <span class="math inline">\(A\)</span>.</p>
+<section id="sec-diff-def" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="sec-diff-def"><span class="header-section-number">4.1</span> Secant and Tangent Lines</h2>
+</section>
+<section id="sec-diff-rules-I" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="sec-diff-rules-I"><span class="header-section-number">4.2</span> Derivatives of Our Core Functions</h2>
+<p>There are a few properties of derivatives that will save us from having to compute limits every time we need to differentiate a function. These should be memorized over the next few weeks.</p>
+<table class="table">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 69%">
+<col style="width: 17%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Constant Rule:</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{d}{dx} \text{constant} = 0\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Power Rule:</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{d}{dx} x^n = nx^{n-1}\)</span></td>
+<td style="text-align: left;">for any real number <span class="math inline">\(n\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Scaling Rule:</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{d}{dx} cf(x) = cf'(x)\)</span></td>
+<td style="text-align: left;">for any constant <span class="math inline">\(c\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sum Rule:</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{d}{dx} \left(f(x)+g(x)\right) = f'(x)+g'(x)\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Product Rule:</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{d}{dx} \left(f(x)g(x)\right) = f'(x)g(x)+f(x)g'(x)\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Quotient Rule:</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{d}{dx} \dfrac{f(x)}{g(x)} = \dfrac{f'(x)g(x)-f(x)g'(x)}{(g(x))^2}\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>The first three rules let us easily differentiate polynomials. The product and quotient rules help differentiate more complex functions.</p>
+<p>In addition, you should memorize the derivatives of our core set of transcendental functions</p>
+<table class="table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 31%">
+<col style="width: 37%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Exponential:</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{d}{dx} a^x = a^x \log(a)\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(a&gt;0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Logarithmic:</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{d}{dx} \log_a x = \frac{1}{x \log(a)}\)</span></td>
+<td style="text-align: left;"><span class="math inline">\(x&gt;0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Trigonometric:</td>
+<td style="text-align: center;"><span class="math inline">\(\frac{d}{dx} \sin x = \cos x\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{d}{dx} \cos x =-\sin x\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"><span class="math inline">\(\frac{d}{dx} \tan x = (\sec x)^2\)</span></td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+<p>Proofs of these rules are available on request. I will give some hints during lectures but the details will be left to supplementary material.</p>
+</section>
+<section id="sec-diff-rules-2" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="sec-diff-rules-2"><span class="header-section-number">4.3</span> The Product and Quotient Rules</h2>
+<p>One way to help remember the product rule is to consider a rectangle with sides of length <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>. The area of this rectangle is the product <span class="math inline">\(fg\)</span>. If we change the length of the second side by a small amount, say from <span class="math inline">\(g\)</span> to <span class="math inline">\(g+dg\)</span>, then the area changes from <span class="math inline">\(fg\)</span> to <span class="math inline">\(f(g+dg)\)</span>. That’s a change of <span class="math inline">\(f\,dg\)</span>. If we change the length of the first side, the change in the area is <span class="math inline">\(df\, g\)</span>. Adding these two together gives us something that looks like the product rule: <span class="math inline">\(df\,g + f\,dg\)</span>. The details of how these calculations look using limits are given in the text.</p>
+<div id="exm-diff-product-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4.1 </strong></span>Differentiate <span class="math inline">\(x \log x\)</span></p>
 </div>
-<p>It is common to think of the elements of <span class="math inline">\(A\)</span> as <em>inputs</em> and the elements of <span class="math inline">\(B\)</span> as <em>outputs</em>. The function matches each input to exactly one output.</p>
-<ul>
-<li>Ideally a function should be given a clear descriptive name, but it is often denoted by a single letter, like <span class="math inline">\(f\)</span>.</li>
-<li>The set <span class="math inline">\(A\)</span> in <a href="#def-function">Definition&nbsp;<span>1.1</span></a> is referred to as the <em>domain</em> of <span class="math inline">\(f\)</span>.</li>
-<li>The set <span class="math inline">\(B\)</span> is referred to as the <em>codomain</em> of <span class="math inline">\(f\)</span>.</li>
-<li>We say <span class="math inline">\(f\)</span> is a function from <span class="math inline">\(A\)</span> into <span class="math inline">\(B\)</span>, and sometimes write <span class="math inline">\(f:A\rightarrow B\)</span>.<br>
-</li>
-<li>We use <span class="math inline">\(f(x)\)</span> to denote the element of <span class="math inline">\(B\)</span> assigned to an element <span class="math inline">\(x\)</span> of <span class="math inline">\(A\)</span> by <span class="math inline">\(f\)</span>.</li>
-<li>The <em>range</em> of <span class="math inline">\(f\)</span> is the set <span class="math inline">\(\left\{y\in B \ \left|\ \strut y=f(x), x\in A\right.\right\}\)</span>.</li>
-</ul>
-<p>When we are using variables and functions to explain concepts it is a good idea to name the variables and functions in meaningful ways. For example, suppose we need a function to model the rate a lioness searches for prey. When the number of prey is low, she will chase down every prey she sees, but when there are lots of prey available, she will only chase down enough to satisfy her hunger. A simple model for this saturation effect is a hyperbola. We could use a descriptive name like <span class="math inline">\(\texttt{Prey}\)</span> to denote the number of prey, our independent variable. <span class="math inline">\(\texttt{Prey}\)</span> should be a positive real number. Then we could give our function a descriptive name like <span class="math inline">\(\texttt{Lioness\_Attack}\)</span> and define it by the rule <span class="math display">\[\begin{equation}
-  \texttt{Lioness\_Attack}(\texttt{Prey}) = \frac{\texttt{attack\_rate}\times\texttt{Prey} }{ \texttt{saturation\_level} + \texttt{Prey} }, \qquad \texttt{Prey} \ge 0.
-\end{equation}\]</span></p>
-<p>We will refer to <code>attack\_rate</code> and <code>saturation\_level</code> as parameters, <code>Prey</code> as the independent variable, and <code>Lioness\_Attack</code> as the function. The use and meaning of the word <em>parameter</em> may be different outside of these notes, but it usually indicates a fixed quantity. I.e., something that isn’t <em>varying</em>.</p>
-<p>While descriptive variable and function names are helpful at times, they can be annoying at times. Especially if we are trying to solve equations algebraically. So in this course, and most math courses, variable and function names will usually be single letters.</p>
-<p>Another common way to specify a function is using a arrow with the input on one side and the output on the other. For example <span class="math display">\[x\to x^2 + 2, x \in {\mathbb R}\]</span> defines a function whose input is any real number and whose output is two plus the square of the input. Notice how this lets us define a function without the complication of naming it. In many programming languages this is referred to as an <em>anonymous</em> function.</p>
-<div id="exm-function-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.1 (Function Notation) </strong></span>Let <span class="math inline">\(P\)</span> be the function defined by <span class="math display">\[x \to 3x^2 - x + 5, \quad x\in {\mathbb R}.\]</span> Think of <span class="math inline">\(P\)</span> as the name of the function, and <span class="math inline">\(P(x)\)</span> as the value of the function at <span class="math inline">\(x\)</span>.</p>
-<ul>
-<li>the value of <span class="math inline">\(P\)</span> at 2 is <span class="math display">\[P(2) = 3(2)^2 - (2) + 5 = 12 - 2 + 5 = 15\]</span></li>
-<li>given a number, <span class="math inline">\(t\)</span>, the value of <span class="math inline">\(P\)</span> at <span class="math inline">\(t+1\)</span> is <span class="math display">\[P(t+1) = 3 (t+1)^2 - (t+1) + 5\]</span></li>
-<li>given a number, <span class="math inline">\(x\)</span>, the value of <span class="math inline">\(P\)</span> at <span class="math inline">\(x^2\)</span> is <span class="math display">\[P(x^2) = 3 (x^2)^2 - (x^2) + 5\]</span></li>
-</ul>
+<div class="callout callout-style-default callout-tip callout-titled" title="solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>This notation lets us define new functions using previously named functions. For example, <span class="math inline">\(g\)</span> can be defined by the rule <span class="math inline">\(g(x) = P(x^2)\)</span>.</p>
-<div id="def-images" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 1.2 </strong></span>Given a function, <span class="math inline">\(f\)</span>, the <em>image</em> of a subset <span class="math inline">\(U\)</span> of the domain of <span class="math inline">\(f\)</span>, denoted simply by <span class="math inline">\(f(U)\)</span>, is the set of all outputs reached by inputs in <span class="math inline">\(U\)</span>. That is, <span class="math display">\[f(U) = \left\{y\in B  \ \left|\ \strut  y=f(x), x\in U\right.\right\}.\]</span> The <em>preimage</em> or <em>inverse image</em> of a subset <span class="math inline">\(V\)</span> of the codomain of <span class="math inline">\(f\)</span>, denoted by <span class="math inline">\(f^{-1}(V)\)</span>, is the set of all inputs whose corresponding outputs are in <span class="math inline">\(V\)</span>. That is, <span class="math display">\[f^{-1}(V) = \left\{x\in A \ \left|\ \strut \text{$y=f(x)$ for some $y \in V$}\right.\right\}.\]</span></p>
+<div class="callout-title-container flex-fill">
+solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\begin{align*}
+\frac{d}{dx} \left( x \log x \right) &amp;= \log(x) + x\frac{d}{dx} \log x \\
+                                     &amp;= \log(x) + x\frac{1}{x} \\
+                                     &amp;= 1 + \log(x) \\
+\end{align*}\]</span></p>
+</div>
+</div>
+</div>
+<div id="exm-diff-product-2" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4.2 </strong></span>Differentiate <span class="math inline">\(x e^x\sin x\)</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We apply the product rule twice. The order doesn’t matter.</p>
+<p><span class="math display">\[\begin{align*}
+\frac{d}{dx} \left( x e^x\sin x \right)
+&amp;= \left(\frac{d}{dx} xe^x\right)\sin x  + xe^x\frac{d}{dx}\sin x \\
+&amp;= \left(e^x  + xe^x\right)\sin x + xe^x\cos x \\
+&amp;= \left(1+x)\right)e^x\sin x + xe^x\cos x
+\end{align*}\]</span></p>
+</div>
+</div>
+</div>
+<p>The origin of the quotient rule doesn’t have as simple a geometric motivation as the product rule, but it can be easily derived from the product rule. First, start by naming the ratio <span class="math inline">\(F\)</span> <span class="math display">\[F(x) = \frac{f(x)}{g(x)}\]</span> Then rewrite this as a product <span class="math display">\[F(x)g(x) = f(x)\]</span> Now differentiate both sides of the equality. <span class="math display">\[F'(x)g(x) + F(x)g'(x) = f'(x)\]</span> Replace <span class="math inline">\(F\)</span> by the ratio <span class="math display">\[F'(x)g(x) + \frac{f(x)}{g(x)}g'(x) = f'(x)\]</span> and isolate <span class="math inline">\(F'\)</span> on the left side <span class="math display">\[F'(x) = \frac{f'(x)}{g(x)} - \frac{f(x)g'(x)}{(g(x))^2}\]</span></p>
+<div id="exm-diff-quotient-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4.3 </strong></span>Find the derivative of <span class="math inline">\(\tan x\)</span></p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><span class="math display">\[\begin{align*}
+\frac{d}{dx} \tan x
+&amp;= \frac{d}{dx} \frac{\sin x}{\cos x} \\
+&amp;= \frac{ \left(\frac{d}{dx} \sin x \right) \cos x - \sin x \frac{d}{dx} \cos x  }{(\cos x)^2} \\
+&amp;= \frac{ \cos x \cos x - (\sin x)(-\sin x)  }{(\cos x)^2} \\
+&amp;= \frac{ (\cos x)^2  + (\sin x)^2  }{(\cos x)^2} \\
+&amp;= \frac{1}{(\cos x)^2} \\
+&amp;= (\sec x)^2
+\end{align*}\]</span></p>
+<p>We can also write this as <span class="math inline">\(1 + (\tan x)^2\)</span></p>
+</div>
+</div>
+</div>
+<div id="exm-diff-quotient-1" class="theorem example">
+<p><span class="theorem-title"><strong>Example 4.4 </strong></span>Where does <span class="math inline">\(x\mapsto \dfrac{3x}{4 + x^2}\)</span> have a horizontal tangent?</p>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled" title="solution">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+solution
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>We’re being asked to find where the derivative of <span class="math inline">\(\dfrac{3x}{4 + x^2}\)</span> is zero. Use the quotient rule to find the derivative.</p>
+<p><span class="math display">\[\begin{align*}
+\frac{d}{dx} \dfrac{3x}{4 + x^2}
+&amp;= \frac{ (3)(4+x^2) - (3x)(0+2x) }{(4+x^2)} \\
+&amp;= \frac{ 12 - 3x^2 }{(4+x^2)}
+\end{align*}\]</span></p>
+<p>The denominator is always positive (no vertical tangent lines) and the numerator is zero when <span class="math inline">\(x\)</span> is either 2 or -2.</p>
+</div>
+</div>
 </div>
 
 
@@ -467,13 +614,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Math 1003 Fall 2023 Schedule</span>
+      <a href="./continuity.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Limits and Continuity</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./trigonometric_functions.html" class="pagination-link">
-        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Trigonometric Functions</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
