@@ -11,6 +11,7 @@ book:
     - functions.qmd
     - trigonometric_functions.qmd 
     - continuity.qmd
+    - differentiation.qmd
     - references.qmd
 
 bibliography: references.bib

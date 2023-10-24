@@ -1,0 +1,130 @@
+---
+author: James  Watmough
+date: "`r Sys.Date()`"
+---
+
+{{< include texmacros.qmd >}}
+
+# The Derivative {#sec-differentiation}
+
+## Secant and Tangent Lines {#sec-diff-def}
+
+## Derivatives of Our Core Functions {#sec-diff-rules-I}
+
+There are a few properties of derivatives that will save us from having to compute limits every time we need to differentiate a function.  These should be memorized over the next few weeks.
+
+|   |   |   |
+|:-------------|:--------------------------------------------------------------------------:|:------------------|
+|Constant Rule: | $\frac{d}{dx} \text{constant} = 0$ |   |
+|Power Rule:    | $\frac{d}{dx} x^n = nx^{n-1}$  | for any real number $n$  |
+|Scaling Rule:  | $\frac{d}{dx} cf(x) = cf'(x)$  | for any constant $c$  |
+|Sum Rule:      | $\frac{d}{dx} \left(f(x)+g(x)\right) = f'(x)+g'(x)$  |    |
+|Product Rule:  | $\frac{d}{dx} \left(f(x)g(x)\right) = f'(x)g(x)+f(x)g'(x)$  |    |
+|Quotient Rule: | $\frac{d}{dx} \dfrac{f(x)}{g(x)} = \dfrac{f'(x)g(x)-f(x)g'(x)}{(g(x))^2}$  |    |
+
+The first three rules let us easily differentiate polynomials.  The product and quotient rules help differentiate more complex functions.
+
+In addition, you should memorize the derivatives of our core set of transcendental functions
+
+|                |                |                   |
+|:---------------|:--------------:|:------------------|
+| Exponential:   | $\frac{d}{dx} a^x = a^x \log(a)$   | $a>0$ | 
+| Logarithmic:   | $\frac{d}{dx} \log_a x = \frac{1}{x \log(a)}$   | $x>0$ | 
+| Trigonometric: | $\frac{d}{dx} \sin x = \cos x$   | | 
+|                | $\frac{d}{dx} \cos x =-\sin x$   | | 
+|                | $\frac{d}{dx} \tan x = (\sec x)^2$   | | 
+
+Proofs of these rules are available on request.  I will give some hints during lectures but the details will be left to supplementary material.
+
+## The Product and Quotient Rules {#sec-diff-rules-2}
+
+One way to help remember the product rule is to consider a rectangle with sides of length $f$ and $g$.  The area of this rectangle is the product $fg$.  If we change the length of the second side by a small amount, say from $g$ to $g+dg$, then the area changes from $fg$ to $f(g+dg)$.  That's a change of $f\,dg$.  If we change the length of the first side, the change in the area is $df\, g$.  Adding these two together gives us something that looks like the product rule:  $df\,g + f\,dg$.  The details of how these calculations look using limits are given in the text.
+
+::: {#exm-diff-product-1}
+
+Differentiate $x \log x$
+
+:::
+
+::: {.callout-tip collapse=true title="solution"}
+
+\begin{align*}
+\frac{d}{dx} \left( x \log x \right) &= \log(x) + x\frac{d}{dx} \log x \\
+                                     &= \log(x) + x\frac{1}{x} \\
+                                     &= 1 + \log(x) \\
+\end{align*}
+
+:::
+
+::: {#exm-diff-product-2}
+
+Differentiate $x e^x\sin x$
+
+:::
+
+::: {.callout-tip collapse=true title="solution"}
+
+We apply the product rule twice.  The order doesn't matter.
+
+\begin{align*}
+\frac{d}{dx} \left( x e^x\sin x \right) 
+&= \left(\frac{d}{dx} xe^x\right)\sin x  + xe^x\frac{d}{dx}\sin x \\
+&= \left(e^x  + xe^x\right)\sin x + xe^x\cos x \\
+&= \left(1+x)\right)e^x\sin x + xe^x\cos x
+\end{align*}
+
+:::
+
+The origin of the quotient rule doesn't have as simple a geometric motivation as the product rule, but it can be easily derived from the product rule.
+First, start by naming the ratio $F$
+$$F(x) = \frac{f(x)}{g(x)}$$
+Then rewrite this as a product
+$$F(x)g(x) = f(x)$$
+Now differentiate both sides of the equality.
+$$F'(x)g(x) + F(x)g'(x) = f'(x)$$
+Replace $F$ by the ratio
+$$F'(x)g(x) + \frac{f(x)}{g(x)}g'(x) = f'(x)$$
+and isolate $F'$ on the left side
+$$F'(x) = \frac{f'(x)}{g(x)} - \frac{f(x)g'(x)}{(g(x))^2}$$
+
+::: {#exm-diff-quotient-1}
+
+Find the derivative of $\tan x$
+
+:::
+
+::: {.callout-tip collapse=true title="solution"}
+
+\begin{align*}
+\frac{d}{dx} \tan x 
+&= \frac{d}{dx} \frac{\sin x}{\cos x} \\
+&= \frac{ \left(\frac{d}{dx} \sin x \right) \cos x - \sin x \frac{d}{dx} \cos x  }{(\cos x)^2} \\
+&= \frac{ \cos x \cos x - (\sin x)(-\sin x)  }{(\cos x)^2} \\
+&= \frac{ (\cos x)^2  + (\sin x)^2  }{(\cos x)^2} \\
+&= \frac{1}{(\cos x)^2} \\
+&= (\sec x)^2 
+\end{align*}
+
+We can also write this as $1 + (\tan x)^2$
+
+:::
+
+::: {#exm-diff-quotient-1}
+
+Where does $x\mapsto \dfrac{3x}{4 + x^2}$ have a horizontal tangent?
+
+:::
+
+::: {.callout-tip collapse=true title="solution"}
+
+We're being asked to find where the derivative of $\dfrac{3x}{4 + x^2}$ is zero.  Use the quotient rule to find the derivative.
+
+\begin{align*}
+\frac{d}{dx} \dfrac{3x}{4 + x^2} 
+&= \frac{ (3)(4+x^2) - (3x)(0+2x) }{(4+x^2)} \\
+&= \frac{ 12 - 3x^2 }{(4+x^2)} 
+\end{align*}
+
+The denominator is always positive (no vertical tangent lines) and the numerator is zero when $x$ is either 2 or -2.
+
+:::
