@@ -128,3 +128,19 @@ We're being asked to find where the derivative of $\dfrac{3x}{4 + x^2}$ is zero.
 The denominator is always positive (no vertical tangent lines) and the numerator is zero when $x$ is either 2 or -2.
 
 :::
+
+## The mean value theorem
+
+::: {#thm-mean-value-theorem}
+
+# The mean value theorem
+
+If a function $f$ is continuous on the closed interval $[a,b]$ and differentiable on the open interval $(a,b)$, then there is at least one point between $a$ and $b$ at which the tangent line to $f$ is parallel to the secant line through the points $(a,f(a))$ and $(b,f(b))$.
+
+I.e., $f'(c) = \dfrac{f(b)-f(a)}{b-a}$
+for at least one point $c$ in the interval $(a,b)$.
+
+:::
+
+
+<iframe src="https://www.desmos.com/calculator/tp1odc6byb?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder=0></iframe>
