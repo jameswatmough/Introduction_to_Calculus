@@ -150,6 +150,7 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#discontinuities" id="toc-discontinuities" class="nav-link active" data-scroll-target="#discontinuities"><span class="header-section-number">3.1</span> Discontinuities</a></li>
   <li><a href="#continuous-functions" id="toc-continuous-functions" class="nav-link" data-scroll-target="#continuous-functions"><span class="header-section-number">3.2</span> Continuous Functions</a></li>
+  <li><a href="#properties-of-continuous-functions" id="toc-properties-of-continuous-functions" class="nav-link" data-scroll-target="#properties-of-continuous-functions"><span class="header-section-number">4</span> Properties of Continuous Functions</a></li>
   </ul>
 </nav>
     </div>
@@ -304,6 +305,27 @@ x+1 &amp; -1 \le x &lt; 0 \\
 <li>If <span class="math inline">\(0 &lt; x &lt; \delta\)</span>, then <span class="math inline">\(1 &lt; 1-x^2 &lt; 1-\delta^2\)</span>, so <span class="math inline">\(1 &lt; f(x) &lt; 1-\delta^2\)</span>.</li>
 </ul>
 <p>For this example, <span class="math inline">\(f(0) = 1\)</span> and the image of a neighbourhood of 0 stays in a neighbourhood of <span class="math inline">\(f(0)\)</span>. Hence <span class="math inline">\(f\)</span> is continuous at 0.</p>
+</section>
+<section id="properties-of-continuous-functions" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> Properties of Continuous Functions</h1>
+<div id="def-bounded" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4.1 (Bounded Functions) </strong></span>We say a function <span class="math inline">\(f\)</span> is</p>
+<ol type="a">
+<li><em>bounded above</em> if there is a number <span class="math inline">\(M\)</span> for which <span class="math inline">\(f(x) \le M\)</span> for all <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span>;</li>
+<li><em>bounded below</em> if there is a number <span class="math inline">\(L\)</span> for which <span class="math inline">\(f(x) \ge L\)</span> for all <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span>;</li>
+<li><em>bounded</em> if <span class="math inline">\(f\)</span> is both bounded above and bounded below.</li>
+</ol>
+<p>We refer to the numbers <span class="math inline">\(M\)</span> and <span class="math inline">\(L\)</span> as upper and lower <em>bounds</em> for <span class="math inline">\(f\)</span>.</p>
+</div>
+<div id="def-extreme-values" class="theorem definition">
+<p><span class="theorem-title"><strong>Definition 4.2 (Extreme Values) </strong></span>If <span class="math inline">\(M\)</span> is an upper bound for <span class="math inline">\(f\)</span> and <span class="math inline">\(f(x) = M\)</span> at some point <span class="math inline">\(x\)</span>, then we refer to <span class="math inline">\(M\)</span> as the <em>maximum value</em> of <span class="math inline">\(f\)</span>. Similarly, if <span class="math inline">\(L\)</span> is an lower bound for <span class="math inline">\(f\)</span> and <span class="math inline">\(f(x) = L\)</span> at some point <span class="math inline">\(x\)</span>, then we refer to <span class="math inline">\(L\)</span> as the <em>minimum value</em> of <span class="math inline">\(f\)</span>.</p>
+</div>
+<div id="thm-evt" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4.1 (The Extreme Value Theorem) </strong></span>If <span class="math inline">\(f\)</span> is continuous on a closed interval <span class="math inline">\([a,b]\)</span>, then <span class="math inline">\(f\)</span> is bounded. Further <span class="math inline">\(f\)</span> attains its maximum and minimum values.</p>
+</div>
+<div id="thm-ivt" class="theorem">
+<p><span class="theorem-title"><strong>Theorem 4.2 (The Intermediate Value Theorem) </strong></span>If <span class="math inline">\(f\)</span> is continuous on a closed interval <span class="math inline">\([a,b]\)</span>, and <span class="math inline">\(L\)</span> is any number between <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span>, then there is at least one point <span class="math inline">\(c\)</span> between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> for which <span class="math inline">\(f(c) = L\)</span>.</p>
+</div>
 
 
 </section>
