@@ -36,19 +36,19 @@ Mon Oct 23                       2.3     3.1-3.4   Derivatives of Elementary Fun
 Wed Oct 25 @sec-diff-rules-2     2.4     3.1-3.4   Derivatives of Products and Quotients
 Fri Oct 27                       2.4     3.1-3.4   Derivatives of Products and Quotients
 Mon Oct 30                       2.5     3.6       The Chain Rule 
-Wed Nov 01
-Fri Nov 03
+Wed Nov 01                       2.6     3.8       Implicit Differentiation
+Fri Nov 03                       2.7     3.7       Derivatives of Inverse Functions       
 Mon Nov 06 Reading Week            
 Wed Nov 08 Reading Week            
 Fri Nov 10 Reading Week            
-Mon Nov 13
-Wed Nov 15                       2.6     3.8       Implicit Differentiation
-Fri Nov 17                       2.7     3.7       Derivatives of Inverse Functions       
-Mon Nov 20                       3.1     4.1       Related Rates 
-Wed Nov 22                       3.1     4.1       More Related Rates!
-Fri Nov 24                       4.4     4.2       Linear Approximations and Taylor Polynomials
-Mon Nov 27                       4.3-4.4 4.2       Graphing and Optimization
-Wed Nov 29                       3.1-3.5 4.3-4.8   Graphing and Optimization                    
-Fri Dec 01                       3.1-3.5 4.3-4.8   Graphing and Optimization                     
-Mon Dec 04
-Wed Dec 06
+Mon Nov 13                       3.1     4.3       Extreme Values and critical points
+Wed Nov 15                       3.1     4.3       Extreme Values and critical points
+Fri Nov 17                       3.2-3.3 4.3-4.5   Intervals of increase and decrease
+Mon Nov 20                       3.1-3.5 4.3-4.5   Curve Sketching
+Wed Nov 22                       3.1-3.5 4.3-4.6   Curve Sketching (asymptotes)
+Fri Nov 24                       3.1     4.3-4.6   Concavity
+Mon Nov 27                       6.7     4.8       l'Hôpital's Rule
+Wed Nov 29                       4.2     4.1       Related Rates
+Fri Dec 01                       4.3     4.7       Optimization
+Mon Dec 04                       4.3     4.7       Optimization
+Wed Dec 06                       4.4     4.2       Linear Approximations
