@@ -1,4 +1,4 @@
-# Math 1003 Fall 2023 Schedule {.unnumbered}
+# Math 1003 Fall 2024 Schedule {.unnumbered}
 
-{{< include M1003-2023-schedule.md >}}
+{{< include M1003-schedule.md >}}
 
