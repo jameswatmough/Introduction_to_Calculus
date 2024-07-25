@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="James Watmough">
 
-<title>Introduction to Calculus - 4&nbsp; The Derivative</title>
+<title>4&nbsp; The Derivative – Introduction to Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -48,7 +48,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,14 +63,42 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -74,13 +108,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./differentiation.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Derivative</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./differentiation.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Derivative</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -89,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Calculus</a> 
@@ -141,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -152,7 +186,6 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#sec-diff-rules-I" id="toc-sec-diff-rules-I" class="nav-link" data-scroll-target="#sec-diff-rules-I"><span class="header-section-number">4.2</span> Derivatives of Our Core Functions</a></li>
   <li><a href="#sec-diff-rules-2" id="toc-sec-diff-rules-2" class="nav-link" data-scroll-target="#sec-diff-rules-2"><span class="header-section-number">4.3</span> The Product and Quotient Rules</a></li>
   <li><a href="#the-mean-value-theorem" id="toc-the-mean-value-theorem" class="nav-link" data-scroll-target="#the-mean-value-theorem"><span class="header-section-number">4.4</span> The mean value theorem</a></li>
-  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section"><span class="header-section-number">5</span> </a></li>
   </ul>
 </nav>
     </div>
@@ -186,7 +219,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="sec-diff-def" class="level2" data-number="4.1">
 <h2 data-number="4.1" class="anchored" data-anchor-id="sec-diff-def"><span class="header-section-number">4.1</span> Secant and Tangent Lines</h2>
@@ -194,7 +229,7 @@ ul.task-list li input[type="checkbox"] {
 <section id="sec-diff-rules-I" class="level2" data-number="4.2">
 <h2 data-number="4.2" class="anchored" data-anchor-id="sec-diff-rules-I"><span class="header-section-number">4.2</span> Derivatives of Our Core Functions</h2>
 <p>There are a few properties of derivatives that will save us from having to compute limits every time we need to differentiate a function. These should be memorized over the next few weeks.</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 12%">
 <col style="width: 69%">
@@ -235,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
 </table>
 <p>The first three rules let us easily differentiate polynomials. The product and quotient rules help differentiate more complex functions.</p>
 <p>In addition, you should memorize the derivatives of our core set of transcendental functions</p>
-<table class="table">
+<table class="caption-top table">
 <colgroup>
 <col style="width: 31%">
 <col style="width: 31%">
@@ -275,7 +310,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="4.3" class="anchored" data-anchor-id="sec-diff-rules-2"><span class="header-section-number">4.3</span> The Product and Quotient Rules</h2>
 <p>One way to help remember the product rule is to consider a rectangle with sides of length <span class="math inline">\(f\)</span> and <span class="math inline">\(g\)</span>. The area of this rectangle is the product <span class="math inline">\(fg\)</span>. If we change the length of the second side by a small amount, say from <span class="math inline">\(g\)</span> to <span class="math inline">\(g+dg\)</span>, then the area changes from <span class="math inline">\(fg\)</span> to <span class="math inline">\(f(g+dg)\)</span>. That’s a change of <span class="math inline">\(f\,dg\)</span>. If we change the length of the first side, the change in the area is <span class="math inline">\(df\, g\)</span>. Adding these two together gives us something that looks like the product rule: <span class="math inline">\(df\,g + f\,dg\)</span>. The details of how these calculations look using limits are given in the text.</p>
 <div id="exm-diff-product-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.1 </strong></span>Differentiate <span class="math inline">\(x \log x\)</span></p>
+<p><span class="theorem-title"><strong>Example 4.1</strong></span> Differentiate <span class="math inline">\(x \log x\)</span></p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="solution">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
@@ -298,7 +333,7 @@ solution
 </div>
 </div>
 <div id="exm-diff-product-2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.2 </strong></span>Differentiate <span class="math inline">\(x e^x\sin x\)</span></p>
+<p><span class="theorem-title"><strong>Example 4.2</strong></span> Differentiate <span class="math inline">\(x e^x\sin x\)</span></p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="solution">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
@@ -324,7 +359,7 @@ solution
 </div>
 <p>The origin of the quotient rule doesn’t have as simple a geometric motivation as the product rule, but it can be easily derived from the product rule. First, start by naming the ratio <span class="math inline">\(F\)</span> <span class="math display">\[F(x) = \frac{f(x)}{g(x)}\]</span> Then rewrite this as a product <span class="math display">\[F(x)g(x) = f(x)\]</span> Now differentiate both sides of the equality. <span class="math display">\[F'(x)g(x) + F(x)g'(x) = f'(x)\]</span> Replace <span class="math inline">\(F\)</span> by the ratio <span class="math display">\[F'(x)g(x) + \frac{f(x)}{g(x)}g'(x) = f'(x)\]</span> and isolate <span class="math inline">\(F'\)</span> on the left side <span class="math display">\[F'(x) = \frac{f'(x)}{g(x)} - \frac{f(x)g'(x)}{(g(x))^2}\]</span></p>
 <div id="exm-diff-quotient-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.3 </strong></span>Find the derivative of <span class="math inline">\(\tan x\)</span></p>
+<p><span class="theorem-title"><strong>Example 4.3</strong></span> Find the derivative of <span class="math inline">\(\tan x\)</span></p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="solution">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
@@ -352,7 +387,7 @@ solution
 </div>
 </div>
 <div id="exm-diff-quotient-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 4.4 </strong></span>Where does <span class="math inline">\(x\mapsto \dfrac{3x}{4 + x^2}\)</span> have a horizontal tangent?</p>
+<p><span class="theorem-title"><strong>Example 4.4</strong></span> Where does <span class="math inline">\(x\mapsto \dfrac{3x}{4 + x^2}\)</span> have a horizontal tangent?</p>
 </div>
 <div class="callout callout-style-default callout-tip callout-titled" title="solution">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
@@ -380,14 +415,11 @@ solution
 <section id="the-mean-value-theorem" class="level2" data-number="4.4">
 <h2 data-number="4.4" class="anchored" data-anchor-id="the-mean-value-theorem"><span class="header-section-number">4.4</span> The mean value theorem</h2>
 <div id="thm-mean-value-theorem" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4.1 (The mean value theorem) </strong></span>If a function <span class="math inline">\(f\)</span> is continuous on the closed interval <span class="math inline">\([a,b]\)</span> and differentiable on the open interval <span class="math inline">\((a,b)\)</span>, then there is at least one point between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> at which the tangent line to <span class="math inline">\(f\)</span> is parallel to the secant line through the points <span class="math inline">\((a,f(a))\)</span> and <span class="math inline">\((b,f(b))\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 4.1 (The mean value theorem)</strong></span> If a function <span class="math inline">\(f\)</span> is continuous on the closed interval <span class="math inline">\([a,b]\)</span> and differentiable on the open interval <span class="math inline">\((a,b)\)</span>, then there is at least one point between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> at which the tangent line to <span class="math inline">\(f\)</span> is parallel to the secant line through the points <span class="math inline">\((a,f(a))\)</span> and <span class="math inline">\((b,f(b))\)</span>.</p>
 <p>I.e., <span class="math inline">\(f'(c) = \dfrac{f(b)-f(a)}{b-a}\)</span> for at least one point <span class="math inline">\(c\)</span> in the interval <span class="math inline">\((a,b)\)</span>.</p>
 </div>
 <iframe src="https://www.desmos.com/calculator/tp1odc6byb?embed" width="500" height="500" style="border: 1px solid #ccc" frameborder="0">
 </iframe>
-</section>
-<section id="section" class="level1" data-number="5">
-<h1 data-number="5"><span class="header-section-number">5</span> </h1>
 
 
 </section>
@@ -428,18 +460,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -471,11 +492,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -485,8 +545,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -498,7 +567,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -542,6 +734,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -567,6 +760,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -628,17 +847,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./continuity.html" class="pagination-link">
+      <a href="./continuity.html" class="pagination-link" aria-label="Limits and Continuity">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Limits and Continuity</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link">
+      <a href="./references.html" class="pagination-link" aria-label="References">
         <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 

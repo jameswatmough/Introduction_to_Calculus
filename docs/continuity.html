@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.450">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="James Watmough">
 
-<title>Introduction to Calculus - 3&nbsp; Limits and Continuity</title>
+<title>3&nbsp; Limits and Continuity – Introduction to Calculus</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -48,7 +48,13 @@ ul.task-list li input[type="checkbox"] {
   "collapse-after": 3,
   "panel-placement": "start",
   "type": "textbox",
-  "limit": 20,
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
   "language": {
     "search-no-results-text": "No results",
     "search-matching-documents-text": "matching documents",
@@ -57,14 +63,42 @@ ul.task-list li input[type="checkbox"] {
     "search-more-match-text": "more match in this document",
     "search-more-matches-text": "more matches in this document",
     "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
     "search-detached-cancel-button-title": "Cancel",
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -74,13 +108,13 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./continuity.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Limits and Continuity</span></a></li></ol></nav>
-      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
-      </a>
-      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./continuity.html"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Limits and Continuity</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -89,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation floating overflow-auto">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="./">Introduction to Calculus</a> 
@@ -141,7 +175,7 @@ ul.task-list li input[type="checkbox"] {
     </ul>
     </div>
 </nav>
-<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
@@ -184,7 +218,9 @@ ul.task-list li input[type="checkbox"] {
   </div>
   
 
+
 </header>
+
 
 <section id="discontinuities" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="discontinuities"><span class="header-section-number">3.1</span> Discontinuities</h2>
@@ -194,62 +230,81 @@ ul.task-list li input[type="checkbox"] {
 a sharp difference of characteristics between parts of something
 </dd>
 </dl>
-<p>Discontinuities are all around us: the edges of sidewalks, potholes in the road, sudden losses of power. To model discontinuities, we need functions with discontinuities. There are several types of discontinuities that appear in functions. Three of the most common are <em>jumps</em>, <em>vertical asymptotes</em> and <em>holes</em>. In a jump discontinuity, the left and right parts of a function are smooth, but the two parts don’t meet (see <a href="#fig-discon-jump">Figure&nbsp;<span>3.1 (a)</span></a>). These are useful to model switches, boundaries, or sudden shifts in outputs. A vertical asymptote where a function <em>goes to infinity</em> for some inputs (see <a href="#fig-discon-pole">Figure&nbsp;<span>3.1 (b)</span></a>). A third type of discontinuity we’ll call a hole occurs when the two sides of a function are smooth and line up, but the function either isn’t defined or is completely out of line in the middle (see <a href="#fig-discon-hole">Figure&nbsp;<span>3.1 (c)</span></a>).</p>
+<p>Discontinuities are all around us: the edges of sidewalks, potholes in the road, sudden losses of power. To model discontinuities, we need functions with discontinuities. There are several types of discontinuities that appear in functions. Three of the most common are <em>jumps</em>, <em>vertical asymptotes</em> and <em>holes</em>. In a jump discontinuity, the left and right parts of a function are smooth, but the two parts don’t meet (see <a href="#fig-discon-jump" class="quarto-xref">Figure&nbsp;<span>3.1 (a)</span></a>). These are useful to model switches, boundaries, or sudden shifts in outputs. A vertical asymptote where a function <em>goes to infinity</em> for some inputs (see <a href="#fig-discon-pole" class="quarto-xref">Figure&nbsp;<span>3.1 (b)</span></a>). A third type of discontinuity we’ll call a hole occurs when the two sides of a function are smooth and line up, but the function either isn’t defined or is completely out of line in the middle (see <a href="#fig-discon-hole" class="quarto-xref">Figure&nbsp;<span>3.1 (c)</span></a>).</p>
 <div id="fig-discontinuities" class="quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-discon-jump" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/discontinuity-1.png" class="img-fluid figure-img" data-ref-parent="fig-discontinuities"></p>
-<figcaption class="figure-caption">(a) A jump discontinuity</figcaption>
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-discontinuities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-discontinuities" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-discon-jump" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-discon-jump-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/discontinuity-1.png" class="img-fluid figure-img" data-ref-parent="fig-discontinuities">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-discon-jump-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(a) A jump discontinuity
+</figcaption>
 </figure>
 </div>
 </div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-discon-pole" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/discontinuity-2.png" class="img-fluid figure-img" data-ref-parent="fig-discontinuities"></p>
-<figcaption class="figure-caption">(b) A vertical asymptote</figcaption>
-</figure>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-discontinuities" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-discon-pole" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-discon-pole-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/discontinuity-2.png" class="img-fluid figure-img" data-ref-parent="fig-discontinuities">
 </div>
-</div>
-</div>
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-discon-hole" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/discontinuity-3.png" class="img-fluid figure-img" data-ref-parent="fig-discontinuities"></p>
-<figcaption class="figure-caption">(c) A hole</figcaption>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-discon-none" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/discontinuity-4.png" class="img-fluid figure-img" data-ref-parent="fig-discontinuities"></p>
-<figcaption class="figure-caption">(d) No discontinuities</figcaption>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-discon-pole-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(b) A vertical asymptote
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.1: Three Common Discontinuities</figcaption><p></p>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-discontinuities" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-discon-hole" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-discon-hole-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/discontinuity-3.png" class="img-fluid figure-img" data-ref-parent="fig-discontinuities">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-discon-hole-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(c) A hole
+</figcaption>
 </figure>
 </div>
-<p>The common characteristic of a discontinuity in a function is that the outputs of the function for points in the domain near the discontinuity, are not close together. For example, if a function has a jump discontinuity at some point, <span class="math inline">\(a\)</span>, then the outputs of the function for inputs near <span class="math inline">\(a\)</span> are split into two separate intervals (see <a href="#fig-discon-jump-interval">Figure&nbsp;<span>3.2 (a)</span></a>)</p>
+</div>
+<div class="quarto-layout-cell-subref quarto-layout-cell" data-ref-parent="fig-discontinuities" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div id="fig-discon-none" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-subfloat-fig figure">
+<div aria-describedby="fig-discon-none-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/discontinuity-4.png" class="img-fluid figure-img" data-ref-parent="fig-discontinuities">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-subfloat-caption quarto-subfloat-fig" id="fig-discon-none-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+(d) No discontinuities
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-discontinuities-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.1: Three Common Discontinuities
+</figcaption>
+</figure>
+</div>
+<p>The common characteristic of a discontinuity in a function is that the outputs of the function for points in the domain near the discontinuity, are not close together. For example, if a function has a jump discontinuity at some point, <span class="math inline">\(a\)</span>, then the outputs of the function for inputs near <span class="math inline">\(a\)</span> are split into two separate intervals (see <span class="quarto-unresolved-ref">?fig-discon-jump-interval</span>)</p>
 <div id="fig-disc-intervals" class="quarto-layout-panel">
-<figure class="figure">
-<div class="quarto-layout-row quarto-layout-valign-top">
-<div class="quarto-layout-cell quarto-layout-cell-subref" style="flex-basis: 50.0%;justify-content: center;">
-<div id="fig-discon-jump-interval" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="figures/discontinuity-1b.png" class="img-fluid figure-img" data-ref-parent="fig-disc-intervals"></p>
-<figcaption class="figure-caption">(a)</figcaption>
-</figure>
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-disc-intervals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<img src="figures/discontinuity-1b.png" id="fig-discon-jump-interval" class="img-fluid figure-img">
 </div>
 </div>
 </div>
-<p></p><figcaption class="figure-caption">Figure&nbsp;3.2: Discontinuities break up neighbourhoods</figcaption><p></p>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-disc-intervals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3.2: Discontinuities break up neighbourhoods
+</figcaption>
 </figure>
 </div>
 </section>
@@ -266,19 +321,19 @@ a sharp difference of characteristics between parts of something
 </blockquote>
 <p>To make this notion precise, it helps to (re)introduce some terminology.</p>
 <div id="def-neighbourhood" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.1 (Neighbourhood of a point) </strong></span>For our purposes, a <em>neighbourhood</em> of <span class="math inline">\(a\)</span> is any open interval containing <span class="math inline">\(a\)</span>. This will typically be the set of all points within some distance, say <span class="math inline">\(\delta\)</span>, of <span class="math inline">\(a\)</span>. That is, the interval <span class="math inline">\(\left\{x \ \left|\ \strut |x-a|&lt;\delta\right.\right\}\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 3.1 (Neighbourhood of a point)</strong></span> For our purposes, a <em>neighbourhood</em> of <span class="math inline">\(a\)</span> is any open interval containing <span class="math inline">\(a\)</span>. This will typically be the set of all points within some distance, say <span class="math inline">\(\delta\)</span>, of <span class="math inline">\(a\)</span>. That is, the interval <span class="math inline">\(\left\{x \ \left|\ \strut |x-a|&lt;\delta\right.\right\}\)</span>.</p>
 <p>More generally, given a point <span class="math inline">\(a\)</span> and a set <span class="math inline">\(X\)</span> we say a subset <span class="math inline">\(U\)</span> of <span class="math inline">\(X\)</span> is a <em>neighbourhood</em> of <span class="math inline">\(a\)</span> in <span class="math inline">\(X\)</span> if <span class="math inline">\(U\)</span> contains all the points of <span class="math inline">\(X\)</span> in some open interval containing <span class="math inline">\(a\)</span>.</p>
 </div>
 <div id="def-images" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.2 (Image of a set) </strong></span>Given a function <span class="math inline">\(f\)</span> and a subset <span class="math inline">\(U\)</span> of the domain of <span class="math inline">\(f\)</span>, the <em>image</em> of <span class="math inline">\(U\)</span> under <span class="math inline">\(f\)</span> is the set of all outputs reached by inputs in <span class="math inline">\(U\)</span>. This image is often denoted simply by <span class="math inline">\(f(U)\)</span>. That is, <span class="math display">\[f(U) = \left\{f(x) \ \left|\ \strut x\in U\right.\right\}.\]</span> The <em>preimage</em> or <em>inverse image</em> of a subset <span class="math inline">\(V\)</span> of the codomain of <span class="math inline">\(f\)</span>, denoted by <span class="math inline">\(f^{-1}(V)\)</span>, is the set of all inputs whose corresponding outputs are in <span class="math inline">\(V\)</span>. That is, <span class="math display">\[f^{-1}(V) = \left\{x \ \left|\ \strut \text{$y=f(x)$ for some $y \in V$}\right.\right\}.\]</span></p>
+<p><span class="theorem-title"><strong>Definition 3.2 (Image of a set)</strong></span> Given a function <span class="math inline">\(f\)</span> and a subset <span class="math inline">\(U\)</span> of the domain of <span class="math inline">\(f\)</span>, the <em>image</em> of <span class="math inline">\(U\)</span> under <span class="math inline">\(f\)</span> is the set of all outputs reached by inputs in <span class="math inline">\(U\)</span>. This image is often denoted simply by <span class="math inline">\(f(U)\)</span>. That is, <span class="math display">\[f(U) = \left\{f(x) \ \left|\ \strut x\in U\right.\right\}.\]</span> The <em>preimage</em> or <em>inverse image</em> of a subset <span class="math inline">\(V\)</span> of the codomain of <span class="math inline">\(f\)</span>, denoted by <span class="math inline">\(f^{-1}(V)\)</span>, is the set of all inputs whose corresponding outputs are in <span class="math inline">\(V\)</span>. That is, <span class="math display">\[f^{-1}(V) = \left\{x \ \left|\ \strut \text{$y=f(x)$ for some $y \in V$}\right.\right\}.\]</span></p>
 </div>
 <div id="def-continuous-function" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 3.3 (Continuous functions) </strong></span>A function <span class="math inline">\(f\)</span> is continuous at a point <span class="math inline">\(c\)</span> in its domain if every neighbourhood of <span class="math inline">\(f(a)\)</span> contains the image of some neighbourhood of <span class="math inline">\(a\)</span> in the domain of <span class="math inline">\(f\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 3.3 (Continuous functions)</strong></span> A function <span class="math inline">\(f\)</span> is continuous at a point <span class="math inline">\(c\)</span> in its domain if every neighbourhood of <span class="math inline">\(f(a)\)</span> contains the image of some neighbourhood of <span class="math inline">\(a\)</span> in the domain of <span class="math inline">\(f\)</span>.</p>
 <p>A function <span class="math inline">\(f\)</span> is continuous on its domain, or simply, continuous, if it is continuous at every point in its domain.</p>
 </div>
 <p>We say <span class="math inline">\(f\)</span> has a <em>discontinuity</em> at a point, or <span class="math inline">\(f\)</span> is discontinuous at a point, if <span class="math inline">\(f\)</span> isn’t continuous at that point.</p>
 <div id="exm-discon-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3.1 </strong></span>Consider the (piecewise) function <span class="math inline">\(f\)</span> defined by <span class="math display">\[f(x) = \begin{cases}
+<p><span class="theorem-title"><strong>Example 3.1</strong></span> Consider the (piecewise) function <span class="math inline">\(f\)</span> defined by <span class="math display">\[f(x) = \begin{cases}
 x+1 &amp; -1 \le x &lt; 0 \\
 x^2 &amp; 0 \le x \le 1
 \end{cases}\]</span></p>
@@ -294,7 +349,7 @@ x^2 &amp; 0 \le x \le 1
 <p>So the right half of our neighbourhood of 0 is near <span class="math inline">\(f(0)\)</span>, but if <span class="math inline">\(\delta &lt; 1\)</span>, then the left half is not near <span class="math inline">\(f(0)\)</span>, it’s near 1. We have a jump discontinuity.</p>
 <p>Notice how this example reverses the logic of our definition of continuity. The definition states that every neighbourhood of <span class="math inline">\(f(a)\)</span> contains an image of <em>some</em> neighbourhood of <span class="math inline">\(a\)</span>. Thus to show a function is continuous we first specify an arbitrary tolerance for how close the function should be to <span class="math inline">\(f(a)\)</span> and then check how close points must be to <span class="math inline">\(a\)</span> to ensure they land close to <span class="math inline">\(f(a)\)</span>. Since our function <span class="math inline">\(f\)</span> in this example splits neighbourhoods of 0 into two pieces, one near 0 and one near 1, it can’t satisfy the requirements of the definition.</p>
 <div id="exm-discon-2" class="theorem example">
-<p><span class="theorem-title"><strong>Example 3.2 </strong></span>Consider the (piecewise) function <span class="math inline">\(f\)</span> defined by <span class="math display">\[f(x) = \begin{cases}
+<p><span class="theorem-title"><strong>Example 3.2</strong></span> Consider the (piecewise) function <span class="math inline">\(f\)</span> defined by <span class="math display">\[f(x) = \begin{cases}
 x+1 &amp; -1 \le x &lt; 0 \\
 1-x^2 &amp; 0 \le x \le 1
 \end{cases}\]</span></p>
@@ -309,7 +364,7 @@ x+1 &amp; -1 \le x &lt; 0 \\
 <section id="properties-of-continuous-functions" class="level1" data-number="4">
 <h1 data-number="4"><span class="header-section-number">4</span> Properties of Continuous Functions</h1>
 <div id="def-bounded" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.1 (Bounded Functions) </strong></span>We say a function <span class="math inline">\(f\)</span> is</p>
+<p><span class="theorem-title"><strong>Definition 4.1 (Bounded Functions)</strong></span> We say a function <span class="math inline">\(f\)</span> is</p>
 <ol type="a">
 <li><em>bounded above</em> if there is a number <span class="math inline">\(M\)</span> for which <span class="math inline">\(f(x) \le M\)</span> for all <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span>;</li>
 <li><em>bounded below</em> if there is a number <span class="math inline">\(L\)</span> for which <span class="math inline">\(f(x) \ge L\)</span> for all <span class="math inline">\(x\)</span> in the domain of <span class="math inline">\(f\)</span>;</li>
@@ -318,13 +373,13 @@ x+1 &amp; -1 \le x &lt; 0 \\
 <p>We refer to the numbers <span class="math inline">\(M\)</span> and <span class="math inline">\(L\)</span> as upper and lower <em>bounds</em> for <span class="math inline">\(f\)</span>.</p>
 </div>
 <div id="def-extreme-values" class="theorem definition">
-<p><span class="theorem-title"><strong>Definition 4.2 (Extreme Values) </strong></span>If <span class="math inline">\(M\)</span> is an upper bound for <span class="math inline">\(f\)</span> and <span class="math inline">\(f(x) = M\)</span> at some point <span class="math inline">\(x\)</span>, then we refer to <span class="math inline">\(M\)</span> as the <em>maximum value</em> of <span class="math inline">\(f\)</span>. Similarly, if <span class="math inline">\(L\)</span> is an lower bound for <span class="math inline">\(f\)</span> and <span class="math inline">\(f(x) = L\)</span> at some point <span class="math inline">\(x\)</span>, then we refer to <span class="math inline">\(L\)</span> as the <em>minimum value</em> of <span class="math inline">\(f\)</span>.</p>
+<p><span class="theorem-title"><strong>Definition 4.2 (Extreme Values)</strong></span> If <span class="math inline">\(M\)</span> is an upper bound for <span class="math inline">\(f\)</span> and <span class="math inline">\(f(x) = M\)</span> at some point <span class="math inline">\(x\)</span>, then we refer to <span class="math inline">\(M\)</span> as the <em>maximum value</em> of <span class="math inline">\(f\)</span>. Similarly, if <span class="math inline">\(L\)</span> is an lower bound for <span class="math inline">\(f\)</span> and <span class="math inline">\(f(x) = L\)</span> at some point <span class="math inline">\(x\)</span>, then we refer to <span class="math inline">\(L\)</span> as the <em>minimum value</em> of <span class="math inline">\(f\)</span>.</p>
 </div>
 <div id="thm-evt" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4.1 (The Extreme Value Theorem) </strong></span>If <span class="math inline">\(f\)</span> is continuous on a closed interval <span class="math inline">\([a,b]\)</span>, then <span class="math inline">\(f\)</span> is bounded. Further <span class="math inline">\(f\)</span> attains its maximum and minimum values.</p>
+<p><span class="theorem-title"><strong>Theorem 4.1 (The Extreme Value Theorem)</strong></span> If <span class="math inline">\(f\)</span> is continuous on a closed interval <span class="math inline">\([a,b]\)</span>, then <span class="math inline">\(f\)</span> is bounded. Further <span class="math inline">\(f\)</span> attains its maximum and minimum values.</p>
 </div>
 <div id="thm-ivt" class="theorem">
-<p><span class="theorem-title"><strong>Theorem 4.2 (The Intermediate Value Theorem) </strong></span>If <span class="math inline">\(f\)</span> is continuous on a closed interval <span class="math inline">\([a,b]\)</span>, and <span class="math inline">\(L\)</span> is any number between <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span>, then there is at least one point <span class="math inline">\(c\)</span> between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> for which <span class="math inline">\(f(c) = L\)</span>.</p>
+<p><span class="theorem-title"><strong>Theorem 4.2 (The Intermediate Value Theorem)</strong></span> If <span class="math inline">\(f\)</span> is continuous on a closed interval <span class="math inline">\([a,b]\)</span>, and <span class="math inline">\(L\)</span> is any number between <span class="math inline">\(f(a)\)</span> and <span class="math inline">\(f(b)\)</span>, then there is at least one point <span class="math inline">\(c\)</span> between <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> for which <span class="math inline">\(f(c) = L\)</span>.</p>
 </div>
 
 
@@ -366,18 +421,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -409,11 +453,50 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
-  function tippyHover(el, contentFn) {
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
-      content: contentFn,
       maxWidth: 500,
       delay: 100,
       arrow: false,
@@ -423,8 +506,17 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       interactive: true,
       interactiveBorder: 10,
       theme: 'quarto',
-      placement: 'bottom-start'
+      placement: 'bottom-start',
     };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
     window.tippy(el, config); 
   }
   const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
@@ -436,7 +528,130 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
     });
   }
       let selectedAnnoteEl;
@@ -480,6 +695,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
             }
             div.style.top = top - 2 + "px";
             div.style.height = height + 4 + "px";
+            div.style.left = 0;
             let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
             if (gutterDiv === null) {
               gutterDiv = window.document.createElement("div");
@@ -505,6 +721,32 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         });
         selectedAnnoteEl = undefined;
       };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
       // Attach click handler to the DT
       const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
       for (const annoteDlNode of annoteDls) {
@@ -566,17 +808,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./trigonometric_functions.html" class="pagination-link">
+      <a href="./trigonometric_functions.html" class="pagination-link" aria-label="Trigonometric Functions">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Trigonometric Functions</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./differentiation.html" class="pagination-link">
+      <a href="./differentiation.html" class="pagination-link" aria-label="The Derivative">
         <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">The Derivative</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
+
 
 
 
