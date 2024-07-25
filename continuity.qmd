@@ -124,3 +124,44 @@ Since the left side of the function has the same definition, we just need to loo
 + If $0 < x < \delta$, then $1 < 1-x^2 < 1-\delta^2$, so $1 < f(x) < 1-\delta^2$.
 
 For this example, $f(0) = 1$ and the image of a neighbourhood of 0 stays in a neighbourhood of $f(0)$.  Hence $f$ is continuous at 0.
+
+# Properties of Continuous Functions
+
+::: {#def-bounded}
+
+# Bounded Functions
+
+We say a function $f$ is 
+
+a. *bounded above* if there is a number $M$ for which $f(x) \le M$ for all $x$ in the domain of $f$; 
+b. *bounded below* if there is a number $L$ for which $f(x) \ge L$ for all $x$ in the domain of $f$; 
+c. *bounded* if $f$ is both bounded above and bounded below.
+
+We refer to the numbers $M$ and $L$ as upper and lower *bounds* for $f$.
+
+:::
+
+::: {#def-extreme-values}
+
+# Extreme Values
+
+If $M$ is an upper bound for $f$ and $f(x) = M$ at some point $x$, then we refer to $M$ as the *maximum value* of $f$.   Similarly, if $L$ is an lower bound for $f$ and $f(x) = L$ at some point $x$, then we refer to $L$ as the *minimum value* of $f$.
+
+:::
+
+::: {#thm-evt}
+
+# The Extreme Value Theorem
+
+If $f$ is continuous on a closed interval $[a,b]$, then $f$ is bounded.  Further $f$ attains its maximum and minimum values.  
+
+:::
+
+::: {#thm-ivt}
+
+# The Intermediate Value Theorem
+
+If $f$ is continuous on a closed interval $[a,b]$, and $L$ is any number between $f(a)$ and $f(b)$, then there is at least one point $c$ between $a$ and $b$ for which $f(c) = L$.
+
+:::
+
