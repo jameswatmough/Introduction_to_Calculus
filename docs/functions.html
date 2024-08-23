@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -222,7 +222,6 @@ window.Quarto = {
 
 <section id="functions-and-variables" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="functions-and-variables"><span class="header-section-number">1.1</span> Functions and variables</h2>
-<p>These notes are purposefully abstract. We’ll begin with a list of definitions of familiar terms cast as something more abstract than you might be used to. Almost all of the functions we use will be real-valued functions of a single real variable. That is, both the domains and ranges will be sets of real numbers. However, most of the concepts on the first-year curriculum apply to a more abstract notion of a function. In fact, some might be easier to understand when the domain is a region in the plane, rather than an interval.</p>
 <p>Functions arise whenever one quantity (or state) can be <em>determined</em> from another. Functions also arise whenever we <em>theorize</em> that one quantity (or state) could be determined from another.</p>
 <p>Examples:</p>
 <ul>
@@ -231,11 +230,12 @@ window.Quarto = {
 <li>The area of a circle depends on its radius.</li>
 <li>The rate a predator encounters prey depends on the size of the prey population.</li>
 </ul>
-<p>The quantity being determined is often referred to as the <em>dependent variable</em>, and the other quantify is the <em>independent variable</em>.</p>
+<p>The quantity being determined is often referred to as the <em>dependent variable</em>, and the other quantify is the <em>independent variable</em>. For your first calculus course, almost all the example functions will have a single output and a single input, but in practice, we usually have several inputs and several outputs. We don’t usually view all the inputs as <em>variable</em>. The most common names for the inputs that we’re not varying are parameters, constants, or coefficients.</p>
+<p>Note our quantities are only labeled as variables or parameters for a specific question. For example, our tap-water temperature probably also depends the temperature of the hot water tank and the outdoor temperature. We might view these as fixed, but we might also be interested in knowing what happens as the outdoor temperature changes. We may also want to flip the question around and ask how long the water needs to run to reach a certain temperature. Now the time is the dependent variable, and the water temperature is the independent variable.</p>
 <div id="def-function" class="theorem definition">
 <p><span class="theorem-title"><strong>Definition 1.1 (Function)</strong></span> A function consists of two sets, <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span>, together with a rule that assigns exactly one element of <span class="math inline">\(B\)</span> to each and every element of <span class="math inline">\(A\)</span>.</p>
 </div>
-<p>It is common to think of the elements of <span class="math inline">\(A\)</span> as <em>inputs</em> and the elements of <span class="math inline">\(B\)</span> as <em>outputs</em>. The function matches each input to exactly one output.</p>
+<p>It is common to think of the elements of <span class="math inline">\(A\)</span> as <em>inputs</em>. The function matches each and every input in <span class="math inline">\(A\)</span> to exactly one <em>output</em> from <span class="math inline">\(B\)</span>.</p>
 <ul>
 <li>Ideally a function should be given a clear descriptive name, but it is often denoted by a single letter, like <span class="math inline">\(f\)</span>.</li>
 <li>The set <span class="math inline">\(A\)</span> in <a href="#def-function" class="quarto-xref">Definition&nbsp;<span>1.1</span></a> is referred to as the <em>domain</em> of <span class="math inline">\(f\)</span>.</li>
@@ -248,11 +248,11 @@ window.Quarto = {
 <p>When we are using variables and functions to explain concepts it is a good idea to name the variables and functions in meaningful ways. For example, suppose we need a function to model the rate a lioness searches for prey. When the number of prey is low, she will chase down every prey she sees, but when there are lots of prey available, she will only chase down enough to satisfy her hunger. A simple model for this saturation effect is a hyperbola. We could use a descriptive name like <span class="math inline">\(\texttt{Prey}\)</span> to denote the number of prey, our independent variable. <span class="math inline">\(\texttt{Prey}\)</span> should be a positive real number. Then we could give our function a descriptive name like <span class="math inline">\(\texttt{Lioness\_Attack}\)</span> and define it by the rule <span class="math display">\[\begin{equation}
   \texttt{Lioness\_Attack}(\texttt{Prey}) = \frac{\texttt{attack\_rate}\times\texttt{Prey} }{ \texttt{saturation\_level} + \texttt{Prey} }, \qquad \texttt{Prey} \ge 0.
 \end{equation}\]</span></p>
-<p>We will refer to <code>attack\_rate</code> and <code>saturation\_level</code> as parameters, <code>Prey</code> as the independent variable, and <code>Lioness\_Attack</code> as the function. The use and meaning of the word <em>parameter</em> may be different outside of these notes, but it usually indicates a fixed quantity. I.e., something that isn’t <em>varying</em>.</p>
-<p>While descriptive variable and function names are helpful at times, they can be annoying at times. Especially if we are trying to solve equations algebraically. So in this course, and most math courses, variable and function names will usually be single letters.</p>
-<p>Another common way to specify a function is using a arrow with the input on one side and the output on the other. For example <span class="math display">\[x\to x^2 + 2, x \in {\mathbb R}\]</span> defines a function whose input is any real number and whose output is two plus the square of the input. Notice how this lets us define a function without the complication of naming it. In many programming languages this is referred to as an <em>anonymous</em> function.</p>
+<p>Here <code>attack_rate</code> and <code>saturation_level</code> are parameters, <code>Prey</code> is the independent variable, and <code>Lioness_Attack</code> is the function.</p>
+<p>While descriptive variable and function names are helpful at times, they can be annoying at times, especially if we are trying to solve equations algebraically. In most math courses, variable and function names will be denoted by single letters.</p>
+<p>Another common way to specify a function is using a arrow with the input on one side and the output on the other. For example <span class="math display">\[x\mapsto x^2 + 2, x \in {\mathbb R}\]</span> defines a function whose input is any real number and whose output is two plus the square of the input. Notice how this lets us define a function without the complication of naming it. In many programming languages this is referred to as an <em>anonymous</em> function.</p>
 <div id="exm-function-1" class="theorem example">
-<p><span class="theorem-title"><strong>Example 1.1 (Function Notation)</strong></span> Let <span class="math inline">\(P\)</span> be the function defined by <span class="math display">\[x \to 3x^2 - x + 5, \quad x\in {\mathbb R}.\]</span> Think of <span class="math inline">\(P\)</span> as the name of the function, and <span class="math inline">\(P(x)\)</span> as the value of the function at <span class="math inline">\(x\)</span>.</p>
+<p><span class="theorem-title"><strong>Example 1.1 (Function Notation)</strong></span> Let <span class="math inline">\(P\)</span> be the function defined by <span class="math display">\[x \mapsto 3x^2 - x + 5, \quad x\in {\mathbb R}.\]</span> Think of <span class="math inline">\(P\)</span> as the name of the function, and <span class="math inline">\(P(x)\)</span> as the value of the function at <span class="math inline">\(x\)</span>.</p>
 <ul>
 <li>the value of <span class="math inline">\(P\)</span> at 2 is <span class="math display">\[P(2) = 3(2)^2 - (2) + 5 = 12 - 2 + 5 = 15\]</span></li>
 <li>given a number, <span class="math inline">\(t\)</span>, the value of <span class="math inline">\(P\)</span> at <span class="math inline">\(t+1\)</span> is <span class="math display">\[P(t+1) = 3 (t+1)^2 - (t+1) + 5\]</span></li>

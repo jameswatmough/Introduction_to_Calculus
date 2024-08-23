@@ -9,8 +9,6 @@ date: "`r Sys.Date()`"
 
 ## Functions and variables
 
-These notes are purposefully abstract.  We'll begin with a list of definitions of familiar terms cast as something more abstract than you might be used to.  Almost all of the functions we use will be real-valued functions of a single real variable.  That is, both the domains and ranges will be sets of real numbers.  However, most of the concepts on the first-year curriculum apply to a more abstract notion of a function.  In fact, some might be easier to understand when the domain is a region in the plane, rather than an interval.  
-
 Functions arise whenever one quantity (or state) can be *determined* from another.
 Functions also arise whenever we *theorize* that one quantity (or state) could be determined from another.
 
@@ -21,7 +19,9 @@ Examples:
 - The area of a circle depends on its radius.
 - The rate a predator encounters prey depends on the size of the prey population.
 
-The quantity being determined is often referred to as the *dependent variable*, and the other quantify is the *independent variable*.
+The quantity being determined is often referred to as the *dependent variable*, and the other quantify is the *independent variable*.   For your first calculus course, almost all the example functions will have a single output and a single input, but in practice, we usually have several inputs and several outputs.  We don't usually view all the inputs as *variable*.  The most common names for the inputs that we're not varying are parameters, constants, or coefficients. 
+
+Note our quantities are only labeled as variables or parameters for a specific question.  For example, our tap-water temperature probably also depends the temperature of the hot water tank and the outdoor temperature.  We might view these as fixed, but we might also be interested in knowing what happens as the outdoor temperature changes.  We may also want to flip the question around and ask how long the water needs to run to reach a certain temperature.  Now the time is the dependent variable, and the water temperature is the independent variable.  
 
 ::: {#def-function}
 
@@ -32,7 +32,7 @@ and every element of $A$.
 
 :::
 
-It is common to think of the elements of $A$ as *inputs* and the elements of $B$ as *outputs*.  The function matches each input to exactly one output.
+It is common to think of the elements of $A$ as *inputs*.  The function matches each and every input in $A$ to exactly one *output* from $B$.
 
 - Ideally a function should be given a clear descriptive name, but it is often denoted by a single letter, like $f$.
 - The set $A$ in @def-function is referred to as the *domain* of $f$.
@@ -53,20 +53,20 @@ $\texttt{Prey}$ to denote the number of prey, our independent variable.  $\textt
   \texttt{Lioness\_Attack}(\texttt{Prey}) = \frac{\texttt{attack\_rate}\times\texttt{Prey} }{ \texttt{saturation\_level} + \texttt{Prey} }, \qquad \texttt{Prey} \ge 0.
 \end{equation}
 
-We will refer to `attack\_rate` and `saturation\_level` as parameters, 
-`Prey` as the independent variable, and
-`Lioness\_Attack` as the function.   The use and meaning of the word *parameter* may be different outside of these notes, but it usually indicates a fixed quantity.  I.e., something that isn't *varying*.
+Here `attack_rate` and `saturation_level` are parameters, 
+`Prey` is the independent variable, and
+`Lioness_Attack` is the function.   
 
-While descriptive variable and function names are helpful at times, they can be annoying at times.  Especially if we are trying to solve equations algebraically.  So in this course, and most math courses, variable and function names will usually be single letters.
+While descriptive variable and function names are helpful at times, they can be annoying at times, especially if we are trying to solve equations algebraically.  In most math courses, variable and function names will be denoted by single letters.
 
 Another common way to specify a function is using a arrow with the input on one side and the output on the other.  For example
-$$x\to x^2 + 2, x \in \R$$
-defines a function whose input is any real number and whose output is two plus the square of the input.  Notice how this lets us define a function without the complication of naming it.  In many programming languages this is referred to as an *anonymous* function.
+$$x\mapsto x^2 + 2, x \in \R$$
+defines a function whose input is any real number and whose output is two plus the square of the input.  Notice how this lets us define a function without the complication of naming it.   In many programming languages this is referred to as an *anonymous* function.    
 
 ::: {#exm-function-1}
 # Function Notation
 Let $P$ be the function defined by 
-$$x \to 3x^2 - x + 5, \quad x\in \R.$$
+$$x \mapsto 3x^2 - x + 5, \quad x\in \R.$$
 Think of $P$ as the name of the function, and $P(x)$ as the value of the function at $x$.
 
 - the value of $P$ at 2 is $$P(2) = 3(2)^2 - (2) + 5 = 12 - 2 + 5 = 15$$

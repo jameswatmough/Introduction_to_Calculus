@@ -28,15 +28,10 @@ Three Common Discontinuities
 
 :::
 
-The common characteristic of a discontinuity in a function is that the outputs of the function for points in the domain near the discontinuity, are not close together.  For example, if a function has a jump discontinuity at some point, $a$, then the outputs of the function for inputs near $a$ are split into two separate intervals (see @fig-discon-jump-interval)
+The common characteristic of a discontinuity in a function is that the outputs of the function for points in the domain near the discontinuity are not close together.  For example, if a function has a jump discontinuity at some point, $a$, then the outputs of the function for inputs near $a$ are split into two separate intervals (see @fig-discon-jump-interval)
 
-::: {#fig-disc-intervals layout-ncol=2}
+![Discontinuities break up neighbourhoods](figures/discontinuity-1b.png){#fig-discon-jump-interval}
 
-![](figures/discontinuity-1b.png){#fig-discon-jump-interval}
-
-Discontinuities break up neighbourhoods
-
-:::
 
 ## Continuous Functions
 
@@ -97,15 +92,15 @@ Does $f$ have a discontinuity at $0$?
 
 To test this with our definition of neighbourhoods and continuity, we'll let $\delta$ be a small positive number and evaluate $f(x)$ for $-\delta < x < \delta$.  This interval is our *neighbourhood* of 0.
 
-We need to evaluate $f$ in separately for the two pieces.
+We need to evaluate $f$ separately for the two pieces.
 
 + If $-\delta < x < 0$, then $1-\delta < x+1 < 1$, so $1-\delta < f(x) < 1$.
 + If $0 < x < \delta$, then $0 < x^2 < \delta^2$, so $0 < f(x) < \delta^2$.
 + If $x=0$, $f(x) = 0$
 
-So the right half of our neighbourhood of 0 is near $f(0)$, but if $\delta < 1$, then the left half is not near $f(0)$, it's near 1.  We have a jump discontinuity.
+So the right half of our neighbourhood of 0 is near $f(0)$, but if $\delta < 1$, then the left half is not *near* $f(0)$, it's near 1.  We have a jump discontinuity.
 
-Notice how this example reverses the logic of our definition of continuity.  The definition states that every neighbourhood of $f(a)$ contains an image of *some* neighbourhood of $a$.  Thus to show a function is continuous we first specify an arbitrary tolerance for how close the function should be to $f(a)$ and then check how close points must be to $a$ to ensure they land close to $f(a)$.   Since our function $f$ in this example splits neighbourhoods of 0 into two pieces, one near 0 and one near 1, it can't satisfy the requirements of the definition.
+Notice how this example reverses the logic of our definition of continuity.  The definition states that every neighbourhood of $f(a)$ contains an image of *some* neighbourhood of $a$.  Thus to show a function is continuous we first specify an arbitrary tolerance for how close the function should be to $f(a)$ and then check how close points must be to $a$ to ensure they land close to $f(a)$.   Since our function $f$ in this example splits neighbourhoods of 0 into two pieces, one near 0 and one near 1, it can't satisfy the requirements of the definition of continuity at $a$.
 
 ::: {#exm-discon-2}
 
@@ -128,7 +123,6 @@ For this example, $f(0) = 1$ and the image of a neighbourhood of 0 stays in a ne
 # Properties of Continuous Functions
 
 ::: {#def-bounded}
-
 # Bounded Functions
 
 We say a function $f$ is 
@@ -142,7 +136,6 @@ We refer to the numbers $M$ and $L$ as upper and lower *bounds* for $f$.
 :::
 
 ::: {#def-extreme-values}
-
 # Extreme Values
 
 If $M$ is an upper bound for $f$ and $f(x) = M$ at some point $x$, then we refer to $M$ as the *maximum value* of $f$.   Similarly, if $L$ is an lower bound for $f$ and $f(x) = L$ at some point $x$, then we refer to $L$ as the *minimum value* of $f$.

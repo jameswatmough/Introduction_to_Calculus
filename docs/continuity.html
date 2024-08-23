@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.54">
+<meta name="generator" content="quarto-1.5.56">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -292,17 +292,13 @@ Figure&nbsp;3.1: Three Common Discontinuities
 </figcaption>
 </figure>
 </div>
-<p>The common characteristic of a discontinuity in a function is that the outputs of the function for points in the domain near the discontinuity, are not close together. For example, if a function has a jump discontinuity at some point, <span class="math inline">\(a\)</span>, then the outputs of the function for inputs near <span class="math inline">\(a\)</span> are split into two separate intervals (see <span class="quarto-unresolved-ref">?fig-discon-jump-interval</span>)</p>
-<div id="fig-disc-intervals" class="quarto-layout-panel">
+<p>The common characteristic of a discontinuity in a function is that the outputs of the function for points in the domain near the discontinuity are not close together. For example, if a function has a jump discontinuity at some point, <span class="math inline">\(a\)</span>, then the outputs of the function for inputs near <span class="math inline">\(a\)</span> are split into two separate intervals (see <a href="#fig-discon-jump-interval" class="quarto-xref">Figure&nbsp;<span>3.2</span></a>)</p>
+<div id="fig-discon-jump-interval" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-disc-intervals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<img src="figures/discontinuity-1b.png" id="fig-discon-jump-interval" class="img-fluid figure-img">
+<div aria-describedby="fig-discon-jump-interval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="figures/discontinuity-1b.png" class="img-fluid figure-img">
 </div>
-</div>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-disc-intervals-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-discon-jump-interval-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Figure&nbsp;3.2: Discontinuities break up neighbourhoods
 </figcaption>
 </figure>
@@ -340,14 +336,14 @@ x^2 &amp; 0 \le x \le 1
 <p>Does <span class="math inline">\(f\)</span> have a discontinuity at <span class="math inline">\(0\)</span>?</p>
 </div>
 <p>To test this with our definition of neighbourhoods and continuity, we’ll let <span class="math inline">\(\delta\)</span> be a small positive number and evaluate <span class="math inline">\(f(x)\)</span> for <span class="math inline">\(-\delta &lt; x &lt; \delta\)</span>. This interval is our <em>neighbourhood</em> of 0.</p>
-<p>We need to evaluate <span class="math inline">\(f\)</span> in separately for the two pieces.</p>
+<p>We need to evaluate <span class="math inline">\(f\)</span> separately for the two pieces.</p>
 <ul>
 <li>If <span class="math inline">\(-\delta &lt; x &lt; 0\)</span>, then <span class="math inline">\(1-\delta &lt; x+1 &lt; 1\)</span>, so <span class="math inline">\(1-\delta &lt; f(x) &lt; 1\)</span>.</li>
 <li>If <span class="math inline">\(0 &lt; x &lt; \delta\)</span>, then <span class="math inline">\(0 &lt; x^2 &lt; \delta^2\)</span>, so <span class="math inline">\(0 &lt; f(x) &lt; \delta^2\)</span>.</li>
 <li>If <span class="math inline">\(x=0\)</span>, <span class="math inline">\(f(x) = 0\)</span></li>
 </ul>
-<p>So the right half of our neighbourhood of 0 is near <span class="math inline">\(f(0)\)</span>, but if <span class="math inline">\(\delta &lt; 1\)</span>, then the left half is not near <span class="math inline">\(f(0)\)</span>, it’s near 1. We have a jump discontinuity.</p>
-<p>Notice how this example reverses the logic of our definition of continuity. The definition states that every neighbourhood of <span class="math inline">\(f(a)\)</span> contains an image of <em>some</em> neighbourhood of <span class="math inline">\(a\)</span>. Thus to show a function is continuous we first specify an arbitrary tolerance for how close the function should be to <span class="math inline">\(f(a)\)</span> and then check how close points must be to <span class="math inline">\(a\)</span> to ensure they land close to <span class="math inline">\(f(a)\)</span>. Since our function <span class="math inline">\(f\)</span> in this example splits neighbourhoods of 0 into two pieces, one near 0 and one near 1, it can’t satisfy the requirements of the definition.</p>
+<p>So the right half of our neighbourhood of 0 is near <span class="math inline">\(f(0)\)</span>, but if <span class="math inline">\(\delta &lt; 1\)</span>, then the left half is not <em>near</em> <span class="math inline">\(f(0)\)</span>, it’s near 1. We have a jump discontinuity.</p>
+<p>Notice how this example reverses the logic of our definition of continuity. The definition states that every neighbourhood of <span class="math inline">\(f(a)\)</span> contains an image of <em>some</em> neighbourhood of <span class="math inline">\(a\)</span>. Thus to show a function is continuous we first specify an arbitrary tolerance for how close the function should be to <span class="math inline">\(f(a)\)</span> and then check how close points must be to <span class="math inline">\(a\)</span> to ensure they land close to <span class="math inline">\(f(a)\)</span>. Since our function <span class="math inline">\(f\)</span> in this example splits neighbourhoods of 0 into two pieces, one near 0 and one near 1, it can’t satisfy the requirements of the definition of continuity at <span class="math inline">\(a\)</span>.</p>
 <div id="exm-discon-2" class="theorem example">
 <p><span class="theorem-title"><strong>Example 3.2</strong></span> Consider the (piecewise) function <span class="math inline">\(f\)</span> defined by <span class="math display">\[f(x) = \begin{cases}
 x+1 &amp; -1 \le x &lt; 0 \\
